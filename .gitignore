@@ -1,0 +1,6 @@
+*.pyc
+__pycache__
+.DS_Store
+.cache/
+yelp/tests/cred.json
+virtualenv/

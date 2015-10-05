@@ -2,12 +2,11 @@
 import urllib
 
 from yelp.config import API_HOST
-from yelp.config import SEARCH_PATH
 from yelp.config import BUSINESS_PATH
 
-import oauth2
 
 class Client():
+
     def __init__(self, authentication):
         self.authentication = authentication
 

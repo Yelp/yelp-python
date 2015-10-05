@@ -8,6 +8,7 @@ from yelp import client as cli
 
 
 class TestClient():
+
     def setup_method(self, method):
         with open('cred.json') as cred:
             test_creds = json.load(cred)

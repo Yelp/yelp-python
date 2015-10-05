@@ -3,18 +3,18 @@ import json
 import urllib
 import urllib2
 
+from yelp.config import API_HOST
+from yelp.config import SEARCH_PATH
+from yelp.config import BUSINESS_PATH
+
 import oauth2
 
 class Client():
-    API_HOST = 'api.yelp.com'
-    SEARCH_PATH = '/v2/search/'
-    BUSINESS_PATH = '/v2/business/'
-
     def __init__(self, authentication):
         self.authentication = authentication
 
     def request(self, path, url_params={}):
-        url = 'http://{0}{1}?'.format(self.API_HOST, urllib.quote(path))
+        url = 'http://{0}{1}?'.format(API_HOST, urllib.quote(path))
 
         oauth_request = oauth2.Request(method="GET", url=url, parameters=url_params)
         oauth_request.update(
@@ -43,5 +43,5 @@ class Client():
         return response
 
     def get_business(self, business_id):
-        business_path = self.BUSINESS_PATH + business_id
+        business_path = BUSINESS_PATH + business_id
         return self.request(business_path)

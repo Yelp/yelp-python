@@ -2,7 +2,7 @@
 import oauth2
 
 
-class Oauth1Authenticator():
+class Oauth1Authenticator(object):
 
     def __init__(
         self,

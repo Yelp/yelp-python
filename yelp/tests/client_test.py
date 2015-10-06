@@ -7,7 +7,7 @@ from yelp.oauth1_authenticator import Oauth1Authenticator
 from yelp.client import Client
 
 
-class TestClient():
+class TestClient(object):
 
     def setup_method(self, method):
         with open('cred.json') as cred:

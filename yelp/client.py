@@ -7,7 +7,7 @@ from yelp.config import API_HOST
 from yelp.config import BUSINESS_PATH
 
 
-class Client():
+class Client(object):
 
     def __init__(self, authenticator):
         self.authenticator = authenticator

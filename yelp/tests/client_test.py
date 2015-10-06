@@ -12,7 +12,7 @@ class TestClient():
     def setup_method(self, method):
         with open('cred.json') as cred:
             test_creds = json.load(cred)
-            auth = authentication.Authentication(test_creds)
+            auth = authentication.Authentication(**test_creds)
             self.client = cli.Client(auth)
 
     def test_request_with_no_params_throws_HTTPError(self):

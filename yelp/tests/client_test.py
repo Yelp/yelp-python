@@ -3,8 +3,8 @@ import json
 import pytest
 import urllib2
 
-from yelp import authentication
-from yelp import client as cli
+from yelp.oauth1_authenticator import Oauth1Authenticator
+from yelp.client import Client
 
 
 class TestClient():
@@ -12,8 +12,8 @@ class TestClient():
     def setup_method(self, method):
         with open('cred.json') as cred:
             test_creds = json.load(cred)
-            auth = authentication.Authentication(**test_creds)
-            self.client = cli.Client(auth)
+            auth = Oauth1Authenticator(**test_creds)
+            self.client = Client(auth)
 
     def test_request_with_no_params_throws_HTTPError(self):
         with pytest.raises(urllib2.HTTPError):

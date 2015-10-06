@@ -1,13 +1,13 @@
 # -*- coding: UTF-8 -*-
 import json
 
-from yelp import authentication
+from yelp.oauth1_authenticator import Oauth1Authenticator
 
 
 def test_create_new_authentication():
     with open('cred_sample.json') as cred:
         test_creds = json.load(cred)
-        auth = authentication.Authentication(**test_creds)
+        auth = Oauth1Authenticator(**test_creds)
 
         assert auth.consumer.key == 'consumer_key'
         assert auth.consumer.secret == 'consumer_secret'

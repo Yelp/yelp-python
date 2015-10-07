@@ -1,0 +1,69 @@
+{
+    "is_claimed": true,
+    "rating": 3.5,
+    "mobile_url": "http://m.yelp.com/biz/flour-water-san-francisco",
+    "rating_img_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+    "review_count": 1761,
+    "name": "Flour + Water",
+    "rating_img_url_small": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+    "url": "http://www.yelp.com/biz/flour-water-san-francisco",
+    "is_closed": false,
+    "id": "flour-water-san-francisco",
+    "reviews": [
+        {
+            "rating": 5,
+            "excerpt": "Oh man. Ive wanted to go here for years. I was worried looking at the reviews that it had grown past it's prime. Absolutely not the case. This was...",
+            "time_created": 1442432702,
+            "rating_image_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+            "rating_image_small_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+            "user": {
+                "image_url": "http://s3-media4.fl.yelpcdn.com/photo/_ZJizIplvdxS2_5nZLkxIQ/ms.jpg",
+                "id": "opkkxI2KhCc9Av7BQSLo4Q",
+                "name": "Ryan B."
+            },
+            "rating_image_large_url": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+            "id": "avkhtVLd9VOMSyCvjBqdTw"
+        }
+    ],
+    "phone": "4158267000",
+    "snippet_text": "Oh man. Ive wanted to go here for years. I was worried looking at the reviews that it had grown past it's prime. Absolutely not the case. This was...",
+    "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/TncWKf9mHyebS2m5BIFEgg/ms.jpg",
+    "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/_ZJizIplvdxS2_5nZLkxIQ/ms.jpg",
+    "display_phone": "+1-415-826-7000",
+    "rating_img_url_large": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+    "menu_provider": "single_platform",
+    "menu_date_updated": 1442033840,
+    "categories": [
+        [
+            "Italian",
+            "italian"
+        ],
+        [
+            "Pizza",
+            "pizza"
+        ]
+    ],
+    "location": {
+        "cross_streets": "20th St & 21st St",
+        "city": "San Francisco",
+        "display_address": [
+            "2401 Harrison St",
+            "Mission",
+            "San Francisco,CA 94110"
+        ],
+        "geo_accuracy": 8.0,
+        "neighborhoods": [
+            "Mission"
+        ],
+        "postal_code": "94110",
+        "country_code": "US",
+        "address": [
+            "2401 Harrison St"
+        ],
+        "coordinate": {
+            "latitude": 37.7589188,
+            "longitude": -122.4123077
+        },
+        "state_code": "CA"
+    }
+}

@@ -4,8 +4,9 @@ import mock
 import pytest
 import urllib2
 
-from yelp.oauth1_authenticator import Oauth1Authenticator
 from yelp.client import Client
+from yelp.oauth1_authenticator import Oauth1Authenticator
+from yelp.resp.business_response import BusinessResponse
 
 
 class TestClient(object):
@@ -41,4 +42,6 @@ class TestClient(object):
     def test_get_business_returns_correct_id(self):
         id = "flour-water-san-francisco"
         resp = self.client.get_business(id)
-        assert resp['id'] == id
+        # assert resp['id'] == id
+        assert type(resp) is BusinessResponse
+        assert resp.business.id == id

@@ -5,6 +5,7 @@ import urllib2
 
 from yelp.config import API_HOST
 from yelp.config import BUSINESS_PATH
+from yelp.resp.business_response import BusinessResponse
 
 
 class Client(object):
@@ -14,7 +15,7 @@ class Client(object):
 
     def get_business(self, business_id):
         business_path = BUSINESS_PATH + business_id
-        return self._build_url(business_path)
+        return BusinessResponse(self._build_url(business_path))
 
     def _build_url(self, path, url_params={}):
         url = 'https://{0}{1}?'.format(API_HOST, urllib.quote(path))

@@ -20,13 +20,18 @@ class Client(object):
     def search(
         self,
         location,
+        current_lat=None,
+        current_long=None,
         **url_params
     ):
         url_params.update({
             'location': location
         })
-        if 'cll' in url_params:
-            url_params['cll'] = self._format_cll(url_params['cll'])
+        if current_lat is not None and current_long is not None:
+            url_params['cll'] = self._format_current_lat_long(
+                current_lat,
+                current_long
+            )
 
         return self._build_url(SEARCH_PATH, url_params)
 
@@ -66,8 +71,8 @@ class Client(object):
 
         return self._build_url(SEARCH_PATH, url_params)
 
-    def _format_cll(self, cll):
-        return '{0},{1}'.format(cll['latitude'], cll['longitude'])
+    def _format_current_lat_long(self, lat, long):
+        return '{0},{1}'.format(lat, long)
 
     def _format_bounds(
         self,

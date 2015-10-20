@@ -33,16 +33,12 @@ class TestClient(object):
             })
             build.assert_called_once_with('/v2/search/', params)
 
-    def test_search_builds_correct_params_with_cll(self):
+    def test_search_builds_correct_params_with_current_lat_long(self):
         with mock.patch('yelp.client.Client._build_url') as build:
             params = {
                 'term': 'food',
-                'cll': {
-                    'latitude': 0,
-                    'longitude': 0
-                }
             }
-            self.client.search(self.sample_location, **params)
+            self.client.search(self.sample_location, 0, 0, **params)
             params.update({
                 'location': self.sample_location,
                 'cll': '0,0'

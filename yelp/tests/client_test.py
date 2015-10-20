@@ -29,7 +29,7 @@ class TestClient(object):
             }
             self.client.search(self.sample_location, **params)
             params.update({
-                'location': self.sample_location.replace(' ', '+'),
+                'location': self.sample_location
             })
             build.assert_called_once_with('/v2/search/', params)
 
@@ -44,36 +44,23 @@ class TestClient(object):
             }
             self.client.search(self.sample_location, **params)
             params.update({
-                'location': self.sample_location.replace(' ', '+'),
+                'location': self.sample_location,
                 'cll': '0,0'
             })
             build.assert_called_once_with('/v2/search/', params)
 
     def test_search_by_bounding_box_builds_correct_params(self):
         with mock.patch('yelp.client.Client._build_url') as build:
-            bounds = {
-                'sw_latitude': 0,
-                'sw_longitude': 0,
-                'ne_latitude': 0,
-                'ne_longitude': 0
-            }
             params = {
                 'term': 'food',
             }
-            self.client.search_by_bounding_box(bounds, **params)
+            self.client.search_by_bounding_box(0, 0, 0, 0, **params)
             params['bounds'] = '0,0|0,0'
             build.assert_called_once_with('/v2/search/', params)
 
     def test_search_by_coordinates_builds_correct_params(self):
         with mock.patch('yelp.client.Client._build_url') as build:
-            coordinates = {
-                'latitude': 0,
-                'longitude': 0,
-                'accuracy': 0,
-                'altitude': 0,
-                'altitude_accuracy': 0
-            }
-            self.client.search_by_coordinates(coordinates)
+            self.client.search_by_coordinates(0, 0, 0, 0, 0)
             build.assert_called_once_with('/v2/search/', {'ll': '0,0,0,0,0'})
 
     def test_make_request_connection_closes(self):
@@ -121,12 +108,12 @@ class TestClient(object):
             self.client.search(self.sample_location, **params)
 
     def test_search_by_bounding_box_only(self):
-        resp = self.client.search_by_bounding_box({
-            'sw_latitude': 37.900000,
-            'sw_longitude': -122.500000,
-            'ne_latitude': 37.788022,
-            'ne_longitude': -122.399797
-        }, **self.params_limit_one)
+        resp = self.client.search_by_bounding_box(
+            37.900000,
+            -122.500000,
+            37.788022,
+            -122.399797,
+            **self.params_limit_one)
         assert resp
         lat = resp['businesses'][0]['location']['coordinate']['latitude']
         long = resp['businesses'][0]['location']['coordinate']['longitude']
@@ -134,8 +121,5 @@ class TestClient(object):
         assert (long >= -122.500000 and long <= -122.399797)
 
     def test_search_by_coordinates_only(self):
-        resp = self.client.search_by_coordinates({
-            'latitude': 37.788022,
-            'longitude': -122.399797
-        })
+        resp = self.client.search_by_coordinates(37.788022, -122.399797)
         assert resp

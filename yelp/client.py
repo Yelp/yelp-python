@@ -23,7 +23,7 @@ class Client(object):
         **url_params
     ):
         url_params.update({
-            'location': location.replace(' ', '+'),
+            'location': location
         })
         if 'cll' in url_params:
             url_params['cll'] = self._format_cll(url_params['cll'])
@@ -32,38 +32,72 @@ class Client(object):
 
     def search_by_bounding_box(
         self,
-        bounds,
+        sw_latitude,
+        sw_longitude,
+        ne_latitude,
+        ne_longitude,
         **url_params
     ):
-        url_params['bounds'] = self._format_bounds(bounds)
+        url_params['bounds'] = self._format_bounds(
+            sw_latitude,
+            sw_longitude,
+            ne_latitude,
+            ne_longitude
+        )
 
         return self._build_url(SEARCH_PATH, url_params)
 
     def search_by_coordinates(
         self,
-        coordinates,
+        latitude,
+        longitude,
+        accuracy=None,
+        altitude=None,
+        altitude_accuracy=None,
         **url_params
     ):
-        url_params['ll'] = self._format_coordinates(coordinates)
+        url_params['ll'] = self._format_coordinates(
+            latitude,
+            longitude,
+            accuracy,
+            altitude,
+            altitude_accuracy
+        )
 
         return self._build_url(SEARCH_PATH, url_params)
 
     def _format_cll(self, cll):
         return '{0},{1}'.format(cll['latitude'], cll['longitude'])
 
-    def _format_bounds(self, bounds):
+    def _format_bounds(
+        self,
+        sw_latitude,
+        sw_longitude,
+        ne_latitude,
+        ne_longitude
+    ):
         return '{0},{1}|{2},{3}'.format(
-            bounds['sw_latitude'],
-            bounds['sw_longitude'],
-            bounds['ne_latitude'],
-            bounds['ne_longitude']
+            sw_latitude,
+            sw_longitude,
+            ne_latitude,
+            ne_longitude
         )
 
-    def _format_coordinates(self, coordinates):
-        coord = ''
-        for key in coordinates:
-            coord += str(coordinates[key]) + ','
-        return coord[:-1]
+    def _format_coordinates(
+        self,
+        latitude,
+        longitude,
+        accuracy,
+        altitude,
+        altitude_accuracy
+    ):
+        coord = '{0},{1}'.format(latitude, longitude)
+        for field in (accuracy, altitude, altitude_accuracy):
+            if field is not None:
+                coord += ',' + str(field)
+            else:
+                break
+        return coord
 
     def _build_url(self, path, url_params={}):
         url = 'https://{0}{1}?'.format(API_HOST, urllib.quote(path))

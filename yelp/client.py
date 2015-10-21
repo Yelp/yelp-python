@@ -6,12 +6,14 @@ import urllib2
 from yelp.config import API_HOST
 from yelp.config import BUSINESS_PATH
 from yelp.config import SEARCH_PATH
+from yelp.yelp_error import ErrorHandler
 
 
 class Client(object):
 
     def __init__(self, authenticator):
         self.authenticator = authenticator
+        self._error_handler = ErrorHandler()
 
     def get_business(self, business_id):
         business_path = BUSINESS_PATH + business_id
@@ -110,9 +112,13 @@ class Client(object):
         return self._make_request(signed_url)
 
     def _make_request(self, signed_url):
-        conn = urllib2.urlopen(signed_url, None)
         try:
-            response = json.loads(conn.read())
-        finally:
-            conn.close()
-        return response
+            conn = urllib2.urlopen(signed_url, None)
+        except urllib2.HTTPError, err:
+            self._error_handler.raise_error(err)
+        else:
+            try:
+                response = json.loads(conn.read())
+            finally:
+                conn.close()
+            return response

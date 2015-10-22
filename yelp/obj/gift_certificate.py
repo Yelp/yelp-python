@@ -1,8 +1,9 @@
 # -*- coding: UTF-8 -*-
 from yelp.obj.gift_certificate_option import GiftCertificateOption
+from yelp.obj.response_object import ResponseObject
 
 
-class GiftCertificate(object):
+class GiftCertificate(ResponseObject):
 
     _fields = [
         'id',
@@ -13,17 +14,6 @@ class GiftCertificate(object):
     ]
 
     def __init__(self, response):
-        for field in self._fields:
-            value = response[field] if field in response else None
-            self.__setattr__(field, value)
+        super(GiftCertificate, self).__init__(response)
 
-        self._parse_options(response)
-
-    def _parse_options(self, response):
-        if 'options' in response:
-            options_list = []
-            for opt in response['options']:
-                options_list.append(GiftCertificateOption(opt))
-            self.options = options_list
-        else:
-            self.options = None
+        self._parse_list_to_objects('options', GiftCertificateOption, response)

@@ -1,7 +1,8 @@
 # -*- coding: UTF-8 -*-
+from yelp.obj.response_object import ResponseObject
 
 
-class GiftCertificateOption(object):
+class GiftCertificateOption(ResponseObject):
 
     _fields = [
         'price',
@@ -9,6 +10,4 @@ class GiftCertificateOption(object):
     ]
 
     def __init__(self, response):
-        for field in self._fields:
-            value = response[field] if field in response else None
-            self.__setattr__(field, value)
+        super(GiftCertificateOption, self).__init__(response)

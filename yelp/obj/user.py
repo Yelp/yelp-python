@@ -1,7 +1,8 @@
 # -*- coding: UTF-8 -*-
+from yelp.obj.response_object import ResponseObject
 
 
-class User(object):
+class User(ResponseObject):
 
     _fields = [
         'id',
@@ -10,6 +11,4 @@ class User(object):
     ]
 
     def __init__(self, response):
-        for field in self._fields:
-            value = response[field] if field in response else None
-            self.__setattr__(field, value)
+        super(User, self).__init__(response)

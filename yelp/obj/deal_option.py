@@ -1,7 +1,8 @@
 # -*- coding: UTF-8 -*-
+from yelp.obj.response_object import ResponseObject
 
 
-class DealOption(object):
+class DealOption(ResponseObject):
 
     _fields = [
         'title',
@@ -15,6 +16,4 @@ class DealOption(object):
     ]
 
     def __init__(self, response):
-        for field in self._fields:
-            value = response[field] if field in response else None
-            self.__setattr__(field, value)
+        super(DealOption, self).__init__(response)

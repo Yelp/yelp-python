@@ -1,10 +1,11 @@
 # -*- coding: UTF-8 -*-
 from collections import namedtuple
+from yelp.obj.response_object import ResponseObject
 
 Coordinate = namedtuple('Coordinate', ['latitude', 'longitude'])
 
 
-class Location(object):
+class Location(ResponseObject):
 
     _fields = [
         'address',
@@ -19,11 +20,12 @@ class Location(object):
     ]
 
     def __init__(self, response):
-        for field in self._fields:
-            value = response[field] if field in response else None
-            self.__setattr__(field, value)
+        super(Location, self).__init__(response)
 
-        self.coordinate = Coordinate(
-            response['coordinate']['latitude'],
-            response['coordinate']['longitude']
-        )
+        if 'coordinate' in response:
+            self.coordinate = Coordinate(
+                response['coordinate']['latitude'],
+                response['coordinate']['longitude']
+            )
+        else:
+            self.coordinate = None

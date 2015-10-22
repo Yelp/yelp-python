@@ -15,14 +15,14 @@ class Client(object):
 
     def get_business(self, business_id):
         business_path = BUSINESS_PATH + business_id
-        return BusinessResponse(self._build_url(business_path))
+        return BusinessResponse(self._make_request(business_path))
 
-    def _build_url(self, path, url_params={}):
+    def _make_request(self, path, url_params={}):
         url = 'https://{0}{1}?'.format(API_HOST, urllib.quote(path))
         signed_url = self.authenticator.sign_request(url, url_params)
-        return self._make_request(signed_url)
+        return self._make_connection(signed_url)
 
-    def _make_request(self, signed_url):
+    def _make_connection(self, signed_url):
         conn = urllib2.urlopen(signed_url, None)
         try:
             response = json.loads(conn.read())

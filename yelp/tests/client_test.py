@@ -18,26 +18,26 @@ class TestClient(object):
             auth = Oauth1Authenticator(**test_creds)
             cls.client = Client(auth)
 
-    def test_make_request_connection_closes(self):
+    def test_make_connection_closes(self):
         mock_conn = mock.Mock()
         mock_conn.read.return_value = "{}"
         with mock.patch('yelp.client.urllib2.urlopen', return_value=mock_conn):
-            self.client._make_request("")
+            self.client._make_connection("")
             mock_conn.close.assert_called_once_with()
 
-    def test_make_request_connection_closes_with_exception(self):
+    def test_make_connection_closes_with_exception(self):
         mock_conn = mock.Mock()
         mock_conn.read.side_effect = Exception
         with mock.patch('yelp.client.urllib2.urlopen', return_value=mock_conn):
             with pytest.raises(Exception):
-                self.client._make_request("")
+                self.client._make_connection("")
             mock_conn.close.assert_called_once_with()
 
     # integration tests
 
     def test_url_with_no_params_throws_HTTPError(self):
         with pytest.raises(urllib2.HTTPError):
-            self.client._build_url(path="/v2/business/")
+            self.client._make_request(path="/v2/business/")
 
     def test_get_business_returns_correct_id(self):
         id = "flour-water-san-francisco"

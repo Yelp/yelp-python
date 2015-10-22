@@ -1,10 +1,15 @@
 # -*- coding: UTF-8 -*-
+from yelp.obj.response_object import ResponseObject
 
 
-class Rating(object):
+class Rating(ResponseObject):
+
+    _fields = [
+        'rating'
+    ]
 
     def __init__(self, response):
-        self.rating = response['rating'] if 'rating' in response else None
+        super(Rating, self).__init__(response)
 
         # TODO: add option for small/large photos
         self.img_url = (

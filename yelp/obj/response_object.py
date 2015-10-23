@@ -30,3 +30,8 @@ class ResponseObject(object):
             field_name,
             cls_name(response[field_name]) if field_name in response else None
         )
+
+    def _parse_rating(self, response):
+        self.rating = Rating(response) if 'rating' in response else None
+
+from yelp.obj.rating import Rating

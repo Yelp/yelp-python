@@ -15,7 +15,7 @@ class Review(ResponseObject):
     def __init__(self, response):
         super(Review, self).__init__(response)
 
-        self._parse_one_to_object('user', User, response)
+        self._parse('user', User, response)
         self._parse_rating(response)
 
     def _parse_rating(self, response):

@@ -33,11 +33,10 @@ class Business(ResponseObject):
     def __init__(self, response):
         super(Business, self).__init__(response)
 
-        self._parse_list_to_objects('deals', Deal, response)
-        self._parse_list_to_objects(
-            'gift_certificates', GiftCertificate, response)
-        self._parse_list_to_objects('reviews', Review, response)
-        self._parse_one_to_object('location', Location, response)
+        self._parse('deals', Deal, response)
+        self._parse('gift_certificates', GiftCertificate, response)
+        self._parse('reviews', Review, response)
+        self._parse('location', Location, response)
         self._parse_rating(response)
 
     def _parse_rating(self, response):

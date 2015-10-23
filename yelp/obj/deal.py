@@ -22,4 +22,4 @@ class Deal(ResponseObject):
     def __init__(self, response):
         super(Deal, self).__init__(response)
 
-        self._parse_list_to_objects('options', DealOption, response)
+        self._parse('options', DealOption, response)

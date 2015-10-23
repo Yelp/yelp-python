@@ -9,4 +9,3 @@ def test_init_deal():
         response = json.load(biz)['deals'][0]
         deal = Deal(response)
         assert deal.url == response['url']
-        assert len(deal.options) == len(response['options'])

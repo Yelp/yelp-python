@@ -16,4 +16,4 @@ class GiftCertificate(ResponseObject):
     def __init__(self, response):
         super(GiftCertificate, self).__init__(response)
 
-        self._parse_list_to_objects('options', GiftCertificateOption, response)
+        self._parse('options', GiftCertificateOption, response)

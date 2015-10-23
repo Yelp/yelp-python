@@ -9,4 +9,3 @@ def test_init_gift_certificate():
         response = json.load(biz)['gift_certificates'][0]
         gift_certificate = GiftCertificate(response)
         assert gift_certificate.id == response['id']
-        assert len(gift_certificate.options) == len(response['options'])

@@ -63,6 +63,15 @@ class TestClient(object):
             self.client.search_by_coordinates(0, 0, 0, 0, 0)
             request.assert_called_once_with('/v2/search/', {'ll': '0,0,0,0,0'})
 
+    def test_phone_search_builds_correct_params(self):
+        with mock.patch('yelp.client.Client._make_request') as request:
+            params = {
+                'category': 'fashion'
+            }
+            self.client.phone_search(5555555555, **params)
+            params['phone'] = 5555555555
+            request.assert_called_once_with('/v2/phone_search/', params)
+
     def test_make_connection_closes(self):
         mock_conn = mock.Mock()
         mock_conn.read.return_value = "{}"
@@ -139,3 +148,8 @@ class TestClient(object):
     def test_search_by_coordinates_only(self):
         resp = self.client.search_by_coordinates(37.788022, -122.399797)
         assert resp
+
+    def test_phone_search(self):
+        phone = 4158267000
+        resp = self.client.phone_search(phone)
+        assert str(phone) in resp['businesses'][0]['phone']

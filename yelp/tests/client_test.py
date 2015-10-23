@@ -7,9 +7,9 @@ import urllib2
 
 from yelp.oauth1_authenticator import Oauth1Authenticator
 from yelp.client import Client
-from yelp.yelp_error import BusinessUnavailable
-from yelp.yelp_error import InvalidParameter
-from yelp.yelp_error import MissingParameter
+from yelp.errors import BusinessUnavailable
+from yelp.errors import InvalidParameter
+from yelp.errors import MissingParameter
 
 
 class TestClient(object):
@@ -84,7 +84,7 @@ class TestClient(object):
         error.read.return_value = '{}'
 
         with mock.patch('yelp.client.urllib2.urlopen', side_effect=error):
-            with mock.patch('yelp.yelp_error.ErrorHandler.raise_error') as r:
+            with mock.patch('yelp.errors.ErrorHandler.raise_error') as r:
                 self.client._make_request("")
                 r.assert_called_once_with(error)
 

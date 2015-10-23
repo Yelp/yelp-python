@@ -6,7 +6,7 @@ import urllib2
 from yelp.config import API_HOST
 from yelp.config import BUSINESS_PATH
 from yelp.config import SEARCH_PATH
-from yelp.yelp_error import ErrorHandler
+from yelp.errors import ErrorHandler
 
 
 class Client(object):
@@ -114,8 +114,8 @@ class Client(object):
     def _make_request(self, signed_url):
         try:
             conn = urllib2.urlopen(signed_url, None)
-        except urllib2.HTTPError, err:
-            self._error_handler.raise_error(err)
+        except urllib2.HTTPError as error:
+            self._error_handler.raise_error(error)
         else:
             try:
                 response = json.loads(conn.read())

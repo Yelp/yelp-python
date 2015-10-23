@@ -4,10 +4,8 @@ import pytest
 import urllib2
 
 
-from yelp.yelp_error import ErrorHandler
-from yelp.yelp_error import InternalError
-from yelp.yelp_error import InvalidOAuthUser
-from yelp.yelp_error import InvalidParameter
+from yelp.errors import ErrorHandler
+from yelp.errors import InvalidParameter
 
 
 class TestErrorHandler(object):
@@ -15,12 +13,6 @@ class TestErrorHandler(object):
     @classmethod
     def setup_class(cls):
         cls.handler = ErrorHandler()
-
-    def test_error_handler_class_names(self):
-        assert self.handler._class_names['INTERNAL_ERROR'] == InternalError
-        assert (
-            self.handler._class_names['INVALID_OAUTH_USER'] == InvalidOAuthUser
-        )
 
     def test_error_handler_throws_unknown_HTTPError(self):
         error = urllib2.HTTPError('', 400, 'Bad Request', None, None)

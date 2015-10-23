@@ -12,7 +12,15 @@ class YelpError(Exception):
         self.text = response['error']['text']
 
 
-class InternalError(YelpError):
+class AreaTooLarge(YelpError):
+    pass
+
+
+class BadCategory(YelpError):
+    pass
+
+
+class BusinessUnavailable(YelpError):
     pass
 
 
@@ -20,11 +28,7 @@ class ExceededReqs(YelpError):
     pass
 
 
-class MissingParameter(YelpError):
-    pass
-
-
-class InvalidSignature(YelpError):
+class InternalError(YelpError):
     pass
 
 
@@ -36,15 +40,11 @@ class InvalidOAuthUser(YelpError):
     pass
 
 
-class AccountUnconfirmed(YelpError):
+class InvalidSignature(YelpError):
     pass
 
 
-class UnavailableForLocation(YelpError):
-    pass
-
-
-class AreaTooLarge(YelpError):
+class MissingParameter(YelpError):
     pass
 
 
@@ -52,7 +52,15 @@ class MultipleLocations(YelpError):
     pass
 
 
-class BusinessUnavailable(YelpError):
+class SSLRequired(YelpError):
+    pass
+
+
+class UnavailableForLocation(YelpError):
+    pass
+
+
+class UnspecifiedLocation(YelpError):
     pass
 
 
@@ -66,18 +74,20 @@ class InvalidParameter(YelpError):
 class ErrorHandler(object):
 
     _error_map = {
-        'INTERNAL_ERROR': InternalError,
+        'AREA_TOO_LARGE': AreaTooLarge,
+        'BAD_CATEGORY': BadCategory,
+        'BUSINESS_UNAVAILABLE': BusinessUnavailable,
         'EXCEEDED_REQS': ExceededReqs,
-        'MISSING_PARAMETER': MissingParameter,
-        'INVALID_PARAMETER': InvalidParameter,
-        'INVALID_SIGNATURE': InvalidSignature,
+        'INTERNAL_ERROR': InternalError,
         'INVALID_OAUTH_CREDENTIALS': InvalidOAuthCredentials,
         'INVALID_OAUTH_USER': InvalidOAuthUser,
-        'ACCOUNT_UNCONFIRMED': AccountUnconfirmed,
-        'UNAVAILABLE_FOR_LOCATION': UnavailableForLocation,
-        'AREA_TOO_LARGE': AreaTooLarge,
+        'INVALID_SIGNATURE': InvalidSignature,
+        'INVALID_PARAMETER': InvalidParameter,
+        'MISSING_PARAMETER': MissingParameter,
         'MULTIPLE_LOCATIONS': MultipleLocations,
-        'BUSINESS_UNAVAILABLE': BusinessUnavailable
+        'SSL_REQUIRED': SSLRequired,
+        'UNAVAILABLE_FOR_LOCATION': UnavailableForLocation,
+        'UNSPECIFIED_LOCATION': UnspecifiedLocation
     }
 
     def raise_error(self, error):

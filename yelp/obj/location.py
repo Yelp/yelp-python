@@ -1,8 +1,6 @@
 # -*- coding: UTF-8 -*-
-from collections import namedtuple
+from yelp.obj.coordinate import Coordinate
 from yelp.obj.response_object import ResponseObject
-
-Coordinate = namedtuple('Coordinate', ['latitude', 'longitude'])
 
 
 class Location(ResponseObject):
@@ -22,10 +20,4 @@ class Location(ResponseObject):
     def __init__(self, response):
         super(Location, self).__init__(response)
 
-        if 'coordinate' in response:
-            self.coordinate = Coordinate(
-                response['coordinate']['latitude'],
-                response['coordinate']['longitude']
-            )
-        else:
-            self.coordinate = None
+        self._parse('coordinate', Coordinate, response)

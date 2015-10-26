@@ -3,6 +3,7 @@ import json
 
 from yelp.obj.rating import Rating
 from yelp.obj.review import Review
+from yelp.obj.user import User
 
 
 def test_init_review():
@@ -11,3 +12,4 @@ def test_init_review():
         review = Review(response)
         assert review.id == response['id']
         assert type(review.rating) is Rating
+        assert type(review.user) is User

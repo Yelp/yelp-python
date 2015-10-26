@@ -7,6 +7,7 @@ from yelp.config import API_HOST
 from yelp.config import BUSINESS_PATH
 from yelp.config import SEARCH_PATH
 from yelp.errors import ErrorHandler
+from yelp.resp.business_response import BusinessResponse
 
 
 class Client(object):
@@ -17,7 +18,7 @@ class Client(object):
 
     def get_business(self, business_id):
         business_path = BUSINESS_PATH + business_id
-        return self._build_url(business_path)
+        return BusinessResponse(self._make_request(business_path))
 
     def search(
         self,
@@ -35,7 +36,7 @@ class Client(object):
                 current_long
             )
 
-        return self._build_url(SEARCH_PATH, url_params)
+        return self._make_request(SEARCH_PATH, url_params)
 
     def search_by_bounding_box(
         self,
@@ -52,7 +53,7 @@ class Client(object):
             ne_longitude
         )
 
-        return self._build_url(SEARCH_PATH, url_params)
+        return self._make_request(SEARCH_PATH, url_params)
 
     def search_by_coordinates(
         self,
@@ -71,7 +72,7 @@ class Client(object):
             altitude_accuracy
         )
 
-        return self._build_url(SEARCH_PATH, url_params)
+        return self._make_request(SEARCH_PATH, url_params)
 
     def _format_current_lat_long(self, lat, long):
         return '{0},{1}'.format(lat, long)
@@ -106,12 +107,12 @@ class Client(object):
                 break
         return coord
 
-    def _build_url(self, path, url_params={}):
+    def _make_request(self, path, url_params={}):
         url = 'https://{0}{1}?'.format(API_HOST, urllib.quote(path))
         signed_url = self.authenticator.sign_request(url, url_params)
-        return self._make_request(signed_url)
+        return self._make_connection(signed_url)
 
-    def _make_request(self, signed_url):
+    def _make_connection(self, signed_url):
         try:
             conn = urllib2.urlopen(signed_url, None)
         except urllib2.HTTPError as error:

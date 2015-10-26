@@ -4,12 +4,12 @@ import mock
 import pytest
 import urllib2
 
-
-from yelp.oauth1_authenticator import Oauth1Authenticator
 from yelp.client import Client
 from yelp.errors import BusinessUnavailable
 from yelp.errors import InvalidParameter
 from yelp.errors import MissingParameter
+from yelp.oauth1_authenticator import Oauth1Authenticator
+from yelp.resp.business_response import BusinessResponse
 
 
 class TestClient(object):
@@ -27,7 +27,7 @@ class TestClient(object):
             cls.client = Client(auth)
 
     def test_search_builds_correct_params(self):
-        with mock.patch('yelp.client.Client._build_url') as build:
+        with mock.patch('yelp.client.Client._make_request') as request:
             params = {
                 'term': 'food',
             }
@@ -35,10 +35,10 @@ class TestClient(object):
             params.update({
                 'location': self.sample_location
             })
-            build.assert_called_once_with('/v2/search/', params)
+            request.assert_called_once_with('/v2/search/', params)
 
     def test_search_builds_correct_params_with_current_lat_long(self):
-        with mock.patch('yelp.client.Client._build_url') as build:
+        with mock.patch('yelp.client.Client._make_request') as request:
             params = {
                 'term': 'food',
             }
@@ -47,35 +47,35 @@ class TestClient(object):
                 'location': self.sample_location,
                 'cll': '0,0'
             })
-            build.assert_called_once_with('/v2/search/', params)
+            request.assert_called_once_with('/v2/search/', params)
 
     def test_search_by_bounding_box_builds_correct_params(self):
-        with mock.patch('yelp.client.Client._build_url') as build:
+        with mock.patch('yelp.client.Client._make_request') as request:
             params = {
                 'term': 'food',
             }
             self.client.search_by_bounding_box(0, 0, 0, 0, **params)
             params['bounds'] = '0,0|0,0'
-            build.assert_called_once_with('/v2/search/', params)
+            request.assert_called_once_with('/v2/search/', params)
 
     def test_search_by_coordinates_builds_correct_params(self):
-        with mock.patch('yelp.client.Client._build_url') as build:
+        with mock.patch('yelp.client.Client._make_request') as request:
             self.client.search_by_coordinates(0, 0, 0, 0, 0)
-            build.assert_called_once_with('/v2/search/', {'ll': '0,0,0,0,0'})
+            request.assert_called_once_with('/v2/search/', {'ll': '0,0,0,0,0'})
 
-    def test_make_request_connection_closes(self):
+    def test_make_connection_closes(self):
         mock_conn = mock.Mock()
         mock_conn.read.return_value = "{}"
         with mock.patch('yelp.client.urllib2.urlopen', return_value=mock_conn):
-            self.client._make_request("")
+            self.client._make_connection("")
             mock_conn.close.assert_called_once_with()
 
-    def test_make_request_connection_closes_with_exception(self):
+    def test_make_connection_closes_with_exception(self):
         mock_conn = mock.Mock()
         mock_conn.read.side_effect = Exception
         with mock.patch('yelp.client.urllib2.urlopen', return_value=mock_conn):
             with pytest.raises(Exception):
-                self.client._make_request("")
+                self.client._make_connection("")
             mock_conn.close.assert_called_once_with()
 
     def test_make_request_calls_raise_error_on_HTTPError(self):
@@ -92,12 +92,13 @@ class TestClient(object):
 
     def test_url_with_no_params(self):
         with pytest.raises(MissingParameter):
-            self.client._build_url(path="/v2/business/")
+            self.client._make_request(path="/v2/business/")
 
     def test_get_business_returns_correct_result(self):
         id = "flour-water-san-francisco"
         resp = self.client.get_business(id)
-        assert resp['id'] == id
+        assert type(resp) is BusinessResponse
+        assert resp.business.id == id
 
     def test_get_business_with_bad_id(self):
         with pytest.raises(BusinessUnavailable):

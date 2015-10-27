@@ -10,6 +10,7 @@ from yelp.errors import InvalidParameter
 from yelp.errors import MissingParameter
 from yelp.oauth1_authenticator import Oauth1Authenticator
 from yelp.resp.business_response import BusinessResponse
+from yelp.obj.search_response import SearchResponse
 
 
 class TestClient(object):
@@ -68,8 +69,8 @@ class TestClient(object):
             params = {
                 'category': 'fashion'
             }
-            self.client.phone_search(5555555555, **params)
-            params['phone'] = 5555555555
+            self.client.phone_search('5555555555', **params)
+            params['phone'] = '5555555555'
             request.assert_called_once_with('/v2/phone_search/', params)
 
     def test_make_connection_closes(self):
@@ -150,6 +151,7 @@ class TestClient(object):
         assert resp
 
     def test_phone_search(self):
-        phone = 4158267000
+        phone = '+14158267000'
         resp = self.client.phone_search(phone)
-        assert str(phone) in resp['businesses'][0]['phone']
+        assert type(resp) is SearchResponse
+        assert str(phone) in resp.businesses[0].phone

@@ -1,0 +1,145 @@
+{
+    "region": null,
+    "total": 20,
+    "businesses": [
+        {
+            "is_claimed": true,
+            "rating": 5.0,
+            "mobile_url": "http://m.yelp.com/biz/playdead-cult-toronto",
+            "rating_img_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+            "review_count": 2,
+            "name": "Playdead Cult",
+            "rating_img_url_small": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+            "url": "http://www.yelp.com/biz/playdead-cult-toronto",
+            "categories": [
+                [
+                    "Women's Clothing",
+                    "womenscloth"
+                ],
+                [
+                    "Men's Clothing",
+                    "menscloth"
+                ]
+            ],
+            "phone": "+15555555555",
+            "snippet_text": "OMG this place is so cool, I SOOOO ADORE their paintings! See the character with black-bead eyes and white face? Well, there was an alien-theme painting of...",
+            "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/QZFKo7km2tJCy2ZOgLQKEQ/ms.jpg",
+            "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/qfbXPTiJ_-OUuqHqZLi-gg/ms.jpg",
+            "display_phone": "+1-555-555-5555",
+            "rating_img_url_large": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+            "id": "playdead-cult-toronto",
+            "is_closed": true,
+            "location": {
+                "city": "Toronto",
+                "display_address": [
+                    "254 Augusta Avenue",
+                    "Kensington Market",
+                    "Toronto, ON M5T 2L7"
+                ],
+                "geo_accuracy": 8.0,
+                "neighborhoods": [
+                    "Kensington Market"
+                ],
+                "postal_code": "M5T 2L7",
+                "country_code": "CA",
+                "address": [
+                    "254 Augusta Avenue"
+                ],
+                "coordinate": {
+                    "latitude": 43.6557503,
+                    "longitude": -79.4027634
+                },
+                "state_code": "ON"
+            }
+        },
+        {
+            "is_claimed": false,
+            "rating": 5.0,
+            "mobile_url": "http://m.yelp.com/biz/victory-aiea-aiea",
+            "rating_img_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+            "review_count": 1,
+            "name": "Victory Aiea",
+            "rating_img_url_small": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+            "url": "http://www.yelp.com/biz/victory-aiea-aiea",
+            "categories": [
+                [
+                    "Churches",
+                    "churches"
+                ]
+            ],
+            "phone": "+15555555555",
+            "snippet_text": "A bible preaching, Christ centered church loving and serving Aiea.  Check us out if you have a chance.",
+            "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/4SKtMQjJEIciorkwApZXgQ/ms.jpg",
+            "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/FujwZRYPGiJf87C8GiZ5qg/ms.jpg",
+            "display_phone": "+1-555-555-5555",
+            "rating_img_url_large": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+            "id": "victory-aiea-aiea",
+            "is_closed": false,
+            "location": {
+                "city": "Aiea",
+                "display_address": [
+                    "99-370 Paihi St",
+                    "Aiea, HI 96701"
+                ],
+                "geo_accuracy": 8.0,
+                "postal_code": "96701",
+                "country_code": "US",
+                "address": [
+                    "99-370 Paihi St"
+                ],
+                "coordinate": {
+                    "latitude": 21.380784586072,
+                    "longitude": -157.919512912631
+                },
+                "state_code": "HI"
+            }
+        },
+        {
+            "is_claimed": true,
+            "rating": 5.0,
+            "mobile_url": "http://m.yelp.com/biz/tricky-nikkis-ice-cream-parlor-san-francisco",
+            "rating_img_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+            "review_count": 1,
+            "name": "Tricky Nikki's Ice Cream Parlor",
+            "rating_img_url_small": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+            "url": "http://www.yelp.com/biz/tricky-nikkis-ice-cream-parlor-san-francisco",
+            "categories": [
+                [
+                    "Restaurants",
+                    "restaurants"
+                ]
+            ],
+            "phone": "+15555555555",
+            "snippet_text": "This is a test review. I love ice cream.",
+            "image_url": "http://s3-media4.fl.yelpcdn.com/bphoto/Oqxr7Bo8622YocH0GII00w/ms.jpg",
+            "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/_XMTQtXkWrIGr25LS3aCYQ/ms.jpg",
+            "display_phone": "+1-555-555-5555",
+            "rating_img_url_large": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+            "id": "tricky-nikkis-ice-cream-parlor-san-francisco",
+            "is_closed": false,
+            "location": {
+                "cross_streets": "19th St & 18th St",
+                "city": "San Francisco",
+                "display_address": [
+                    "145 Hartford St",
+                    "Castro",
+                    "San Francisco, CA 94114"
+                ],
+                "geo_accuracy": 8.0,
+                "neighborhoods": [
+                    "Castro"
+                ],
+                "postal_code": "94114",
+                "country_code": "US",
+                "address": [
+                    "145 Hartford St"
+                ],
+                "coordinate": {
+                    "latitude": 37.7602297067642,
+                    "longitude": -122.433754876256
+                },
+                "state_code": "CA"
+            }
+        }
+    ]
+}

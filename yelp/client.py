@@ -9,6 +9,7 @@ from yelp.config import PHONE_SEARCH_PATH
 from yelp.config import SEARCH_PATH
 from yelp.errors import ErrorHandler
 from yelp.resp.business_response import BusinessResponse
+from yelp.obj.search_response import SearchResponse
 
 
 class Client(object):
@@ -78,7 +79,9 @@ class Client(object):
     def phone_search(self, phone, **url_params):
         url_params['phone'] = phone
 
-        return self._make_request(PHONE_SEARCH_PATH, url_params)
+        return SearchResponse(
+            self._make_request(PHONE_SEARCH_PATH, url_params)
+        )
 
     def _format_current_lat_long(self, lat, long):
         return '{0},{1}'.format(lat, long)

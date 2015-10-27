@@ -38,7 +38,7 @@ class Client(object):
                 current_long
             )
 
-        return self._make_request(SEARCH_PATH, url_params)
+        return SearchResponse(self._make_request(SEARCH_PATH, url_params))
 
     def search_by_bounding_box(
         self,
@@ -55,7 +55,7 @@ class Client(object):
             ne_longitude
         )
 
-        return self._make_request(SEARCH_PATH, url_params)
+        return SearchResponse(self._make_request(SEARCH_PATH, url_params))
 
     def search_by_coordinates(
         self,
@@ -74,7 +74,7 @@ class Client(object):
             altitude_accuracy
         )
 
-        return self._make_request(SEARCH_PATH, url_params)
+        return SearchResponse(self._make_request(SEARCH_PATH, url_params))
 
     def phone_search(self, phone, **url_params):
         url_params['phone'] = phone

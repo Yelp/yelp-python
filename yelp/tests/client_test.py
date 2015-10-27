@@ -27,6 +27,9 @@ class TestClient(object):
             auth = Oauth1Authenticator(**test_creds)
             cls.client = Client(auth)
 
+        with open('json/search_response.json') as resp:
+            cls.search_response = json.load(resp)
+
     def test_search_builds_correct_params(self):
         with mock.patch('yelp.client.Client._make_request') as request:
             params = {
@@ -66,12 +69,14 @@ class TestClient(object):
 
     def test_phone_search_builds_correct_params(self):
         with mock.patch('yelp.client.Client._make_request') as request:
+            request.return_value = self.search_response
             params = {
                 'category': 'fashion'
             }
-            self.client.phone_search('5555555555', **params)
+            response = self.client.phone_search('5555555555', **params)
             params['phone'] = '5555555555'
             request.assert_called_once_with('/v2/phone_search/', params)
+            assert type(response) is SearchResponse
 
     def test_make_connection_closes(self):
         mock_conn = mock.Mock()
@@ -117,14 +122,14 @@ class TestClient(object):
 
     def test_search_location_only(self):
         resp = self.client.search(self.sample_location)
-        assert resp
+        assert type(resp) is SearchResponse
 
     def test_search(self):
         resp = self.client.search(
             self.sample_location,
             **self.params_limit_one
         )
-        assert len(resp['businesses']) == 1
+        assert len(resp.businesses) is 1
 
     def test_search_bad_params(self):
         with pytest.raises(InvalidParameter):
@@ -141,8 +146,8 @@ class TestClient(object):
             -122.399797,
             **self.params_limit_one)
         assert resp
-        lat = resp['businesses'][0]['location']['coordinate']['latitude']
-        long = resp['businesses'][0]['location']['coordinate']['longitude']
+        lat = resp.businesses[0].location.coordinate.latitude
+        long = resp.businesses[0].location.coordinate.longitude
         assert (lat >= 37.788022 and lat <= 37.900000)
         assert (long >= -122.500000 and long <= -122.399797)
 

@@ -112,7 +112,7 @@ class TestClient(object):
             self.client._make_request(path="/v2/business/")
 
     def test_get_business_returns_correct_result(self):
-        id = "flour-water-san-francisco"
+        id = "yelp-san-francisco"
         resp = self.client.get_business(id)
         assert type(resp) is BusinessResponse
         assert resp.business.id == id
@@ -121,6 +121,11 @@ class TestClient(object):
         with pytest.raises(BusinessUnavailable):
             id = "does-not-exist"
             self.client.get_business(id)
+
+    def test_get_business_with_unicode_chars(self):
+        id = "weingalerie-und-café-nö-berlin"
+        resp = self.client.get_business(id)
+        assert resp.business.id == id.decode('utf-8')
 
     def test_search_location_only(self):
         resp = self.client.search(self.sample_location)

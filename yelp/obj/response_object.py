@@ -10,7 +10,7 @@ class ResponseObject(object):
             self.__setattr__(field, value)
 
     def _parse(self, field_name, cls_name, response):
-        if field_name in response:
+        if response and field_name in response:
             if type(response[field_name]) is list:
                 self._parse_list_to_objects(field_name, cls_name, response)
             else:

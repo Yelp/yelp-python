@@ -32,14 +32,16 @@ class TestClient(object):
 
     def test_search_builds_correct_params(self):
         with mock.patch('yelp.client.Client._make_request') as request:
+            request.return_value = self.search_response
             params = {
                 'term': 'food',
             }
-            self.client.search(self.sample_location, **params)
+            response = self.client.search(self.sample_location, **params)
             params.update({
                 'location': self.sample_location
             })
             request.assert_called_once_with('/v2/search/', params)
+            assert type(response) is SearchResponse
 
     def test_search_builds_correct_params_with_current_lat_long(self):
         with mock.patch('yelp.client.Client._make_request') as request:

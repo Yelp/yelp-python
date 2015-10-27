@@ -8,6 +8,3 @@ class Coordinate(ResponseObject):
         'latitude',
         'longitude'
     ]
-
-    def __init__(self, response):
-        super(Coordinate, self).__init__(response)

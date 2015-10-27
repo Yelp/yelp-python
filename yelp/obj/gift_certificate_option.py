@@ -8,6 +8,3 @@ class GiftCertificateOption(ResponseObject):
         'price',
         'formatted_price'
     ]
-
-    def __init__(self, response):
-        super(GiftCertificateOption, self).__init__(response)

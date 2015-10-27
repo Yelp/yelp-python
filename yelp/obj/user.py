@@ -9,6 +9,3 @@ class User(ResponseObject):
         'image_url',
         'name'
     ]
-
-    def __init__(self, response):
-        super(User, self).__init__(response)

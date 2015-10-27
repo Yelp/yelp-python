@@ -14,6 +14,3 @@ class DealOption(ResponseObject):
         'is_quantity_limited',
         'remaining_count'
     ]
-
-    def __init__(self, response):
-        super(DealOption, self).__init__(response)

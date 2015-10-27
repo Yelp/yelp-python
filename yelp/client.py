@@ -8,7 +8,7 @@ from yelp.config import BUSINESS_PATH
 from yelp.config import PHONE_SEARCH_PATH
 from yelp.config import SEARCH_PATH
 from yelp.errors import ErrorHandler
-from yelp.resp.business_response import BusinessResponse
+from yelp.obj.business_response import BusinessResponse
 from yelp.obj.search_response import SearchResponse
 
 

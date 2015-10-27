@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 from yelp.obj.business import Business
-from yelp.resp.business_response import BusinessResponse
+from yelp.obj.business_response import BusinessResponse
 
 
 def test_make_business_response():

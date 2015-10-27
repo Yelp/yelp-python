@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+from yelp.obj.rating import Rating
 from yelp.obj.response_object import ResponseObject
 from yelp.obj.user import User
 
@@ -15,4 +16,4 @@ class Review(ResponseObject):
         super(Review, self).__init__(response)
 
         self._parse('user', User, response)
-        self._parse_rating(response)
+        self._parse_main_response('rating', Rating, response)

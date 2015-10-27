@@ -9,7 +9,7 @@ from yelp.errors import BusinessUnavailable
 from yelp.errors import InvalidParameter
 from yelp.errors import MissingParameter
 from yelp.oauth1_authenticator import Oauth1Authenticator
-from yelp.resp.business_response import BusinessResponse
+from yelp.obj.business_response import BusinessResponse
 from yelp.obj.search_response import SearchResponse
 
 

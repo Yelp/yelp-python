@@ -30,5 +30,6 @@ class ResponseObject(object):
             cls_name(response[field_name])
         )
 
-    def _parse_main_response(self, field_name, cls_name, response):
+    # expect field in main response body as opposed to response[field_name]
+    def _parse_main_response_body(self, field_name, cls_name, response):
         self.__setattr__(field_name, cls_name(response))

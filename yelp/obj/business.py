@@ -37,4 +37,4 @@ class Business(ResponseObject):
         self._parse('gift_certificates', GiftCertificate, response)
         self._parse('reviews', Review, response)
         self._parse('location', Location, response)
-        self._parse_main_response('rating', Rating, response)
+        self._parse_main_response_body('rating', Rating, response)

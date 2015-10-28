@@ -35,7 +35,7 @@ class TestResponseObject(object):
         obj._parse('location', Location, self.response)
         assert type(obj.location) is Location
 
-    def test_parse_main_response(self):
+    def test_parse_main_response_body(self):
         obj = ResponseObject('{}')
-        obj._parse_main_response('rating', Rating, self.response)
+        obj._parse_main_response_body('rating', Rating, self.response)
         assert type(obj.rating) is Rating

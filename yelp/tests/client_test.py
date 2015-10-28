@@ -176,4 +176,4 @@ class TestClient(object):
         phone = '+14158267000'
         resp = self.client.phone_search(phone)
         assert type(resp) is SearchResponse
-        assert str(phone) in resp.businesses[0].phone
+        assert phone in resp.businesses[0].phone

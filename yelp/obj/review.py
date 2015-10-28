@@ -16,4 +16,4 @@ class Review(ResponseObject):
         super(Review, self).__init__(response)
 
         self._parse('user', User, response)
-        self._parse_main_response('rating', Rating, response)
+        self._parse_main_response_body('rating', Rating, response)

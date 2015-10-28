@@ -29,6 +29,16 @@ class TestClient(object):
 
         with open('json/search_response.json') as resp:
             cls.search_response = json.load(resp)
+        with open('json/business_response.json') as resp:
+            cls.business_response = json.load(resp)
+
+    def test_get_business_builds_correct_params(self):
+        with mock.patch('yelp.client.Client._make_request') as request:
+            request.return_value = self.business_response
+            id = 'test-id'
+            response = self.client.get_business(id)
+            request.assert_called_once_with('/v2/business/test-id')
+            assert type(response) is BusinessResponse
 
     def test_search_builds_correct_params(self):
         with mock.patch('yelp.client.Client._make_request') as request:

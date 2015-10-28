@@ -133,9 +133,9 @@ class TestClient(object):
             self.client.get_business(id)
 
     def test_get_business_with_unicode_chars(self):
-        id = "weingalerie-und-café-nö-berlin"
+        id = u'weingalerie-und-café-nö-berlin'
         resp = self.client.get_business(id)
-        assert resp.business.id == id.decode('utf-8')
+        assert resp.business.id == id
 
     def test_search_location_only(self):
         resp = self.client.search(self.sample_location)

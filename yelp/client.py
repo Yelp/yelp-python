@@ -117,7 +117,10 @@ class Client(object):
         return coord
 
     def _make_request(self, path, url_params={}):
-        url = 'https://{0}{1}?'.format(API_HOST, urllib.quote(path))
+        url = 'https://{0}{1}?'.format(
+            API_HOST,
+            urllib.quote(path.encode('utf-8'))
+        )
         signed_url = self.authenticator.sign_request(url, url_params)
         return self._make_connection(signed_url)
 

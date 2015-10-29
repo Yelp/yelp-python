@@ -8,7 +8,7 @@ class YelpError(Exception):
         self.code = code
         self.msg = msg
 
-        self.id = response['error']['id']
+        self.error_id = response['error']['id']
         self.text = response['error']['text']
 
 

@@ -8,4 +8,4 @@ def test_init_business():
     with open('json/business_response.json') as biz:
         response = json.load(biz)
         business = Business(response)
-        assert business.id == response['id']
+        assert business.business_id == response['id']

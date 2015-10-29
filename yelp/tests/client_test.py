@@ -35,8 +35,8 @@ class TestClient(object):
     def test_get_business_builds_correct_params(self):
         with mock.patch('yelp.client.Client._make_request') as request:
             request.return_value = self.business_response
-            id = 'test-id'
-            response = self.client.get_business(id)
+            test_id = 'test-id'
+            response = self.client.get_business(test_id)
             request.assert_called_once_with('/v2/business/test-id')
             assert type(response) is BusinessResponse
 
@@ -122,20 +122,20 @@ class TestClient(object):
             self.client._make_request(path="/v2/business/")
 
     def test_get_business_returns_correct_result(self):
-        id = "yelp-san-francisco"
-        resp = self.client.get_business(id)
+        business_id = "yelp-san-francisco"
+        resp = self.client.get_business(business_id)
         assert type(resp) is BusinessResponse
-        assert resp.business.id == id
+        assert resp.business.business_id == business_id
 
     def test_get_business_with_bad_id(self):
         with pytest.raises(BusinessUnavailable):
-            id = "does-not-exist"
-            self.client.get_business(id)
+            business_id = "does-not-exist"
+            self.client.get_business(business_id)
 
     def test_get_business_with_unicode_chars(self):
-        id = u'weingalerie-und-café-nö-berlin'
-        resp = self.client.get_business(id)
-        assert resp.business.id == id
+        business_id = u'weingalerie-und-café-nö-berlin'
+        resp = self.client.get_business(business_id)
+        assert resp.business.business_id == business_id
 
     def test_search_location_only(self):
         resp = self.client.search(self.sample_location)

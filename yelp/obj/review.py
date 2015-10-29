@@ -7,7 +7,7 @@ from yelp.obj.user import User
 class Review(ResponseObject):
 
     _fields = [
-        'id',  # access as review.review_id
+        'id',
         'excerpt',
         'time_created'
     ]

@@ -14,7 +14,7 @@ class Business(ResponseObject):
         'display_phone',
         'distance',
         'eat24_url',
-        'id',  # access as business.business_id
+        'id',
         'image_url',
         'is_claimed',
         'is_closed',

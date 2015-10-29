@@ -20,7 +20,7 @@ class TestResponseObject(object):
         obj = ResponseObject('{}')
         obj._fields = ['id', 'name']
         obj.__init__(response)
-        assert obj.response_object_id == response['id']
+        assert obj.id == response['id']
         assert obj.name == response['name']
         assert hasattr(obj, 'do_not_display') is False
 

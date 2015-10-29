@@ -6,7 +6,7 @@ from yelp.obj.response_object import ResponseObject
 class Deal(ResponseObject):
 
     _fields = [
-        'id',  # access as deal.deal_id
+        'id',
         'title',
         'url',
         'image_url',

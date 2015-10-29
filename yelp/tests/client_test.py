@@ -125,7 +125,7 @@ class TestClient(object):
         business_id = "yelp-san-francisco"
         resp = self.client.get_business(business_id)
         assert type(resp) is BusinessResponse
-        assert resp.business.business_id == business_id
+        assert resp.business.id == business_id
 
     def test_get_business_with_bad_id(self):
         with pytest.raises(BusinessUnavailable):
@@ -135,7 +135,7 @@ class TestClient(object):
     def test_get_business_with_unicode_chars(self):
         business_id = u'weingalerie-und-café-nö-berlin'
         resp = self.client.get_business(business_id)
-        assert resp.business.business_id == business_id
+        assert resp.business.id == business_id
 
     def test_search_location_only(self):
         resp = self.client.search(self.sample_location)

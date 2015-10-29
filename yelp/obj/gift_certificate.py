@@ -6,7 +6,7 @@ from yelp.obj.response_object import ResponseObject
 class GiftCertificate(ResponseObject):
 
     _fields = [
-        'id',  # access as gift_certificate.gift_certificate_id
+        'id',
         'url',
         'image_url',
         'currency_code',

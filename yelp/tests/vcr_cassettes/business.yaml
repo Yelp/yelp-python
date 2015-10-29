@@ -6,7 +6,7 @@ interactions:
       Host: [api.yelp.com]
       User-Agent: [Python-urllib/2.7]
     method: GET
-    uri: https://api.yelp.com/v2/business/?oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D&oauth_nonce=29598229&oauth_signature=YGe70jbzbEZlhBLFa%2BChzwHMHqY%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446144765
+    uri: https://api.yelp.com/v2/business/?oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446151934
   response:
     body: {string: !!python/unicode '{"error": {"text": "One or more parameters are
         missing in request", "id": "MISSING_PARAMETER", "field": "business_id"}}'}
@@ -15,17 +15,98 @@ interactions:
       connection: [close]
       content-length: ['119']
       content-type: [application/json; charset=UTF-8]
-      date: ['Thu, 29 Oct 2015 18:52:45 GMT']
-      expires: ['Thu, 29 Oct 2015 18:52:45 GMT']
+      date: ['Thu, 29 Oct 2015 20:52:14 GMT']
+      expires: ['Thu, 29 Oct 2015 20:52:14 GMT']
       pragma: [no-cache]
       server: [nginx]
-      set-cookie: [bse=ba9b916e5dab7390de65afb74abe2f39; Domain=.yelp.com; Path=/;
-          HttpOnly, 'yuv=S3c_I3GVp1d5ot0_UDgt6FHpxje-0AnnhpWU6BFhmmFI0faipBJHgpfqrHSjyzIvLhepVlYxuDZNBaaT6OcA81Q2Nlr0n-Lo;
-          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 18:52:45
+      set-cookie: [bse=9f58dfd80038b8da79f05ad383fce154; Domain=.yelp.com; Path=/;
+          HttpOnly, 'yuv=DoojvnV9908mf3zbWuxgZcOooCU0NG2scI07HU6F376X-kVYyt-O-rWPe_97abFbDm2C_wYalKVbsEjtIM6Yv7qc4qM9w85e;
+          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 20:52:14
           GMT']
       vary: [User-Agent]
       x-mode: [ro]
-      x-node: [api_com, 10-64-65-55-uswest1aprod]
+      x-node: [api_com, 10-64-65-54-uswest1aprod]
+      x-proxied: [10-64-16-137-uswest1bprod]
+    status: {code: 400, message: Bad Request}
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: [api.yelp.com]
+      User-Agent: [Python-urllib/2.7]
+    method: GET
+    uri: https://api.yelp.com/v2/business/yelp-san-francisco?oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446151934
+  response:
+    body: {string: !!python/unicode '{"is_claimed": true, "rating": 2.5, "mobile_url":
+        "http://m.yelp.com/biz/yelp-san-francisco", "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png",
+        "review_count": 7553, "name": "Yelp", "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/8e8633e5f8f0/ico/stars/v1/stars_small_2_half.png",
+        "url": "http://www.yelp.com/biz/yelp-san-francisco", "categories": [["Local
+        Flavor", "localflavor"], ["Mass Media", "massmedia"]], "reviews": [{"rating":
+        5, "excerpt": "Yelp rules!! I''m pretty sure their star rating is low because
+        of the crap businesses that are angry because their horrible products/services
+        have been outed...", "time_created": 1446148007, "rating_image_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "rating_image_small_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "user": {"image_url": "http://s3-media3.fl.yelpcdn.com/photo/dhmDllG77_qMXYeo7Ek55A/ms.jpg",
+        "id": "LCtohr2FPQTZeqaClhDoLA", "name": "Denise F."}, "rating_image_large_url":
+        "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "v1pYus13mmkTHWG_9aSIWw"}], "phone": "4159083801", "snippet_text": "OMG
+        people, Yelp is NOT suing South Park- it''s actually all an internet hoax!
+        I''m reading recent reviews and I''m humored at how many are mentioning the...",
+        "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/nQK-6_vZMt5n88zsAS94ew/ms.jpg",
+        "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/Kl6KGi0w25-iT-31V3YpVg/ms.jpg",
+        "display_phone": "+1-415-908-3801", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/d63e3add9901/ico/stars/v1/stars_large_2_half.png",
+        "id": "yelp-san-francisco", "is_closed": false, "location": {"cross_streets":
+        "Natoma St \u0026 Minna St", "city": "San Francisco", "display_address": ["140
+        New Montgomery St", "Financial District", "San Francisco, CA 94105"], "geo_accuracy":
+        9.5, "neighborhoods": ["Financial District", "SoMa"], "postal_code": "94105",
+        "country_code": "US", "address": ["140 New Montgomery St"], "coordinate":
+        {"latitude": 37.7867703362929, "longitude": -122.399958372115}, "state_code":
+        "CA"}}'}
+    headers:
+      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
+      connection: [close]
+      content-length: ['2278']
+      content-type: [application/json; charset=UTF-8]
+      date: ['Thu, 29 Oct 2015 20:52:15 GMT']
+      expires: ['Thu, 29 Oct 2015 20:52:14 GMT']
+      pragma: [no-cache]
+      server: [nginx]
+      set-cookie: [bse=0c4f364c412e7230e626d02b9a6312e8; Domain=.yelp.com; Path=/;
+          HttpOnly, 'yuv=8fU71iDh4tE4UPAcUCxFCcJwoo-Jj0AsjvssPZJm2QNRGXP7DciSXisaDbnu2wpOGuWMUHSUlQVbuOv9IKIP_E_G1espJ3OZ;
+          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 20:52:14
+          GMT']
+      vary: ['Accept-Encoding,User-Agent']
+      x-mode: [ro]
+      x-node: [api_com, 10-64-143-94-uswest1bprod]
+      x-proxied: [10-64-16-137-uswest1bprod]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: [api.yelp.com]
+      User-Agent: [Python-urllib/2.7]
+    method: GET
+    uri: https://api.yelp.com/v2/business/does-not-exist?oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446151935
+  response:
+    body: {string: !!python/unicode '{"error": {"text": "Business information is unavailable",
+        "id": "BUSINESS_UNAVAILABLE"}}'}
+    headers:
+      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
+      connection: [close]
+      content-length: ['88']
+      content-type: [application/json; charset=UTF-8]
+      date: ['Thu, 29 Oct 2015 20:52:15 GMT']
+      expires: ['Thu, 29 Oct 2015 20:52:15 GMT']
+      pragma: [no-cache]
+      server: [nginx]
+      set-cookie: [bse=b09f795733310386898ba62ca8c81fac; Domain=.yelp.com; Path=/;
+          HttpOnly, 'yuv=HMyMUso0_1HHcCCw2tK8I-Z03eMNHQTTLOfbW-LUNgXdAXVb-ncl_YUKQkPgsQ7yuj1pKVbipQQwxiYGDoe965WRnru7XRBF;
+          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 20:52:15
+          GMT']
+      vary: [User-Agent]
+      x-mode: [ro]
+      x-node: [api_com, web31-uswest1bprod]
       x-proxied: [10-64-16-237-uswest1bprod]
     status: {code: 400, message: Bad Request}
 - request:
@@ -35,88 +116,7 @@ interactions:
       Host: [api.yelp.com]
       User-Agent: [Python-urllib/2.7]
     method: GET
-    uri: https://api.yelp.com/v2/business/yelp-san-francisco?oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D&oauth_nonce=54587994&oauth_signature=usrhbgvQmRh3qCBF1vAdXfUPPqg%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446144765
-  response:
-    body: {string: !!python/unicode '{"is_claimed": true, "rating": 2.5, "mobile_url":
-        "http://m.yelp.com/biz/yelp-san-francisco", "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png",
-        "review_count": 7551, "name": "Yelp", "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/8e8633e5f8f0/ico/stars/v1/stars_small_2_half.png",
-        "url": "http://www.yelp.com/biz/yelp-san-francisco", "categories": [["Local
-        Flavor", "localflavor"], ["Mass Media", "massmedia"]], "reviews": [{"rating":
-        3, "excerpt": "The biggest draw for me personally to yelp is the fact its
-        a free to use site. The biggest problem I have with yelp is they keep taking
-        down my pictures...", "time_created": 1446137462, "rating_image_url": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/34bc8086841c/ico/stars/v1/stars_3.png",
-        "rating_image_small_url": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/902abeed0983/ico/stars/v1/stars_small_3.png",
-        "user": {"image_url": "http://s3-media1.fl.yelpcdn.com/photo/MThiUUKLmPFrv4Xkwepj2w/ms.jpg",
-        "id": "Fd_DqkXJErkgkWBehu_Y5g", "name": "Illegal S."}, "rating_image_large_url":
-        "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/e8b5b79d37ed/ico/stars/v1/stars_large_3.png",
-        "id": "vItjCwCKn7WzvOai3ecBZQ"}], "phone": "4159083801", "snippet_text": "OMG
-        people, Yelp is NOT suing South Park- it''s actually all an internet hoax!
-        I''m reading recent reviews and I''m humored at how many are mentioning the...",
-        "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/nQK-6_vZMt5n88zsAS94ew/ms.jpg",
-        "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/Kl6KGi0w25-iT-31V3YpVg/ms.jpg",
-        "display_phone": "+1-415-908-3801", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/d63e3add9901/ico/stars/v1/stars_large_2_half.png",
-        "id": "yelp-san-francisco", "is_closed": false, "location": {"cross_streets":
-        "Natoma St \u0026 Minna St", "city": "San Francisco", "display_address": ["140
-        New Montgomery St", "Financial District", "San Francisco, CA 94105"], "geo_accuracy":
-        9.5, "neighborhoods": ["Financial District", "SoMa"], "postal_code": "94105",
-        "country_code": "US", "address": ["140 New Montgomery St"], "coordinate":
-        {"latitude": 37.7867703362929, "longitude": -122.399958372115}, "state_code":
-        "CA"}}'}
-    headers:
-      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
-      connection: [close]
-      content-length: ['2275']
-      content-type: [application/json; charset=UTF-8]
-      date: ['Thu, 29 Oct 2015 18:52:46 GMT']
-      expires: ['Thu, 29 Oct 2015 18:52:46 GMT']
-      pragma: [no-cache]
-      server: [nginx]
-      set-cookie: [bse=b60c1f266f214bb7a6f8c8c4045410e3; Domain=.yelp.com; Path=/;
-          HttpOnly, 'yuv=Zz-aFc1WCU_6RajLWUilgO4c_2EVjFSISJ-ADM_y3D6MWf0_hoC3ad4C-__Ca8aRyY0lVGDSCDVeTO89WTH8nbG3BRoDMuoi;
-          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 18:52:46
-          GMT']
-      vary: ['Accept-Encoding,User-Agent']
-      x-mode: [ro]
-      x-node: [api_com, web31-uswest1aprod]
-      x-proxied: [10-64-16-137-uswest1bprod]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Connection: [close]
-      Host: [api.yelp.com]
-      User-Agent: [Python-urllib/2.7]
-    method: GET
-    uri: https://api.yelp.com/v2/business/does-not-exist?oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D&oauth_nonce=71346602&oauth_signature=MHEAAk5GT%2BxW6kfxq7H6lctogWY%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446144766
-  response:
-    body: {string: !!python/unicode '{"error": {"text": "Business information is unavailable",
-        "id": "BUSINESS_UNAVAILABLE"}}'}
-    headers:
-      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
-      connection: [close]
-      content-length: ['88']
-      content-type: [application/json; charset=UTF-8]
-      date: ['Thu, 29 Oct 2015 18:52:46 GMT']
-      expires: ['Thu, 29 Oct 2015 18:52:46 GMT']
-      pragma: [no-cache]
-      server: [nginx]
-      set-cookie: [bse=0e185cbb15972723b8224afd4d592441; Domain=.yelp.com; Path=/;
-          HttpOnly, 'yuv=saGu2L3iKKOMVhAIL01tQuKjjAZkJoO4CGIVdMnfXYkn_FP0cWDSGxrHNyDOD_i7nfBHlpmGiBNXa-nzpV4FiPIXDE7Kd0KU;
-          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 18:52:46
-          GMT']
-      vary: [User-Agent]
-      x-mode: [ro]
-      x-node: [api_com, 10-64-143-94-uswest1bprod]
-      x-proxied: [10-64-16-217-uswest1bprod]
-    status: {code: 400, message: Bad Request}
-- request:
-    body: null
-    headers:
-      Connection: [close]
-      Host: [api.yelp.com]
-      User-Agent: [Python-urllib/2.7]
-    method: GET
-    uri: https://api.yelp.com/v2/business/weingalerie-und-caf%C3%A9-n%C3%B6-berlin?oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D&oauth_nonce=28528463&oauth_signature=FsgeWnW6NbwzvUp2aPvAZFUgSVE%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446144766
+    uri: https://api.yelp.com/v2/business/weingalerie-und-caf%C3%A9-n%C3%B6-berlin?oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446151935
   response:
     body: {string: !!python/unicode '{"is_claimed": true, "rating": 4.5, "mobile_url":
         "http://m.yelp.com/biz/weingalerie-und-caf%C3%A9-n%C3%B6-berlin", "rating_img_url":
@@ -149,553 +149,17 @@ interactions:
       connection: [close]
       content-length: ['2280']
       content-type: [application/json; charset=UTF-8]
-      date: ['Thu, 29 Oct 2015 18:52:46 GMT']
-      expires: ['Thu, 29 Oct 2015 18:52:46 GMT']
+      date: ['Thu, 29 Oct 2015 20:52:15 GMT']
+      expires: ['Thu, 29 Oct 2015 20:52:15 GMT']
       pragma: [no-cache]
       server: [nginx]
-      set-cookie: [bse=0889caf17d3553cacb61cc4b5737b2a8; Domain=.yelp.com; Path=/;
-          HttpOnly, 'yuv=3N7A2BrhyQJaXS1lavJDDS2MhUatHyZ3UhnmECuiyogTSgka4iHnjfoDoTbHiwhIFTe8s4r8GDChmScmW_FuG5WWB_rgZgaO;
-          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 18:52:46
+      set-cookie: [bse=83224422e1a3a7f3632129bf30b4a88d; Domain=.yelp.com; Path=/;
+          HttpOnly, 'yuv=4C0OIcWQee_cUigBy_TyrmRhy0KHuCYYcT2V1hdX89voNVaVLM7Vpwfkhnbk7hixAtJOJ31fVH1c9TrawH5ILPnMLzw3cGHU;
+          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 20:52:15
           GMT']
       vary: ['Accept-Encoding,User-Agent']
       x-mode: [ro]
-      x-node: [api_com, 10-64-81-140-uswest1aprod]
-      x-proxied: [10-64-16-217-uswest1bprod]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Connection: [close]
-      Host: [api.yelp.com]
-      User-Agent: [Python-urllib/2.7]
-    method: GET
-    uri: https://api.yelp.com/v2/business/?oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D&oauth_nonce=07483557&oauth_signature=f4NBeoGtFN12RCGigb9zqbNe8fQ%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446144976
-  response:
-    body: {string: !!python/unicode '{"error": {"text": "One or more parameters are
-        missing in request", "id": "MISSING_PARAMETER", "field": "business_id"}}'}
-    headers:
-      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
-      connection: [close]
-      content-length: ['119']
-      content-type: [application/json; charset=UTF-8]
-      date: ['Thu, 29 Oct 2015 18:56:16 GMT']
-      expires: ['Thu, 29 Oct 2015 18:56:16 GMT']
-      pragma: [no-cache]
-      server: [nginx]
-      set-cookie: [bse=3396a82ecef2058cc64cd8fc1bd85e27; Domain=.yelp.com; Path=/;
-          HttpOnly, 'yuv=uLvuyZ2LD3hj4miwjk7rXYCe3UfevEVjqX0V8AoibB0-nqMsJycJTNaQYOhUheyE6KkxcopskX8wO6iKPk10v8Ry1Xjm-Zzr;
-          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 18:56:16
-          GMT']
-      vary: [User-Agent]
-      x-mode: [ro]
-      x-node: [api_com, 10-64-142-23-uswest1bprod]
-      x-proxied: [10-64-0-245-uswest1aprod]
-    status: {code: 400, message: Bad Request}
-- request:
-    body: null
-    headers:
-      Connection: [close]
-      Host: [api.yelp.com]
-      User-Agent: [Python-urllib/2.7]
-    method: GET
-    uri: https://api.yelp.com/v2/business/yelp-san-francisco?oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D&oauth_nonce=53270800&oauth_signature=PjdqSu0UuotcwKyLdN156F9EOzM%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446144976
-  response:
-    body: {string: !!python/unicode '{"is_claimed": true, "rating": 2.5, "mobile_url":
-        "http://m.yelp.com/biz/yelp-san-francisco", "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png",
-        "review_count": 7551, "name": "Yelp", "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/8e8633e5f8f0/ico/stars/v1/stars_small_2_half.png",
-        "url": "http://www.yelp.com/biz/yelp-san-francisco", "categories": [["Local
-        Flavor", "localflavor"], ["Mass Media", "massmedia"]], "reviews": [{"rating":
-        3, "excerpt": "The biggest draw for me personally to yelp is the fact its
-        a free to use site. The biggest problem I have with yelp is they keep taking
-        down my pictures...", "time_created": 1446137462, "rating_image_url": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/34bc8086841c/ico/stars/v1/stars_3.png",
-        "rating_image_small_url": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/902abeed0983/ico/stars/v1/stars_small_3.png",
-        "user": {"image_url": "http://s3-media1.fl.yelpcdn.com/photo/MThiUUKLmPFrv4Xkwepj2w/ms.jpg",
-        "id": "Fd_DqkXJErkgkWBehu_Y5g", "name": "Illegal S."}, "rating_image_large_url":
-        "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/e8b5b79d37ed/ico/stars/v1/stars_large_3.png",
-        "id": "vItjCwCKn7WzvOai3ecBZQ"}], "phone": "4159083801", "snippet_text": "OMG
-        people, Yelp is NOT suing South Park- it''s actually all an internet hoax!
-        I''m reading recent reviews and I''m humored at how many are mentioning the...",
-        "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/nQK-6_vZMt5n88zsAS94ew/ms.jpg",
-        "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/Kl6KGi0w25-iT-31V3YpVg/ms.jpg",
-        "display_phone": "+1-415-908-3801", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/d63e3add9901/ico/stars/v1/stars_large_2_half.png",
-        "id": "yelp-san-francisco", "is_closed": false, "location": {"cross_streets":
-        "Natoma St \u0026 Minna St", "city": "San Francisco", "display_address": ["140
-        New Montgomery St", "Financial District", "San Francisco, CA 94105"], "geo_accuracy":
-        9.5, "neighborhoods": ["Financial District", "SoMa"], "postal_code": "94105",
-        "country_code": "US", "address": ["140 New Montgomery St"], "coordinate":
-        {"latitude": 37.7867703362929, "longitude": -122.399958372115}, "state_code":
-        "CA"}}'}
-    headers:
-      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
-      connection: [close]
-      content-length: ['2275']
-      content-type: [application/json; charset=UTF-8]
-      date: ['Thu, 29 Oct 2015 18:56:17 GMT']
-      expires: ['Thu, 29 Oct 2015 18:56:16 GMT']
-      pragma: [no-cache]
-      server: [nginx]
-      set-cookie: [bse=1daa36fcbecb650ddbac74ac9395d955; Domain=.yelp.com; Path=/;
-          HttpOnly, 'yuv=aXrgtJl63WoHUnrwk3xVuyRwbX9ri8_YArFhGlrq1f8yCyCKS5teciWEy8DdAETMEOLmUXoOd6aet-0jCecIkaC4VCKfvOMI;
-          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 18:56:16
-          GMT']
-      vary: ['Accept-Encoding,User-Agent']
-      x-mode: [ro]
-      x-node: [api_com, web46-uswest1bprod]
-      x-proxied: [10-64-0-245-uswest1aprod]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Connection: [close]
-      Host: [api.yelp.com]
-      User-Agent: [Python-urllib/2.7]
-    method: GET
-    uri: https://api.yelp.com/v2/business/does-not-exist?oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D&oauth_nonce=64574073&oauth_signature=I1qWAStnU2G3rKdYFIzSwmIl7FU%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446144977
-  response:
-    body: {string: !!python/unicode '{"error": {"text": "Business information is unavailable",
-        "id": "BUSINESS_UNAVAILABLE"}}'}
-    headers:
-      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
-      connection: [close]
-      content-length: ['88']
-      content-type: [application/json; charset=UTF-8]
-      date: ['Thu, 29 Oct 2015 18:56:17 GMT']
-      expires: ['Thu, 29 Oct 2015 18:56:17 GMT']
-      pragma: [no-cache]
-      server: [nginx]
-      set-cookie: [bse=d3a62f14b21f0ea7a336585ff0455c99; Domain=.yelp.com; Path=/;
-          HttpOnly, 'yuv=Ru4yqVNNbqUSrL5T8C_Jv3A9EWAGYzkmviSrGKnbpENd-u4XPzMsXLlumwWuXk-IsoVBHDHF0Q-nlvoFTn4OoSVUSN28PQVx;
-          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 18:56:17
-          GMT']
-      vary: [User-Agent]
-      x-mode: [ro]
-      x-node: [api_com, 10-64-129-159-uswest1bprod]
-      x-proxied: [10-64-0-245-uswest1aprod]
-    status: {code: 400, message: Bad Request}
-- request:
-    body: null
-    headers:
-      Connection: [close]
-      Host: [api.yelp.com]
-      User-Agent: [Python-urllib/2.7]
-    method: GET
-    uri: https://api.yelp.com/v2/business/weingalerie-und-caf%C3%A9-n%C3%B6-berlin?oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D&oauth_nonce=26270968&oauth_signature=eBPOHNeZa4fF6TgFOuDzhrWsJlI%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446144977
-  response:
-    body: {string: !!python/unicode '{"is_claimed": true, "rating": 4.5, "mobile_url":
-        "http://m.yelp.com/biz/weingalerie-und-caf%C3%A9-n%C3%B6-berlin", "rating_img_url":
-        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
-        "review_count": 90, "name": "Weingalerie und Caf\u00e9 N\u00d6!", "rating_img_url_small":
-        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
-        "url": "http://www.yelp.com/biz/weingalerie-und-caf%C3%A9-n%C3%B6-berlin",
-        "categories": [["Wine Bars", "wine_bars"], ["German", "german"], ["Mediterranean",
-        "mediterranean"]], "reviews": [{"rating": 4, "excerpt": "Nice restaurant with
-        tables outside.\nThe Votre Bavarian veal sausages were good and so were the
-        2 flammkuche we had, one sweet with apples and the other one...", "time_created":
-        1441232548, "rating_image_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
-        "rating_image_small_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
-        "user": {"image_url": "http://s3-media4.fl.yelpcdn.com/photo/nHtV_7xYf0tWBdqC6_g22Q/ms.jpg",
-        "id": "CpnUMlvV28o1hVD-caIo2Q", "name": "Alexis B."}, "rating_image_large_url":
-        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
-        "id": "tKZffZsW15u40AhAA3gRRQ"}], "phone": "+49302010871", "snippet_text":
-        "Located just 7 minutes walk from Gendarmenmarkt, this brasserie is perfectly
-        situated. I came with my dad when it was piping 95 degrees outside - we were...",
-        "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/9BoClduNENWA44K80sbM6w/ms.jpg",
-        "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/hHh2Mc9F5Njz8dhNbqNwog/ms.jpg",
-        "display_phone": "+49 30 2010871", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
-        "id": "weingalerie-und-caf\u00e9-n\u00f6-berlin", "is_closed": false, "location":
-        {"city": "Berlin", "display_address": ["Glinkastr. 23", "Mitte", "10117 Berlin",
-        "Germany"], "geo_accuracy": 8.0, "neighborhoods": ["Mitte"], "postal_code":
-        "10117", "country_code": "DE", "address": ["Glinkastr. 23"], "coordinate":
-        {"latitude": 52.51327, "longitude": 13.38625}, "state_code": "BE"}}'}
-    headers:
-      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
-      connection: [close]
-      content-length: ['2280']
-      content-type: [application/json; charset=UTF-8]
-      date: ['Thu, 29 Oct 2015 18:56:17 GMT']
-      expires: ['Thu, 29 Oct 2015 18:56:17 GMT']
-      pragma: [no-cache]
-      server: [nginx]
-      set-cookie: [bse=69398272569bb990a5d911f2cbc0b32b; Domain=.yelp.com; Path=/;
-          HttpOnly, 'yuv=7QKtRUS-eTbZqxUK1ChfB7E-yuJkUfs5GDBJ1BGuYGWLIEi2eXYlp096sWKxQi1cSUgGslFAF0etiF1AaJOn7vMasgrkHEx5;
-          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 18:56:17
-          GMT']
-      vary: ['Accept-Encoding,User-Agent']
-      x-mode: [ro]
-      x-node: [api_com, web31-uswest1aprod]
-      x-proxied: [10-64-0-146-uswest1aprod]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Connection: [close]
-      Host: [api.yelp.com]
-      User-Agent: [Python-urllib/2.7]
-    method: GET
-    uri: https://api.yelp.com/v2/business/yelp-san-francisco?oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D&oauth_nonce=46189466&oauth_signature=iF6Y2A%2BC4mWhlHuKn6%2BPk%2F2fsQs%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446148683
-  response:
-    body: {string: !!python/unicode '{"is_claimed": true, "rating": 2.5, "mobile_url":
-        "http://m.yelp.com/biz/yelp-san-francisco", "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png",
-        "review_count": 7553, "name": "Yelp", "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/8e8633e5f8f0/ico/stars/v1/stars_small_2_half.png",
-        "url": "http://www.yelp.com/biz/yelp-san-francisco", "categories": [["Local
-        Flavor", "localflavor"], ["Mass Media", "massmedia"]], "reviews": [{"rating":
-        5, "excerpt": "Yelp rules!! I''m pretty sure their star rating is low because
-        of the crap businesses that are angry because their horrible products/services
-        have been outed...", "time_created": 1446148007, "rating_image_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
-        "rating_image_small_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
-        "user": {"image_url": "http://s3-media3.fl.yelpcdn.com/photo/dhmDllG77_qMXYeo7Ek55A/ms.jpg",
-        "id": "LCtohr2FPQTZeqaClhDoLA", "name": "Denise F."}, "rating_image_large_url":
-        "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
-        "id": "v1pYus13mmkTHWG_9aSIWw"}], "phone": "4159083801", "snippet_text": "OMG
-        people, Yelp is NOT suing South Park- it''s actually all an internet hoax!
-        I''m reading recent reviews and I''m humored at how many are mentioning the...",
-        "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/nQK-6_vZMt5n88zsAS94ew/ms.jpg",
-        "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/Kl6KGi0w25-iT-31V3YpVg/ms.jpg",
-        "display_phone": "+1-415-908-3801", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/d63e3add9901/ico/stars/v1/stars_large_2_half.png",
-        "id": "yelp-san-francisco", "is_closed": false, "location": {"cross_streets":
-        "Natoma St \u0026 Minna St", "city": "San Francisco", "display_address": ["140
-        New Montgomery St", "Financial District", "San Francisco, CA 94105"], "geo_accuracy":
-        9.5, "neighborhoods": ["Financial District", "SoMa"], "postal_code": "94105",
-        "country_code": "US", "address": ["140 New Montgomery St"], "coordinate":
-        {"latitude": 37.7867703362929, "longitude": -122.399958372115}, "state_code":
-        "CA"}}'}
-    headers:
-      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
-      connection: [close]
-      content-length: ['2278']
-      content-type: [application/json; charset=UTF-8]
-      date: ['Thu, 29 Oct 2015 19:58:03 GMT']
-      expires: ['Thu, 29 Oct 2015 19:58:03 GMT']
-      pragma: [no-cache]
-      server: [nginx]
-      set-cookie: [bse=cdfb6d7d77b0b5886f56a2cacfeb644e; Domain=.yelp.com; Path=/;
-          HttpOnly, 'yuv=A3rZhO7xRX42L1bxOw7zrOv26mH3AymJC8-CkT8COCmmptN20Np4JfABeCqLJVYZK1YnKM81W6PLzVeaa0COAoBdpxbPhwdQ;
-          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 19:58:03
-          GMT']
-      vary: ['Accept-Encoding,User-Agent']
-      x-mode: [ro]
-      x-node: [api_com, web39-uswest1aprod]
-      x-proxied: [10-64-16-137-uswest1bprod]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Connection: [close]
-      Host: [api.yelp.com]
-      User-Agent: [Python-urllib/2.7]
-    method: GET
-    uri: https://api.yelp.com/v2/business/weingalerie-und-caf%C3%A9-n%C3%B6-berlin?oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D&oauth_nonce=60813699&oauth_signature=ixN4dPdhb%2Fx29DnewUI1A0OYpR0%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446148684
-  response:
-    body: {string: !!python/unicode '{"is_claimed": true, "rating": 4.5, "mobile_url":
-        "http://m.yelp.com/biz/weingalerie-und-caf%C3%A9-n%C3%B6-berlin", "rating_img_url":
-        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
-        "review_count": 90, "name": "Weingalerie und Caf\u00e9 N\u00d6!", "rating_img_url_small":
-        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
-        "url": "http://www.yelp.com/biz/weingalerie-und-caf%C3%A9-n%C3%B6-berlin",
-        "categories": [["Wine Bars", "wine_bars"], ["German", "german"], ["Mediterranean",
-        "mediterranean"]], "reviews": [{"rating": 4, "excerpt": "Nice restaurant with
-        tables outside.\nThe Votre Bavarian veal sausages were good and so were the
-        2 flammkuche we had, one sweet with apples and the other one...", "time_created":
-        1441232548, "rating_image_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
-        "rating_image_small_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
-        "user": {"image_url": "http://s3-media4.fl.yelpcdn.com/photo/nHtV_7xYf0tWBdqC6_g22Q/ms.jpg",
-        "id": "CpnUMlvV28o1hVD-caIo2Q", "name": "Alexis B."}, "rating_image_large_url":
-        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
-        "id": "tKZffZsW15u40AhAA3gRRQ"}], "phone": "+49302010871", "snippet_text":
-        "Located just 7 minutes walk from Gendarmenmarkt, this brasserie is perfectly
-        situated. I came with my dad when it was piping 95 degrees outside - we were...",
-        "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/9BoClduNENWA44K80sbM6w/ms.jpg",
-        "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/hHh2Mc9F5Njz8dhNbqNwog/ms.jpg",
-        "display_phone": "+49 30 2010871", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
-        "id": "weingalerie-und-caf\u00e9-n\u00f6-berlin", "is_closed": false, "location":
-        {"city": "Berlin", "display_address": ["Glinkastr. 23", "Mitte", "10117 Berlin",
-        "Germany"], "geo_accuracy": 8.0, "neighborhoods": ["Mitte"], "postal_code":
-        "10117", "country_code": "DE", "address": ["Glinkastr. 23"], "coordinate":
-        {"latitude": 52.51327, "longitude": 13.38625}, "state_code": "BE"}}'}
-    headers:
-      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
-      connection: [close]
-      content-length: ['2280']
-      content-type: [application/json; charset=UTF-8]
-      date: ['Thu, 29 Oct 2015 19:58:04 GMT']
-      expires: ['Thu, 29 Oct 2015 19:58:04 GMT']
-      pragma: [no-cache]
-      server: [nginx]
-      set-cookie: [bse=f86cf1ff72f7e4500ae778a543b54c8e; Domain=.yelp.com; Path=/;
-          HttpOnly, 'yuv=Wva8BRIgYnUDywXgr1dmRbPC16EklEf_u2GFJQ5ky5X3z1mV4yr7PzPgkz3lvVo7aEval2feWYh5MdIaO3twm8maiEuTG7VX;
-          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 19:58:04
-          GMT']
-      vary: ['Accept-Encoding,User-Agent']
-      x-mode: [ro]
-      x-node: [api_com, web34-uswest1aprod]
-      x-proxied: [10-64-16-161-uswest1bprod]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Connection: [close]
-      Host: [api.yelp.com]
-      User-Agent: [Python-urllib/2.7]
-    method: GET
-    uri: https://api.yelp.com/v2/business/yelp-san-francisco?oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D&oauth_nonce=47211120&oauth_signature=8Le%2FlW4HDL5%2BmwPx8a4m28fapq4%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446148761
-  response:
-    body: {string: !!python/unicode '{"is_claimed": true, "rating": 2.5, "mobile_url":
-        "http://m.yelp.com/biz/yelp-san-francisco", "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png",
-        "review_count": 7553, "name": "Yelp", "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/8e8633e5f8f0/ico/stars/v1/stars_small_2_half.png",
-        "url": "http://www.yelp.com/biz/yelp-san-francisco", "categories": [["Local
-        Flavor", "localflavor"], ["Mass Media", "massmedia"]], "reviews": [{"rating":
-        5, "excerpt": "Yelp rules!! I''m pretty sure their star rating is low because
-        of the crap businesses that are angry because their horrible products/services
-        have been outed...", "time_created": 1446148007, "rating_image_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
-        "rating_image_small_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
-        "user": {"image_url": "http://s3-media3.fl.yelpcdn.com/photo/dhmDllG77_qMXYeo7Ek55A/ms.jpg",
-        "id": "LCtohr2FPQTZeqaClhDoLA", "name": "Denise F."}, "rating_image_large_url":
-        "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
-        "id": "v1pYus13mmkTHWG_9aSIWw"}], "phone": "4159083801", "snippet_text": "OMG
-        people, Yelp is NOT suing South Park- it''s actually all an internet hoax!
-        I''m reading recent reviews and I''m humored at how many are mentioning the...",
-        "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/nQK-6_vZMt5n88zsAS94ew/ms.jpg",
-        "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/Kl6KGi0w25-iT-31V3YpVg/ms.jpg",
-        "display_phone": "+1-415-908-3801", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/d63e3add9901/ico/stars/v1/stars_large_2_half.png",
-        "id": "yelp-san-francisco", "is_closed": false, "location": {"cross_streets":
-        "Natoma St \u0026 Minna St", "city": "San Francisco", "display_address": ["140
-        New Montgomery St", "Financial District", "San Francisco, CA 94105"], "geo_accuracy":
-        9.5, "neighborhoods": ["Financial District", "SoMa"], "postal_code": "94105",
-        "country_code": "US", "address": ["140 New Montgomery St"], "coordinate":
-        {"latitude": 37.7867703362929, "longitude": -122.399958372115}, "state_code":
-        "CA"}}'}
-    headers:
-      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
-      connection: [close]
-      content-length: ['2278']
-      content-type: [application/json; charset=UTF-8]
-      date: ['Thu, 29 Oct 2015 19:59:23 GMT']
-      expires: ['Thu, 29 Oct 2015 19:59:21 GMT']
-      pragma: [no-cache]
-      server: [nginx]
-      set-cookie: [bse=45808cb34c4f879e0d976172fe8d20bf; Domain=.yelp.com; Path=/;
-          HttpOnly, 'yuv=YPnOw0TMR9ohfUsV-zpq0Pio7kGe6k6ruLJrVElzEGhMs2EYmM4R6ZNfUMQz3NKL2xZgXW-MMmBSKSd9OG50HgN8rhGZGUMl;
-          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 19:59:21
-          GMT']
-      vary: ['Accept-Encoding,User-Agent']
-      x-mode: [ro]
-      x-node: [api_com, web21-r4-sfo2]
-      x-proxied: [extlb1-r4-sfo2]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Connection: [close]
-      Host: [api.yelp.com]
-      User-Agent: [Python-urllib/2.7]
-    method: GET
-    uri: https://api.yelp.com/v2/business/weingalerie-und-caf%C3%A9-n%C3%B6-berlin?oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D&oauth_nonce=22886510&oauth_signature=hQfIleZ3FhYfxT8ypojnrNeWVxg%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446148761
-  response:
-    body: {string: !!python/unicode '{"is_claimed": true, "rating": 4.5, "mobile_url":
-        "http://m.yelp.com/biz/weingalerie-und-caf%C3%A9-n%C3%B6-berlin", "rating_img_url":
-        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
-        "review_count": 90, "name": "Weingalerie und Caf\u00e9 N\u00d6!", "rating_img_url_small":
-        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
-        "url": "http://www.yelp.com/biz/weingalerie-und-caf%C3%A9-n%C3%B6-berlin",
-        "categories": [["Wine Bars", "wine_bars"], ["German", "german"], ["Mediterranean",
-        "mediterranean"]], "reviews": [{"rating": 4, "excerpt": "Nice restaurant with
-        tables outside.\nThe Votre Bavarian veal sausages were good and so were the
-        2 flammkuche we had, one sweet with apples and the other one...", "time_created":
-        1441232548, "rating_image_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
-        "rating_image_small_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
-        "user": {"image_url": "http://s3-media4.fl.yelpcdn.com/photo/nHtV_7xYf0tWBdqC6_g22Q/ms.jpg",
-        "id": "CpnUMlvV28o1hVD-caIo2Q", "name": "Alexis B."}, "rating_image_large_url":
-        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
-        "id": "tKZffZsW15u40AhAA3gRRQ"}], "phone": "+49302010871", "snippet_text":
-        "Located just 7 minutes walk from Gendarmenmarkt, this brasserie is perfectly
-        situated. I came with my dad when it was piping 95 degrees outside - we were...",
-        "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/9BoClduNENWA44K80sbM6w/ms.jpg",
-        "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/hHh2Mc9F5Njz8dhNbqNwog/ms.jpg",
-        "display_phone": "+49 30 2010871", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
-        "id": "weingalerie-und-caf\u00e9-n\u00f6-berlin", "is_closed": false, "location":
-        {"city": "Berlin", "display_address": ["Glinkastr. 23", "Mitte", "10117 Berlin",
-        "Germany"], "geo_accuracy": 8.0, "neighborhoods": ["Mitte"], "postal_code":
-        "10117", "country_code": "DE", "address": ["Glinkastr. 23"], "coordinate":
-        {"latitude": 52.51327, "longitude": 13.38625}, "state_code": "BE"}}'}
-    headers:
-      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
-      connection: [close]
-      content-length: ['2280']
-      content-type: [application/json; charset=UTF-8]
-      date: ['Thu, 29 Oct 2015 19:59:23 GMT']
-      expires: ['Thu, 29 Oct 2015 19:59:21 GMT']
-      pragma: [no-cache]
-      server: [nginx]
-      set-cookie: [bse=b6876bd6ac131509aab12e63aad114ea; Domain=.yelp.com; Path=/;
-          HttpOnly, 'yuv=829nVclRxmMM-GURS53TP3i8R451klNl8mYfOVmKLuSt4DxE3_0F5ZYTQFkbbkCMD1nHUbkliS80QJzJX6th7cOygzfTXJva;
-          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 19:59:21
-          GMT']
-      vary: ['Accept-Encoding,User-Agent']
-      x-mode: [ro]
-      x-node: [api_com, web106-r10-sfo2]
-      x-proxied: [extlb1-r4-sfo2]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Connection: [close]
-      Host: [api.yelp.com]
-      User-Agent: [Python-urllib/2.7]
-    method: GET
-    uri: https://api.yelp.com/v2/business/?oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D&oauth_nonce=46428917&oauth_signature=5JgSVUBsWjKqR%2BT%2FCfsfFnVhEPU%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446148778
-  response:
-    body: {string: !!python/unicode '{"error": {"text": "One or more parameters are
-        missing in request", "id": "MISSING_PARAMETER", "field": "business_id"}}'}
-    headers:
-      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
-      connection: [close]
-      content-length: ['119']
-      content-type: [application/json; charset=UTF-8]
-      date: ['Thu, 29 Oct 2015 19:59:40 GMT']
-      expires: ['Thu, 29 Oct 2015 19:59:38 GMT']
-      pragma: [no-cache]
-      server: [nginx]
-      set-cookie: [bse=fff803496fe6c6f1e7928d03e121ceaf; Domain=.yelp.com; Path=/;
-          HttpOnly, 'yuv=g4uKIIZprZEY0wa2qSfykdw5TS68Yr2Bpkgk5HIz1BqJIWnE2uLKjq7IJudZLVHDUsAMasSIOte0EAaxTVukKcwOufHJYrPV;
-          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 19:59:38
-          GMT']
-      vary: [User-Agent]
-      x-mode: [ro]
-      x-node: [api_com, web11-r2-sfo2]
-      x-proxied: [extlb1-r4-sfo2]
-    status: {code: 400, message: Bad Request}
-- request:
-    body: null
-    headers:
-      Connection: [close]
-      Host: [api.yelp.com]
-      User-Agent: [Python-urllib/2.7]
-    method: GET
-    uri: https://api.yelp.com/v2/business/yelp-san-francisco?oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D&oauth_nonce=63858112&oauth_signature=5JVUKrYDK32%2FbCaL3zjWXq%2Bx1Zg%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446148778
-  response:
-    body: {string: !!python/unicode '{"is_claimed": true, "rating": 2.5, "mobile_url":
-        "http://m.yelp.com/biz/yelp-san-francisco", "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png",
-        "review_count": 7553, "name": "Yelp", "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/8e8633e5f8f0/ico/stars/v1/stars_small_2_half.png",
-        "url": "http://www.yelp.com/biz/yelp-san-francisco", "categories": [["Local
-        Flavor", "localflavor"], ["Mass Media", "massmedia"]], "reviews": [{"rating":
-        5, "excerpt": "Yelp rules!! I''m pretty sure their star rating is low because
-        of the crap businesses that are angry because their horrible products/services
-        have been outed...", "time_created": 1446148007, "rating_image_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
-        "rating_image_small_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
-        "user": {"image_url": "http://s3-media3.fl.yelpcdn.com/photo/dhmDllG77_qMXYeo7Ek55A/ms.jpg",
-        "id": "LCtohr2FPQTZeqaClhDoLA", "name": "Denise F."}, "rating_image_large_url":
-        "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
-        "id": "v1pYus13mmkTHWG_9aSIWw"}], "phone": "4159083801", "snippet_text": "OMG
-        people, Yelp is NOT suing South Park- it''s actually all an internet hoax!
-        I''m reading recent reviews and I''m humored at how many are mentioning the...",
-        "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/nQK-6_vZMt5n88zsAS94ew/ms.jpg",
-        "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/Kl6KGi0w25-iT-31V3YpVg/ms.jpg",
-        "display_phone": "+1-415-908-3801", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/d63e3add9901/ico/stars/v1/stars_large_2_half.png",
-        "id": "yelp-san-francisco", "is_closed": false, "location": {"cross_streets":
-        "Natoma St \u0026 Minna St", "city": "San Francisco", "display_address": ["140
-        New Montgomery St", "Financial District", "San Francisco, CA 94105"], "geo_accuracy":
-        9.5, "neighborhoods": ["Financial District", "SoMa"], "postal_code": "94105",
-        "country_code": "US", "address": ["140 New Montgomery St"], "coordinate":
-        {"latitude": 37.7867703362929, "longitude": -122.399958372115}, "state_code":
-        "CA"}}'}
-    headers:
-      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
-      connection: [close]
-      content-length: ['2278']
-      content-type: [application/json; charset=UTF-8]
-      date: ['Thu, 29 Oct 2015 19:59:41 GMT']
-      expires: ['Thu, 29 Oct 2015 19:59:38 GMT']
-      pragma: [no-cache]
-      server: [nginx]
-      set-cookie: [bse=ac36c1e2db13588a25fbcf57a12ba72f; Domain=.yelp.com; Path=/;
-          HttpOnly, 'yuv=5QImYXw9-ibTtpkTWypimHyWLnQihi_CBg9vKtJk97xm-eLXOY_LkBBtmFO0eu59g60V1iv18VXMAMb_Lc4nLerYUb4IcGtA;
-          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 19:59:38
-          GMT']
-      vary: ['Accept-Encoding,User-Agent']
-      x-mode: [ro]
-      x-node: [api_com, web17-r3-sfo2]
-      x-proxied: [extlb1-r4-sfo2]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Connection: [close]
-      Host: [api.yelp.com]
-      User-Agent: [Python-urllib/2.7]
-    method: GET
-    uri: https://api.yelp.com/v2/business/does-not-exist?oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D&oauth_nonce=42014764&oauth_signature=ogH0qfwaWolLlXqr59Xxdvt8tUI%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446148779
-  response:
-    body: {string: !!python/unicode '{"error": {"text": "Business information is unavailable",
-        "id": "BUSINESS_UNAVAILABLE"}}'}
-    headers:
-      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
-      connection: [close]
-      content-length: ['88']
-      content-type: [application/json; charset=UTF-8]
-      date: ['Thu, 29 Oct 2015 19:59:41 GMT']
-      expires: ['Thu, 29 Oct 2015 19:59:39 GMT']
-      pragma: [no-cache]
-      server: [nginx]
-      set-cookie: [bse=4894c30b8a579f0afaeec119bae3f54e; Domain=.yelp.com; Path=/;
-          HttpOnly, 'yuv=wCBp3CXPOXisMo1fgkLbzee9-9EisKzDwNPYPnZhMYeK78Xg66sr1IQ9JM0kzS4ZaEED_S9ExDEP9j-LcMmUsPxmmAyjwsD9;
-          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 19:59:39
-          GMT']
-      vary: [User-Agent]
-      x-mode: [ro]
-      x-node: [api_com, web29-r1-sfo2]
-      x-proxied: [extlb1-r4-sfo2]
-    status: {code: 400, message: Bad Request}
-- request:
-    body: null
-    headers:
-      Connection: [close]
-      Host: [api.yelp.com]
-      User-Agent: [Python-urllib/2.7]
-    method: GET
-    uri: https://api.yelp.com/v2/business/weingalerie-und-caf%C3%A9-n%C3%B6-berlin?oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D&oauth_nonce=65855568&oauth_signature=UzIIF4KAM3wN29PNaH9sftxVFXw%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446148779
-  response:
-    body: {string: !!python/unicode '{"is_claimed": true, "rating": 4.5, "mobile_url":
-        "http://m.yelp.com/biz/weingalerie-und-caf%C3%A9-n%C3%B6-berlin", "rating_img_url":
-        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
-        "review_count": 90, "name": "Weingalerie und Caf\u00e9 N\u00d6!", "rating_img_url_small":
-        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
-        "url": "http://www.yelp.com/biz/weingalerie-und-caf%C3%A9-n%C3%B6-berlin",
-        "categories": [["Wine Bars", "wine_bars"], ["German", "german"], ["Mediterranean",
-        "mediterranean"]], "reviews": [{"rating": 4, "excerpt": "Nice restaurant with
-        tables outside.\nThe Votre Bavarian veal sausages were good and so were the
-        2 flammkuche we had, one sweet with apples and the other one...", "time_created":
-        1441232548, "rating_image_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
-        "rating_image_small_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
-        "user": {"image_url": "http://s3-media4.fl.yelpcdn.com/photo/nHtV_7xYf0tWBdqC6_g22Q/ms.jpg",
-        "id": "CpnUMlvV28o1hVD-caIo2Q", "name": "Alexis B."}, "rating_image_large_url":
-        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
-        "id": "tKZffZsW15u40AhAA3gRRQ"}], "phone": "+49302010871", "snippet_text":
-        "Located just 7 minutes walk from Gendarmenmarkt, this brasserie is perfectly
-        situated. I came with my dad when it was piping 95 degrees outside - we were...",
-        "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/9BoClduNENWA44K80sbM6w/ms.jpg",
-        "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/hHh2Mc9F5Njz8dhNbqNwog/ms.jpg",
-        "display_phone": "+49 30 2010871", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
-        "id": "weingalerie-und-caf\u00e9-n\u00f6-berlin", "is_closed": false, "location":
-        {"city": "Berlin", "display_address": ["Glinkastr. 23", "Mitte", "10117 Berlin",
-        "Germany"], "geo_accuracy": 8.0, "neighborhoods": ["Mitte"], "postal_code":
-        "10117", "country_code": "DE", "address": ["Glinkastr. 23"], "coordinate":
-        {"latitude": 52.51327, "longitude": 13.38625}, "state_code": "BE"}}'}
-    headers:
-      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
-      connection: [close]
-      content-length: ['2280']
-      content-type: [application/json; charset=UTF-8]
-      date: ['Thu, 29 Oct 2015 19:59:41 GMT']
-      expires: ['Thu, 29 Oct 2015 19:59:39 GMT']
-      pragma: [no-cache]
-      server: [nginx]
-      set-cookie: [bse=b7d2d3e114e21604247727264b41c355; Domain=.yelp.com; Path=/;
-          HttpOnly, 'yuv=IKjnst-nldQ4FEDOkiMpkex7WqNPHmOOdJRpp-qEUK1ffdfCR9_YXKu0T9y7tmLLu_FnfazO9xIfNA7rMNKIGX1n3i1LEiwn;
-          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Wed, 24-Oct-2035 19:59:39
-          GMT']
-      vary: ['Accept-Encoding,User-Agent']
-      x-mode: [ro]
-      x-node: [api_com, web58-r7-sfo2]
-      x-proxied: [extlb1-r4-sfo2]
+      x-node: [api_com, web6-uswest1bprod]
+      x-proxied: [10-64-16-237-uswest1bprod]
     status: {code: 200, message: OK}
 version: 1

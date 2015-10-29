@@ -20,9 +20,10 @@ class TestIntegration(object):
         'record_mode': 'new_episodes',
         'filter_query_parameters': [
             'oauth_consumer_key',
-            'consumer_secret',
             'oauth_token',
-            'token_secret'
+            'oauth_body_hash',
+            'oauth_nonce',
+            'oauth_signature'
         ]
     }
 

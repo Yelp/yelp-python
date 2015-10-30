@@ -29,8 +29,8 @@ class TestClient(object):
     def test_get_business_builds_correct_params(self):
         with mock.patch('yelp.client.Client._make_request') as request:
             request.return_value = self.business_response
-            id = 'test-id'
-            response = self.client.get_business(id)
+            test_id = 'test-id'
+            response = self.client.get_business(test_id)
             request.assert_called_once_with('/v2/business/test-id')
             assert type(response) is BusinessResponse
 

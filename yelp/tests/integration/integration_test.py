@@ -13,6 +13,7 @@ class IntegrationTest(object):
         match_on=['method'],
         path_transformer=vcr.VCR.ensure_suffix('.yaml')
     )
+
     cassette_params = {
         'filter_query_parameters': [
             'oauth_consumer_key',

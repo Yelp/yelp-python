@@ -80,6 +80,18 @@ class TestIntegration(object):
             self.client.search(self.sample_location, **params)
 
     @vcr.use_cassette('vcr_cassettes/search.yaml', **cassette_params)
+    def test_search_unicode_params(self):
+        name = u'染太郎'
+        unicode_params = {
+            'term': name
+        }
+        resp = self.client.search(
+            'Tokyo',
+            **unicode_params
+        )
+        assert name in resp.businesses[0].id
+
+    @vcr.use_cassette('vcr_cassettes/search.yaml', **cassette_params)
     def test_search_by_bounding_box_only(self):
         resp = self.client.search_by_bounding_box(
             37.900000,

@@ -1,0 +1,31 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: [api.yelp.com]
+      User-Agent: [Python-urllib/2.7]
+    method: GET
+    uri: https://api.yelp.com/v2/business/?oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446229808
+  response:
+    body: {string: !!python/unicode '{"error": {"text": "One or more parameters are
+        missing in request", "id": "MISSING_PARAMETER", "field": "business_id"}}'}
+    headers:
+      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
+      connection: [close]
+      content-length: ['119']
+      content-type: [application/json; charset=UTF-8]
+      date: ['Fri, 30 Oct 2015 18:30:09 GMT']
+      expires: ['Fri, 30 Oct 2015 18:30:09 GMT']
+      pragma: [no-cache]
+      server: [nginx]
+      set-cookie: [bse=e35b6110b532042a2e6b679a65a35322; Domain=.yelp.com; Path=/;
+          HttpOnly, 'yuv=a64Ohz5dqvwX-c55ka94gh19t5o04W7Y7zzP-LM6b36HIFe4LHZJTwmgyrJOR79HeBM8sBF6krWG22nYnWLTXUMF1EtK8dfs;
+          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Thu, 25-Oct-2035 18:30:09
+          GMT']
+      vary: [User-Agent]
+      x-mode: [ro]
+      x-node: [api_com, 10-64-184-71-uswest1bprod]
+      x-proxied: [10-64-0-245-uswest1aprod]
+    status: {code: 400, message: Bad Request}
+version: 1

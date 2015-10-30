@@ -1,0 +1,71 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: [api.yelp.com]
+      User-Agent: [Python-urllib/2.7]
+    method: GET
+    uri: https://api.yelp.com/v2/search/?location=Tokyo&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446229827&term=%E6%9F%93%E5%A4%AA%E9%83%8E
+  response:
+    body: {string: !!python/unicode '{"region": {"span": {"latitude_delta": 0.5935670954400081,
+        "longitude_delta": 0.4823556210000106}, "center": {"latitude": 35.5824666096,
+        "longitude": 139.754264169}}, "total": 3, "businesses": [{"is_claimed": false,
+        "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/%E6%9F%93%E5%A4%AA%E9%83%8E-%E5%8F%B0%E6%9D%B1%E5%8C%BA",
+        "rating_img_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 21, "name": "Sometaro", "rating_img_url_small": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/%E6%9F%93%E5%A4%AA%E9%83%8E-%E5%8F%B0%E6%9D%B1%E5%8C%BA",
+        "categories": [["Okonomiyaki", "okonomiyaki"]], "phone": "+81338449502", "snippet_text":
+        "This is really a fun little restaurant.\nThey mostly serve Okonomiyaki in
+        many different variations but they have a few other things as well.\nThe ambiance
+        is...", "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/KLOBDeCbF4pllUOlXmUGEw/ms.jpg",
+        "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/bwFsZJZTGlVV0uwUgW-0aA/ms.jpg",
+        "display_phone": "+81 3 3844 9502", "rating_img_url_large": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "\u67d3\u592a\u90ce-\u53f0\u6771\u533a", "is_closed": false, "location":
+        {"city": "\u53f0\u6771\u533a", "display_address": ["\u897f\u6d45\u83492-2-2",
+        "\u96f7\u9580", "\u53f0\u6771\u533a, \u6771\u4eac\u90fd \u3012111-0035", "Japan"],
+        "geo_accuracy": 9.5, "neighborhoods": ["\u96f7\u9580", "\u7530\u539f\u753a\u99c5"],
+        "postal_code": "111-0035", "country_code": "JP", "address": ["\u897f\u6d45\u83492-2-2"],
+        "coordinate": {"latitude": 35.7119854031155, "longitude": 139.790937066147},
+        "state_code": "13"}}, {"is_claimed": false, "rating": 0.0, "mobile_url": "http://m.yelp.com/biz/%E6%9F%93%E5%A4%AA%E9%83%8E-%E6%9F%8F%E5%B8%82",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/04ae5eda5622/ico/stars/v1/stars_0.png",
+        "review_count": 0, "name": "\u67d3\u592a\u90ce", "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/d3cd853a8cb7/ico/stars/v1/stars_small_0.png",
+        "url": "http://www.yelp.com/biz/%E6%9F%93%E5%A4%AA%E9%83%8E-%E6%9F%8F%E5%B8%82",
+        "categories": [["Restaurants", "restaurants"]], "phone": "+81471645412", "location":
+        {"city": "\u67cf\u5e02", "display_address": ["\u5343\u4ee3\u75302\u4e01\u76ee13-9",
+        "\u67cf\u5e02, \u5343\u8449\u770c \u3012277-0025", "Japan"], "geo_accuracy":
+        9.5, "postal_code": "277-0025", "country_code": "JP", "address": ["\u5343\u4ee3\u75302\u4e01\u76ee13-9"],
+        "coordinate": {"latitude": 35.8522698348, "longitude": 139.973516724}, "state_code":
+        "12"}, "display_phone": "+81 471 64 5412", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/1d04a136ee3e/ico/stars/v1/stars_large_0.png",
+        "id": "\u67d3\u592a\u90ce-\u67cf\u5e02", "is_closed": false}, {"is_claimed":
+        false, "rating": 0.0, "mobile_url": "http://m.yelp.com/biz/%E6%9F%93%E5%A4%AA%E9%83%8E-%E9%8E%8C%E5%80%89%E5%B8%82",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/04ae5eda5622/ico/stars/v1/stars_0.png",
+        "review_count": 0, "name": "\u67d3\u592a\u90ce", "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/d3cd853a8cb7/ico/stars/v1/stars_small_0.png",
+        "url": "http://www.yelp.com/biz/%E6%9F%93%E5%A4%AA%E9%83%8E-%E9%8E%8C%E5%80%89%E5%B8%82",
+        "categories": [["Restaurants", "restaurants"]], "phone": "+81467228694", "location":
+        {"city": "\u938c\u5009\u5e02", "display_address": ["\u9577\u8c373\u4e01\u76ee1211",
+        "\u3064\u305f\u3084\u30d3\u30eb", "\u938c\u5009\u5e02, \u795e\u5948\u5ddd\u770c
+        \u3012248-0016", "Japan"], "geo_accuracy": 9.5, "postal_code": "248-0016",
+        "country_code": "JP", "address": ["\u9577\u8c373\u4e01\u76ee1211", "\u3064\u305f\u3084\u30d3\u30eb"],
+        "coordinate": {"latitude": 35.3126633844, "longitude": 139.535011614}, "state_code":
+        "14"}, "display_phone": "+81 467 22 8694", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/1d04a136ee3e/ico/stars/v1/stars_large_0.png",
+        "id": "\u67d3\u592a\u90ce-\u938c\u5009\u5e02", "is_closed": false}]}'}
+    headers:
+      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
+      connection: [close]
+      content-length: ['4167']
+      content-type: [application/json; charset=UTF-8]
+      date: ['Fri, 30 Oct 2015 18:30:28 GMT']
+      expires: ['Fri, 30 Oct 2015 18:30:28 GMT']
+      pragma: [no-cache]
+      server: [nginx]
+      set-cookie: [bse=93499b20296d5d6b593de61265989ff8; Domain=.yelp.com; Path=/;
+          HttpOnly, 'yuv=A_klB8fF3mx1kPhbprWBHLv3zc0dpBhNpmd--qAKUoOLMmVMtcsFKic_Y2kD4ojSHjkkkkaHvkLZW8aNrDzSSzFbb5Xidr7E;
+          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Thu, 25-Oct-2035 18:30:28
+          GMT']
+      vary: ['Accept-Encoding,User-Agent']
+      x-mode: [ro]
+      x-node: [api_com, web36-uswest1bprod]
+      x-proxied: [10-64-16-137-uswest1bprod]
+    status: {code: 200, message: OK}
+version: 1

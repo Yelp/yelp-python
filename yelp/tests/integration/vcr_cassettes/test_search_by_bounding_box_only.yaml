@@ -1,0 +1,48 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: [api.yelp.com]
+      User-Agent: [Python-urllib/2.7]
+    method: GET
+    uri: https://api.yelp.com/v2/search/?bounds=37.9%2C-122.5%7C37.788022%2C-122.399797&limit=1&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446229828
+  response:
+    body: {string: !!python/unicode '{"region": {"span": {"latitude_delta": 0.11197800000000058,
+        "longitude_delta": 0.10020299999999338}, "center": {"latitude": 37.844010999999995,
+        "longitude": -122.4498985}}, "total": 19690, "businesses": [{"is_claimed":
+        false, "rating": 4.5, "mobile_url": "http://m.yelp.com/biz/angel-island-state-park-tiburon",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 309, "name": "Angel Island State Park", "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+        "url": "http://www.yelp.com/biz/angel-island-state-park-tiburon", "categories":
+        [["Parks", "parks"], ["Boating", "boating"], ["Bike Rentals", "bikerentals"]],
+        "phone": "4154355390", "snippet_text": "I''m such a city creature, so getting
+        out of the city for a day was a big move for me. I came here on a lovely Sunday
+        with my roommate for a nature hike,...", "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/H1kDwXkMQf_qFBnq1ysh5w/ms.jpg",
+        "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/2jUJ3CUfh8VaVumeGcosFA/ms.jpg",
+        "display_phone": "+1-415-435-5390", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "angel-island-state-park-tiburon", "is_closed": false, "location": {"city":
+        "Tiburon", "display_address": ["Angel Island State Park", "Tiburon, CA 94920"],
+        "geo_accuracy": 9.5, "postal_code": "94920", "country_code": "US", "address":
+        ["Angel Island State Park"], "coordinate": {"latitude": 37.86089, "longitude":
+        -122.432464}, "state_code": "CA"}}]}'}
+    headers:
+      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
+      connection: [close]
+      content-length: ['1656']
+      content-type: [application/json; charset=UTF-8]
+      date: ['Fri, 30 Oct 2015 18:30:28 GMT']
+      expires: ['Fri, 30 Oct 2015 18:30:28 GMT']
+      pragma: [no-cache]
+      server: [nginx]
+      set-cookie: [bse=6ef0476643d9095c82fa9d60ce003837; Domain=.yelp.com; Path=/;
+          HttpOnly, 'yuv=rQyukknVVcCkSX4LiXbM4H2VeDi3PykQrBP8MkzJ1tW88vzt53lWC1vnWMvNzsho-PrvaFueRCQWrr-A19nxk_Rb-Yn3b6Iy;
+          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Thu, 25-Oct-2035 18:30:28
+          GMT']
+      vary: ['Accept-Encoding,User-Agent']
+      x-mode: [ro]
+      x-node: [api_com, 10-64-187-73-uswest1bprod]
+      x-proxied: [10-64-16-237-uswest1bprod]
+    status: {code: 200, message: OK}
+version: 1

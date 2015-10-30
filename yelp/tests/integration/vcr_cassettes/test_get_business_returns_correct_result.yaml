@@ -1,0 +1,55 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: [api.yelp.com]
+      User-Agent: [Python-urllib/2.7]
+    method: GET
+    uri: https://api.yelp.com/v2/business/yelp-san-francisco?oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446229809
+  response:
+    body: {string: !!python/unicode '{"is_claimed": true, "rating": 2.5, "mobile_url":
+        "http://m.yelp.com/biz/yelp-san-francisco", "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png",
+        "review_count": 7557, "name": "Yelp", "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/8e8633e5f8f0/ico/stars/v1/stars_small_2_half.png",
+        "url": "http://www.yelp.com/biz/yelp-san-francisco", "categories": [["Local
+        Flavor", "localflavor"], ["Mass Media", "massmedia"]], "reviews": [{"rating":
+        5, "excerpt": "**************   500th Review    **************\n\nIt''s safe
+        to say Yelp has become a big part of my life over the past several years.
+        It''s hard to believe...", "time_created": 1446186450, "rating_image_url":
+        "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "rating_image_small_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "user": {"image_url": "http://s3-media3.fl.yelpcdn.com/photo/kfuAosmLVtq0rQroacw58A/ms.jpg",
+        "id": "hcCFyJJt3OLV1OtPlQeDoA", "name": "John S."}, "rating_image_large_url":
+        "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "cmbsawOt-11cZAZab5qRww"}], "phone": "4159083801", "snippet_text": "Yelp
+        rules!! I''m pretty sure their star rating is low because of the crap businesses
+        that are angry because their horrible products/services have been outed...",
+        "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/nQK-6_vZMt5n88zsAS94ew/ms.jpg",
+        "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/dhmDllG77_qMXYeo7Ek55A/ms.jpg",
+        "display_phone": "+1-415-908-3801", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/d63e3add9901/ico/stars/v1/stars_large_2_half.png",
+        "id": "yelp-san-francisco", "is_closed": false, "location": {"cross_streets":
+        "Natoma St \u0026 Minna St", "city": "San Francisco", "display_address": ["140
+        New Montgomery St", "Financial District", "San Francisco, CA 94105"], "geo_accuracy":
+        9.5, "neighborhoods": ["Financial District", "SoMa"], "postal_code": "94105",
+        "country_code": "US", "address": ["140 New Montgomery St"], "coordinate":
+        {"latitude": 37.7867703362929, "longitude": -122.399958372115}, "state_code":
+        "CA"}}'}
+    headers:
+      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
+      connection: [close]
+      content-length: ['2280']
+      content-type: [application/json; charset=UTF-8]
+      date: ['Fri, 30 Oct 2015 18:30:09 GMT']
+      expires: ['Fri, 30 Oct 2015 18:30:09 GMT']
+      pragma: [no-cache]
+      server: [nginx]
+      set-cookie: [bse=35a14f4afbdc6a24dc976074d1a3a089; Domain=.yelp.com; Path=/;
+          HttpOnly, 'yuv=kwboKwZ5BSBbsfCw6ZYMvEuQ1dZ5RKTN4Q4LKzztLoz5x00JQLsEOLEnuE5gjqbeVtLrLq8U-WioqQCV4jigQfE2IsB672Wn;
+          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Thu, 25-Oct-2035 18:30:09
+          GMT']
+      vary: ['Accept-Encoding,User-Agent']
+      x-mode: [ro]
+      x-node: [api_com, web4-uswest1bprod]
+      x-proxied: [10-64-0-245-uswest1aprod]
+    status: {code: 200, message: OK}
+version: 1

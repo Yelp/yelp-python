@@ -1,0 +1,46 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: [api.yelp.com]
+      User-Agent: [Python-urllib/2.7]
+    method: GET
+    uri: https://api.yelp.com/v2/phone_search/?oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446229826&phone=%2B14158267000
+  response:
+    body: {string: !!python/unicode '{"region": null, "total": 1, "businesses": [{"is_claimed":
+        true, "rating": 3.5, "mobile_url": "http://m.yelp.com/biz/flour-water-san-francisco",
+        "rating_img_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+        "review_count": 1778, "name": "Flour + Water", "rating_img_url_small": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+        "url": "http://www.yelp.com/biz/flour-water-san-francisco", "categories":
+        [["Italian", "italian"], ["Pizza", "pizza"]], "menu_date_updated": 1442033840,
+        "phone": "+14158267000", "snippet_text": "I came here for the pasta tasting
+        menu and it was quite an experience. One will be very full after this meal
+        so come hungry. \n\nEven though this is one of my...", "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/TncWKf9mHyebS2m5BIFEgg/ms.jpg",
+        "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/9R13bz34dWBk_7r1gXcgKQ/ms.jpg",
+        "display_phone": "+1-415-826-7000", "rating_img_url_large": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+        "menu_provider": "single_platform", "id": "flour-water-san-francisco", "is_closed":
+        false, "location": {"cross_streets": "20th St \u0026 21st St", "city": "San
+        Francisco", "display_address": ["2401 Harrison St", "Mission", "San Francisco,
+        CA 94110"], "geo_accuracy": 8.0, "neighborhoods": ["Mission"], "postal_code":
+        "94110", "country_code": "US", "address": ["2401 Harrison St"], "coordinate":
+        {"latitude": 37.7589188, "longitude": -122.4123077}, "state_code": "CA"}}]}'}
+    headers:
+      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
+      connection: [close]
+      content-length: ['1597']
+      content-type: [application/json; charset=UTF-8]
+      date: ['Fri, 30 Oct 2015 18:30:26 GMT']
+      expires: ['Fri, 30 Oct 2015 18:30:26 GMT']
+      pragma: [no-cache]
+      server: [nginx]
+      set-cookie: [bse=0df20b8d3ac94816dd3d1595faa66d94; Domain=.yelp.com; Path=/;
+          HttpOnly, 'yuv=rnpepNmYPJSSXGeTjJvmk5tuJtAag-dX8SA3eKe2qfH0lPou9cVEvP2xG3TCWXEyDuDz18XoyUtqpZRTFTgnL0s0zdGjoVlw;
+          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Thu, 25-Oct-2035 18:30:26
+          GMT']
+      vary: ['Accept-Encoding,User-Agent']
+      x-mode: [ro]
+      x-node: [api_com, web55-uswest1bprod]
+      x-proxied: [10-64-0-146-uswest1aprod]
+    status: {code: 200, message: OK}
+version: 1

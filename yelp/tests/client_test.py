@@ -5,9 +5,6 @@ import pytest
 import urllib2
 
 from yelp.client import Client
-from yelp.errors import BusinessUnavailable
-from yelp.errors import InvalidParameter
-from yelp.errors import MissingParameter
 from yelp.oauth1_authenticator import Oauth1Authenticator
 from yelp.obj.business_response import BusinessResponse
 from yelp.obj.search_response import SearchResponse
@@ -15,14 +12,11 @@ from yelp.obj.search_response import SearchResponse
 
 class TestClient(object):
 
-    sample_location = "San Francisco, CA"
-    params_limit_one = {
-        'limit': 1
-    }
+    sample_location = 'San Francisco, CA'
 
     @classmethod
     def setup_class(cls):
-        with open('json/credentials_secret.json') as cred:
+        with open('json/credentials.json') as cred:
             test_creds = json.load(cred)
             auth = Oauth1Authenticator(**test_creds)
             cls.client = Client(auth)
@@ -114,66 +108,3 @@ class TestClient(object):
             with mock.patch('yelp.errors.ErrorHandler.raise_error') as r:
                 self.client._make_request("")
                 r.assert_called_once_with(error)
-
-    # integration tests
-
-    def test_url_with_no_params(self):
-        with pytest.raises(MissingParameter):
-            self.client._make_request(path="/v2/business/")
-
-    def test_get_business_returns_correct_result(self):
-        business_id = "yelp-san-francisco"
-        resp = self.client.get_business(business_id)
-        assert type(resp) is BusinessResponse
-        assert resp.business.id == business_id
-
-    def test_get_business_with_bad_id(self):
-        with pytest.raises(BusinessUnavailable):
-            business_id = "does-not-exist"
-            self.client.get_business(business_id)
-
-    def test_get_business_with_unicode_chars(self):
-        business_id = u'weingalerie-und-café-nö-berlin'
-        resp = self.client.get_business(business_id)
-        assert resp.business.id == business_id
-
-    def test_search_location_only(self):
-        resp = self.client.search(self.sample_location)
-        assert type(resp) is SearchResponse
-
-    def test_search(self):
-        resp = self.client.search(
-            self.sample_location,
-            **self.params_limit_one
-        )
-        assert len(resp.businesses) is 1
-
-    def test_search_bad_params(self):
-        with pytest.raises(InvalidParameter):
-            params = {
-                'limit': 'not_a_number'
-            }
-            self.client.search(self.sample_location, **params)
-
-    def test_search_by_bounding_box_only(self):
-        resp = self.client.search_by_bounding_box(
-            37.900000,
-            -122.500000,
-            37.788022,
-            -122.399797,
-            **self.params_limit_one)
-        assert resp
-        lat = resp.businesses[0].location.coordinate.latitude
-        long = resp.businesses[0].location.coordinate.longitude
-        assert (lat >= 37.788022 and lat <= 37.900000)
-        assert (long >= -122.500000 and long <= -122.399797)
-
-    def test_search_by_coordinates_only(self):
-        resp = self.client.search_by_coordinates(37.788022, -122.399797)
-        assert resp
-
-    def test_phone_search(self):
-        phone = '+14158267000'
-        resp = self.client.phone_search(phone)
-        assert type(resp) is SearchResponse
-        assert phone in resp.businesses[0].phone

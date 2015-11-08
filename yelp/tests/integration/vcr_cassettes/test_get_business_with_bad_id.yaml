@@ -1,0 +1,31 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: [api.yelp.com]
+      User-Agent: [Python-urllib/2.7]
+    method: GET
+    uri: https://api.yelp.com/v2/business/does-not-exist?oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446229809
+  response:
+    body: {string: !!python/unicode '{"error": {"text": "Business information is unavailable",
+        "id": "BUSINESS_UNAVAILABLE"}}'}
+    headers:
+      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
+      connection: [close]
+      content-length: ['88']
+      content-type: [application/json; charset=UTF-8]
+      date: ['Fri, 30 Oct 2015 18:30:09 GMT']
+      expires: ['Fri, 30 Oct 2015 18:30:09 GMT']
+      pragma: [no-cache]
+      server: [nginx]
+      set-cookie: [bse=6491226820a70d52220cadadb44f4883; Domain=.yelp.com; Path=/;
+          HttpOnly, 'yuv=YYBtoxWUL93_o6Uu3EQXIdgJJl6AQ-QMOsLNEcVHtwutgjq2aKjI-71CI7k4RzTT0Juaamu6I2sB7NL3lKOUBp4CEiTllyoi;
+          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Thu, 25-Oct-2035 18:30:09
+          GMT']
+      vary: [User-Agent]
+      x-mode: [ro]
+      x-node: [api_com, web56-uswest1aprod]
+      x-proxied: [10-64-0-111-uswest1aprod]
+    status: {code: 400, message: Bad Request}
+version: 1

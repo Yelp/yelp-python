@@ -1,0 +1,31 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: [api.yelp.com]
+      User-Agent: [Python-urllib/2.7]
+    method: GET
+    uri: https://api.yelp.com/v2/search/?limit=not_a_number&location=San+Francisco%2C+CA&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446229827
+  response:
+    body: {string: !!python/unicode '{"error": {"text": "One or more parameters are
+        invalid in request", "id": "INVALID_PARAMETER", "field": "limit"}}'}
+    headers:
+      cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']
+      connection: [close]
+      content-length: ['113']
+      content-type: [application/json; charset=UTF-8]
+      date: ['Fri, 30 Oct 2015 18:30:27 GMT']
+      expires: ['Fri, 30 Oct 2015 18:30:27 GMT']
+      pragma: [no-cache]
+      server: [nginx]
+      set-cookie: [bse=7c066b61ffedb0a320dc96a8712a482f; Domain=.yelp.com; Path=/;
+          HttpOnly, 'yuv=s7AqKLgWPSd_7AHVSEmobSvVoOzchGBLIrbYqTI90PcZzQpGlpTnq64VIl5GY9mG8va8pjv5xhqJOQkKPDpN9JT1mF6Lwd03;
+          Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Thu, 25-Oct-2035 18:30:27
+          GMT']
+      vary: [User-Agent]
+      x-mode: [ro]
+      x-node: [api_com, web49-uswest1aprod]
+      x-proxied: [10-64-16-137-uswest1bprod]
+    status: {code: 400, message: Bad Request}
+version: 1

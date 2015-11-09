@@ -3,7 +3,7 @@ import pytest
 
 from yelp.errors import InvalidParameter
 from yelp.obj.search_response import SearchResponse
-from yelp.tests.integration.integration_test import IntegrationTest
+from tests.integration.integration_test import IntegrationTest
 
 
 class TestSearchIntegration(IntegrationTest):

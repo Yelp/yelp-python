@@ -139,7 +139,7 @@ For a full list of available response fields, take a look at the [documentation]
 $ pip install virtualenv
 $ virtualenv virtualenv
 $ source virtualenv/bin/activate
-$ pip install -r requirements.txt
+$ pip install -r requirements-dev.txt
 ```
 3. Create your feature branch (git checkout -b my-new-feature)
 4. Commit your changes (git commit -am 'Add some feature')

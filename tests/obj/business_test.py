@@ -17,5 +17,5 @@ def test_business_category_is_tuple():
         response = json.load(biz)
         business = Business(response)
         assert type(business.categories[0]) is Category
-        assert business.categories[0].name
-        assert business.categories[0].alias
+        assert business.categories[0].name == "Indian"
+        assert business.categories[0].alias == "indpak"

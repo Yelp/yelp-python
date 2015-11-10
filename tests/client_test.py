@@ -29,10 +29,16 @@ class TestClient(object):
     def test_get_business_builds_correct_params(self):
         with mock.patch('yelp.client.Client._make_request') as request:
             request.return_value = self.business_response
-            test_id = 'test-id'
-            response = self.client.get_business(test_id)
-            request.assert_called_once_with('/v2/business/test-id')
+            response = self.client.get_business('test-id')
+            request.assert_called_once_with('/v2/business/test-id', {})
             assert type(response) is BusinessResponse
+
+    def test_get_business_builds_correct_params_with_lang(self):
+        with mock.patch('yelp.client.Client._make_request') as request:
+            request.return_value = self.business_response
+            params = {'lang': 'fr'}
+            self.client.get_business('test-id', **params)
+            request.assert_called_once_with('/v2/business/test-id', params)
 
     def test_search_builds_correct_params(self):
         with mock.patch('yelp.client.Client._make_request') as request:

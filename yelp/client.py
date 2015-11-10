@@ -18,19 +18,21 @@ class Client(object):
         self.authenticator = authenticator
         self._error_handler = ErrorHandler()
 
-    def get_business(self, business_id):
+    def get_business(self, business_id, **url_params):
         """Make a request to the business endpoint. More info at
         https://www.yelp.com/developers/documentation/v2/business
 
         Args:
             business_id (str): The business id.
+            **url_params: Dict corresponding to business API params
+                https://www.yelp.com/developers/documentation/v2/business#lParam
 
         Returns:
             BusinessResponse object that wraps the response.
 
         """
         business_path = BUSINESS_PATH + business_id
-        return BusinessResponse(self._make_request(business_path))
+        return BusinessResponse(self._make_request(business_path, url_params))
 
     def search(
         self,

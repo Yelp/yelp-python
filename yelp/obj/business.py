@@ -44,7 +44,10 @@ class Business(ResponseObject):
         self._parse_categories(response)
 
     def _parse_categories(self, response):
-        self.categories = (
-            [Category._make(cat) for cat in response['categories']]
-            if 'categories' in response else None
-        )
+        if 'categories' in response:
+            self.categories = [
+                Category(name, alias)
+                for name, alias in response['categories']
+            ]
+        else:
+            self.categories = None

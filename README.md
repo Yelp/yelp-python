@@ -6,7 +6,7 @@ A Python library for the Yelp API. It simplifies the process of authentication, 
 
 Install yelp-python from PyPI using:
 
-    pip install yelp-python
+    pip install yelp
 
 ## Usage
 

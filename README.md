@@ -1,6 +1,6 @@
 # yelp-python
 
-A Python library for the Yelp public API. It simplifies the process of authentication, request construction, and response parsing for Python developers using the Yelp API. This clientlib is built and tested on Python 2.7.
+A Python library for the Yelp API. It simplifies the process of authentication, request construction, and response parsing for Python developers using the Yelp API. This clientlib is built and tested on Python 2.7.
 
 ## Installation
 
@@ -44,9 +44,9 @@ Then load it into your code to construct a client.
 ```
 # read API keys
 with open('config_secret.json') as cred:
-            creds = json.load(cred)
-      auth = Oauth1Authenticator(**creds)
-      client = Client(auth)
+    creds = json.load(cred)
+    auth = Oauth1Authenticator(**creds)
+    client = Client(auth)
 ```
 
 Now you can use the client object to make requests.
@@ -68,15 +68,15 @@ client.search('San Francisco', **params)
 
 ```
 client.search_by_bounding_box(
-            37.900000,
-            -122.500000,
-            37.788022,
-            -122.399797,
-            **params
+    37.900000,
+    -122.500000,
+    37.788022,
+    -122.399797,
+    **params
 )
 ```
 
- `search_by_coordinates` takes a geographic coordinate ([details](https://www.yelp.com/developers/documentation/v2/search_api#searchGC)).
+`search_by_coordinates` takes a geographic coordinate ([details](https://www.yelp.com/developers/documentation/v2/search_api#searchGC)).
 
     client.search_by_coordinates(37.788022, -122.399797, **params)
 
@@ -154,7 +154,7 @@ $ pip install -r requirements-dev.txt
 
 ### Testing
 
-Please write tests for any new features. We use pytest so navigate to `tests/` and run `py.test` to run the full test suite. Full py.test documentation [here](http://pytest.org/latest/contents.html.
+Please write tests for any new features. We use pytest so navigate to `tests/` and run `py.test` to run the full test suite. Full py.test documentation [here](http://pytest.org/latest/contents.html).
 
 If you are adding a new integration test, you will need to connect to the Yelp API. You can set this up by creating a file `tests/json/credentials_secret.json` that contains your API keys in the following format:
 

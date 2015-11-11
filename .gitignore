@@ -1,6 +1,10 @@
+build/
+dist/
+MANIFEST
 *.pyc
 __pycache__
 .DS_Store
 .cache/
-tests/json/credentials_secret.json
 virtualenv/
+
+tests/json/credentials_secret.json

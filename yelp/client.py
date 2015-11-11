@@ -18,9 +18,21 @@ class Client(object):
         self.authenticator = authenticator
         self._error_handler = ErrorHandler()
 
-    def get_business(self, business_id):
+    def get_business(self, business_id, **url_params):
+        """Make a request to the business endpoint. More info at
+        https://www.yelp.com/developers/documentation/v2/business
+
+        Args:
+            business_id (str): The business id.
+            **url_params: Dict corresponding to business API params
+                https://www.yelp.com/developers/documentation/v2/business#lParam
+
+        Returns:
+            BusinessResponse object that wraps the response.
+
+        """
         business_path = BUSINESS_PATH + business_id
-        return BusinessResponse(self._make_request(business_path))
+        return BusinessResponse(self._make_request(business_path, url_params))
 
     def search(
         self,
@@ -29,6 +41,22 @@ class Client(object):
         current_long=None,
         **url_params
     ):
+        """Make a request to the search endpoint. Specify a location by
+        neighbourhood, address, or city. More info at
+        https://www.yelp.com/developers/documentation/v2/search_api#searchNAC
+
+        Args:
+            location (str): A string that specifies location by neighbourhood,
+                address, or city.
+            current_lat (float): Optional latitude to disambiguate location.
+            current_long (float): Optional longitude to disambiguate location.
+            **url_params: Dict corresponding to search API params
+                https://www.yelp.com/developers/documentation/v2/search_api#searchGP
+
+        Returns:
+            SearchResponse object that wraps the response.
+
+        """
         url_params.update({
             'location': location
         })
@@ -48,6 +76,22 @@ class Client(object):
         ne_longitude,
         **url_params
     ):
+        """Make a request to the search endpoint by bounding box. Specify a
+        southwest latitude/longitude and a northeast latitude/longitude. See
+        http://www.yelp.com/developers/documentation/v2/search_api#searchGBB
+
+        Args:
+            sw_latitude (float): Southwest latitude of bounding box.
+            sw_longitude (float): Southwest longitude of bounding box.
+            ne_latitude (float): Northeast latitude of bounding box.
+            ne_longitude (float): Northeast longitude of bounding box.
+            **url_params: Dict corresponding to search API params
+                https://www.yelp.ca/developers/documentation/v2/search_api#searchGP
+
+        Returns:
+            SearchResponse object that wraps the response.
+
+        """
         url_params['bounds'] = self._format_bounds(
             sw_latitude,
             sw_longitude,
@@ -66,6 +110,24 @@ class Client(object):
         altitude_accuracy=None,
         **url_params
     ):
+        """Make a request to the search endpoint by geographic coordinate.
+        Specify a latitude and longitude with optional accuracy, altitude, and
+        altitude_accuracy. More info at
+        http://www.yelp.com/developers/documentation/v2/search_api#searchGC
+
+        Args:
+            latitude (float): Latitude of geo-point to search near.
+            longitude (float): Longitude of geo-point to search near.
+            accuracy (float): Optional accuracy of latitude, longitude.
+            altitude (float): Optional altitude of geo-point to search near.
+            altitude_accuracy (float): Optional accuracy of altitude.
+            **url_params: Dict corresponding to search API params
+                https://www.yelp.ca/developers/documentation/v2/search_api#searchGP
+
+        Returns:
+            SearchResponse object that wraps the response.
+
+        """
         url_params['ll'] = self._format_coordinates(
             latitude,
             longitude,
@@ -77,6 +139,18 @@ class Client(object):
         return SearchResponse(self._make_request(SEARCH_PATH, url_params))
 
     def phone_search(self, phone, **url_params):
+        """Make a request to the phone search endpoint.More info at
+        https://www.yelp.com/developers/documentation/v2/phone_search
+
+        Args:
+            phone (str): Business phone number to search for.
+            **url_params: Dict corresponding to phone search API params
+                https://www.yelp.com/developers/documentation/v2/phone_search
+
+        Returns:
+            SearchResponse object that wraps the response.
+
+        """
         url_params['phone'] = phone
 
         return SearchResponse(

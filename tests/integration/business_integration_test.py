@@ -35,3 +35,13 @@ class TestBusinessIntegration(IntegrationTest):
         business_id = u'weingalerie-und-café-nö-berlin'
         resp = self.client.get_business(business_id)
         assert resp.business.id == business_id
+
+    @int_vcr.use_cassette(**cassette_params)
+    def test_get_business_with_locale_params(self):
+        business_id = u'yelp-san-francisco'
+        params = {
+            'cc': 'CA',
+            'lang': 'fr'
+        }
+        resp = self.client.get_business(business_id, **params)
+        assert resp.business.id == business_id

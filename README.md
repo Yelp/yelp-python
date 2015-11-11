@@ -84,7 +84,13 @@ client.search_by_bounding_box(
 
 To query the Business API use the `get_business` function with a business id. You can also pass in locale parameters as specified in the [Business API Documentation](https://www.yelp.com/developers/documentation/v2/business).
 
-    client.get_business('yelp-san-francisco')
+```
+params = {
+    'lang': 'fr'
+}
+
+client.get_business('yelp-san-francisco', **params)
+```
 
 ### Phone Search API
 

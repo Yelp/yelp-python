@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+import io
 import json
 
 import vcr
@@ -28,7 +29,9 @@ class IntegrationTest(object):
 
     @classmethod
     def setup_class(cls):
-        with open(resource_filename('json/credentials_secret.json')) as cred:
+        with io.open(
+                resource_filename('json/credentials_secret.json'),
+        ) as cred:
             test_creds = json.load(cred)
             auth = Oauth1Authenticator(**test_creds)
             cls.client = Client(auth)

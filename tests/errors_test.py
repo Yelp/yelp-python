@@ -1,8 +1,9 @@
 # -*- coding: UTF-8 -*-
-import urllib2
+import io
 
 import mock
 import pytest
+import six
 
 from tests.testing import resource_filename
 from yelp.errors import ErrorHandler
@@ -16,16 +17,19 @@ class TestErrorHandler(object):
         cls.handler = ErrorHandler()
 
     def test_error_handler_throws_unknown_HTTPError(self):
-        error = urllib2.HTTPError('', 400, 'Bad Request', None, None)
+        error = six.moves.urllib.error.HTTPError(
+            '', 400, 'Bad Request', None, None)
         error.read = mock.Mock()
-        error.read.return_value = '{}'
+        error.read.return_value = b'{}'
 
-        with pytest.raises(urllib2.HTTPError):
+        with pytest.raises(six.moves.urllib.error.HTTPError):
             self.handler.raise_error(error)
 
     def test_error_handler_raises_correct_yelp_error(self):
-        with open(resource_filename('json/error_response.json')) as resp_file:
-            response = resp_file.read().replace('\n', '')
+        with io.open(
+                resource_filename('json/error_response.json'), 'rb',
+        ) as resp_file:
+            response = resp_file.read().replace(b'\n', b'')
 
         error = mock.Mock()
         error.code = 400

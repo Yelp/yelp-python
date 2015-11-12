@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 import json
-import urllib
-import urllib2
+
+import six
 
 from yelp.config import API_HOST
 from yelp.config import BUSINESS_PATH
@@ -193,19 +193,19 @@ class Client(object):
     def _make_request(self, path, url_params={}):
         url = 'https://{0}{1}?'.format(
             API_HOST,
-            urllib.quote(path.encode('utf-8'))
+            six.moves.urllib.parse.quote(path.encode('utf-8'))
         )
         signed_url = self.authenticator.sign_request(url, url_params)
         return self._make_connection(signed_url)
 
     def _make_connection(self, signed_url):
         try:
-            conn = urllib2.urlopen(signed_url, None)
-        except urllib2.HTTPError as error:
+            conn = six.moves.urllib.request.urlopen(signed_url, None)
+        except six.moves.urllib.error.HTTPError as error:
             self._error_handler.raise_error(error)
         else:
             try:
-                response = json.loads(conn.read())
+                response = json.loads(conn.read().decode('UTF-8'))
             finally:
                 conn.close()
             return response

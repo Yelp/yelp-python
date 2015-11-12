@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+import io
 import json
 
 from tests.testing import resource_filename
@@ -9,7 +10,7 @@ class TestOauth1Authenticator(object):
 
     @classmethod
     def setup_class(cls):
-        with open(resource_filename('json/credentials.json')) as cred:
+        with io.open(resource_filename('json/credentials.json')) as cred:
             test_creds = json.load(cred)
             cls.auth = Oauth1Authenticator(**test_creds)
 

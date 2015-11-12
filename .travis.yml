@@ -1,6 +1,7 @@
 language: python
 env: # These should match the tox env list
     - TOXENV=py27
+    - TOXENV=py34
 install: pip install coveralls tox
 script: tox
 # Special snowflake.  Our tests depend on a credentials_secret.json

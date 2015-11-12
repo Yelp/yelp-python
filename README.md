@@ -3,7 +3,7 @@
 
 # yelp-python
 
-A Python library for the Yelp API. It simplifies the process of authentication, request construction, and response parsing for Python developers using the Yelp API. This clientlib is built and tested on Python 2.7.
+A Python library for the Yelp API. It simplifies the process of authentication, request construction, and response parsing for Python developers using the Yelp API. This clientlib is built and tested on Python 2.7 and 3.4.
 
 ## Installation
 

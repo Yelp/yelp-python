@@ -1,9 +1,9 @@
 # -*- coding: UTF-8 -*-
 import pytest
 
+from tests.integration.integration_test import IntegrationTest
 from yelp.errors import InvalidParameter
 from yelp.obj.search_response import SearchResponse
-from tests.integration.integration_test import IntegrationTest
 
 
 class TestSearchIntegration(IntegrationTest):

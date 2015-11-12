@@ -1,19 +1,20 @@
 # -*- coding: UTF-8 -*-
 import json
 
+from tests.testing import resource_filename
 from yelp.obj.business import Business
 from yelp.obj.business import Category
 
 
 def test_init_business():
-    with open('json/business_response.json') as biz:
+    with open(resource_filename('json/business_response.json')) as biz:
         response = json.load(biz)
         business = Business(response)
         assert business.id == response['id']
 
 
 def test_business_category_is_tuple():
-    with open('json/business_response.json') as biz:
+    with open(resource_filename('json/business_response.json')) as biz:
         response = json.load(biz)
         business = Business(response)
         assert type(business.categories[0]) is Category

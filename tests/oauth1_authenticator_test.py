@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 import json
 
+from tests.testing import resource_filename
 from yelp.oauth1_authenticator import Oauth1Authenticator
 
 
@@ -8,7 +9,7 @@ class TestOauth1Authenticator(object):
 
     @classmethod
     def setup_class(cls):
-        with open('json/credentials.json') as cred:
+        with open(resource_filename('json/credentials.json')) as cred:
             test_creds = json.load(cred)
             cls.auth = Oauth1Authenticator(**test_creds)
 

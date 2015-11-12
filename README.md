@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/Yelp/yelp-python.svg?branch=master)](https://travis-ci.org/Yelp/yelp-python)
+[![Coverage Status](https://img.shields.io/coveralls/Yelp/yelp-python.svg?branch=master)](https://coveralls.io/r/Yelp/yelp-python)
+
 # yelp-python
 
 A Python library for the Yelp API. It simplifies the process of authentication, request construction, and response parsing for Python developers using the Yelp API. This clientlib is built and tested on Python 2.7.
@@ -142,10 +145,9 @@ For a full list of available response fields, take a look at the [documentation]
 1. Fork it (http://github.com/yelp/yelp-python/fork)
 2. Setup your virtual environment
 ```
-$ pip install virtualenv
-$ virtualenv virtualenv
-$ source virtualenv/bin/activate
-$ pip install -r requirements-dev.txt
+$ pip install tox
+$ tox -e venv
+$ . venv-yelp/bin/activate
 ```
 3. Create your feature branch (git checkout -b my-new-feature)
 4. Commit your changes (git commit -am 'Add some feature')
@@ -154,7 +156,7 @@ $ pip install -r requirements-dev.txt
 
 ### Testing
 
-Please write tests for any new features. We use pytest so navigate to `tests/` and run `py.test` to run the full test suite. Full py.test documentation [here](http://pytest.org/latest/contents.html).
+Please write tests for any new features. We use pytest + tox so just run `tox` to run the full test suite.  Full py.test documentation [here](http://pytest.org/latest/contents.html).
 
 If you are adding a new integration test, you will need to connect to the Yelp API. You can set this up by creating a file `tests/json/credentials_secret.json` that contains your API keys in the following format:
 

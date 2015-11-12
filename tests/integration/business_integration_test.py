@@ -1,10 +1,10 @@
 # -*- coding: UTF-8 -*-
 import pytest
 
+from tests.integration.integration_test import IntegrationTest
 from yelp.errors import BusinessUnavailable
 from yelp.errors import MissingParameter
 from yelp.obj.business_response import BusinessResponse
-from tests.integration.integration_test import IntegrationTest
 
 
 class TestBusinessIntegration(IntegrationTest):

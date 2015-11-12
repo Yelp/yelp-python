@@ -17,7 +17,13 @@
         language_version: python2.7
     -   id: name-tests-test
         language_version: python2.7
+        exclude: ^tests/testing.py$
     -   id: flake8
         language_version: python2.7
     -   id: requirements-txt-fixer
+        language_version: python2.7
+-   repo: git://github.com/asottile/reorder_python_imports
+    sha: 3d86483455ab5bd06cc1069fdd5ac57be5463f10
+    hooks:
+    -   id: reorder-python-imports
         language_version: python2.7

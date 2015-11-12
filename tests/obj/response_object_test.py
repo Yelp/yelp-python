@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+import io
 import json
 
 from tests.testing import resource_filename
@@ -12,11 +13,11 @@ class TestResponseObject(object):
 
     @classmethod
     def setup_class(cls):
-        with open(resource_filename('json/business_response.json')) as resp:
+        with io.open(resource_filename('json/business_response.json')) as resp:
             cls.response = json.load(resp)
 
     def test_response_obj_sets_correct_fields(self):
-        with open(resource_filename('json/test_response.json')) as resp:
+        with io.open(resource_filename('json/test_response.json')) as resp:
             response = json.load(resp)
         obj = ResponseObject('{}')
         obj._fields = ['id', 'name']

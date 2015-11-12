@@ -46,7 +46,7 @@ Then load it into your code to construct a client.
 
 ```
 # read API keys
-with open('config_secret.json') as cred:
+with io.open('config_secret.json') as cred:
     creds = json.load(cred)
     auth = Oauth1Authenticator(**creds)
     client = Client(auth)

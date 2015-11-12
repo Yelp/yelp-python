@@ -22,5 +22,6 @@ setup(
     install_requires=[
         'httplib2',
         'oauth2',
+        'six',
     ],
 )

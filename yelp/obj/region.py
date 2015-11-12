@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 from yelp.obj.coordinate import Coordinate
-from yelp.obj.span import Span
 from yelp.obj.response_object import ResponseObject
+from yelp.obj.span import Span
 
 
 class Region(ResponseObject):

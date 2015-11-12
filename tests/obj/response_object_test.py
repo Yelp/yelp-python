@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 import json
 
+from tests.testing import resource_filename
 from yelp.obj.deal import Deal
 from yelp.obj.location import Location
 from yelp.obj.rating import Rating
@@ -11,11 +12,11 @@ class TestResponseObject(object):
 
     @classmethod
     def setup_class(cls):
-        with open('json/business_response.json') as resp:
+        with open(resource_filename('json/business_response.json')) as resp:
             cls.response = json.load(resp)
 
     def test_response_obj_sets_correct_fields(self):
-        with open('json/test_response.json') as resp:
+        with open(resource_filename('json/test_response.json')) as resp:
             response = json.load(resp)
         obj = ResponseObject('{}')
         obj._fields = ['id', 'name']

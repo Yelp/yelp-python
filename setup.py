@@ -1,3 +1,4 @@
+from setuptools import find_packages
 from setuptools import setup
 
 setup(
@@ -16,15 +17,10 @@ setup(
 
     keywords='yelp',
 
-    packages=[
-        'yelp',
-        'yelp.obj'
-    ],
+    packages=find_packages(exclude=('tests*',)),
 
     install_requires=[
-        'httplib2==0.9.2',
-        'oauth2==1.9.0.post1'
+        'httplib2',
+        'oauth2',
     ],
-
-    download_url='https://github.com/Yelp/yelp-python/tarball/1.0'
 )

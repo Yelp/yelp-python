@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 from collections import namedtuple
+
 from yelp.obj.deal import Deal
 from yelp.obj.gift_certificate import GiftCertificate
 from yelp.obj.location import Location

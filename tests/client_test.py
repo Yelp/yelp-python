@@ -1,9 +1,11 @@
 # -*- coding: UTF-8 -*-
 import json
-import mock
-import pytest
 import urllib2
 
+import mock
+import pytest
+
+from tests.testing import resource_filename
 from yelp.client import Client
 from yelp.oauth1_authenticator import Oauth1Authenticator
 from yelp.obj.business_response import BusinessResponse
@@ -16,14 +18,14 @@ class TestClient(object):
 
     @classmethod
     def setup_class(cls):
-        with open('json/credentials.json') as cred:
+        with open(resource_filename('json/credentials.json')) as cred:
             test_creds = json.load(cred)
             auth = Oauth1Authenticator(**test_creds)
             cls.client = Client(auth)
 
-        with open('json/search_response.json') as resp:
+        with open(resource_filename('json/search_response.json')) as resp:
             cls.search_response = json.load(resp)
-        with open('json/business_response.json') as resp:
+        with open(resource_filename('json/business_response.json')) as resp:
             cls.business_response = json.load(resp)
 
     def test_get_business_builds_correct_params(self):

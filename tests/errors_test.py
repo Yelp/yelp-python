@@ -1,9 +1,10 @@
 # -*- coding: UTF-8 -*-
-import mock
-import pytest
 import urllib2
 
+import mock
+import pytest
 
+from tests.testing import resource_filename
 from yelp.errors import ErrorHandler
 from yelp.errors import InvalidParameter
 
@@ -23,7 +24,7 @@ class TestErrorHandler(object):
             self.handler.raise_error(error)
 
     def test_error_handler_raises_correct_yelp_error(self):
-        with open('json/error_response.json') as resp_file:
+        with open(resource_filename('json/error_response.json')) as resp_file:
             response = resp_file.read().replace('\n', '')
 
         error = mock.Mock()

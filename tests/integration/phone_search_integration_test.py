@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
-from yelp.obj.search_response import SearchResponse
 from tests.integration.integration_test import IntegrationTest
+from yelp.obj.search_response import SearchResponse
 
 
 class TestPhoneSearchIntegration(IntegrationTest):

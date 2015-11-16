@@ -174,3 +174,12 @@ We use VCR.py to record and serialize HTTP requests. Add your test to `tests/int
     @int_vcr.use_cassette(**cassette_params)
 
 The first time you run the test, VCR.py will record the HTTP request to the folder `/tests/integration/vcr_cassettes` in a yaml file of the same name as the test, filtering out your oauth tokens prior to writing. VCR.py will replay the response for subsequent runs. This allows us to have deterministic tests and continuously integrate with Travis CI. To clear the recorded response, delete the cassette file. Running the test again will make a new HTTP request and record it. For more information, see [VCR.py documentation](https://github.com/kevin1024/vcrpy).
+
+### Git Workflow
+
+We are using the [git flow](http://nvie.com/posts/a-successful-git-branching-model/)
+workflow. Atlassian has a [solid overview](https://www.atlassian.com/git/workflows#!workflow-gitflow).
+Essentially, new development is merged into the develop branch from feature
+branches, then merged from develop to a release branch, then to master from
+the release branch. Master should always contain the most recently released
+version of the library.

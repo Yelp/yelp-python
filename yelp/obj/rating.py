@@ -8,10 +8,15 @@ class Rating(ResponseObject):
         'rating'
     ]
 
+    # TODO: add option for small/large photos
     def __init__(self, response):
         super(Rating, self).__init__(response)
 
-        # TODO: add option for small/large photos
-        self.img_url = (
-            response['rating_image_url']
-            if 'rating_image_url' in response else None)
+        # Review response uses 'rating_image_url' while Business response uses
+        # 'rating_img_url' so check for both.
+        if 'rating_image_url' in response:
+            self.img_url = response['rating_image_url']
+        elif 'rating_img_url' in response:
+            self.img_url = response['rating_img_url']
+        else:
+            self.img_url = None

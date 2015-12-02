@@ -24,6 +24,8 @@ class Client(object):
         self._error_handler = ErrorHandler()
         self._define_request_methods()
 
+    # Creates an instance of each endpoint class and adds the instances' public
+    # singleton methods to Client. We do this to promote modularity.
     def _define_request_methods(self):
         endpoint_instances = [end(self) for end in self._endpoints]
         for endpoint in endpoint_instances:

@@ -27,11 +27,15 @@ class Client(object):
     def _define_request_methods(self):
         endpoint_instances = [end(self) for end in self._endpoints]
         for endpoint in endpoint_instances:
-            # inspect.getmembers returns a list of (name, value) tuples
             instance_methods = inspect.getmembers(endpoint, inspect.ismethod)
-            for method in instance_methods:
-                if method[0][0] is not '_':
-                    self.__setattr__(method[0], method[1])
+            self._add_instance_methods(instance_methods)
+
+    def _add_instance_methods(self, instance_methods):
+        # instance_methods is a list of (name, value) tuples where value is the
+        # instance of the bound method
+        for method in instance_methods:
+            if method[0][0] is not '_':
+                self.__setattr__(method[0], method[1])
 
     def _make_request(self, path, url_params={}):
         url = 'https://{0}{1}?'.format(

@@ -3,9 +3,9 @@ import io
 import json
 
 from tests.testing import resource_filename
+from yelp.obj.business import Business
 from yelp.obj.deal import Deal
 from yelp.obj.location import Location
-from yelp.obj.rating import Rating
 from yelp.obj.response_object import ResponseObject
 
 
@@ -39,5 +39,5 @@ class TestResponseObject(object):
 
     def test_parse_main_response_body(self):
         obj = ResponseObject('{}')
-        obj._parse_main_response_body('rating', Rating, self.response)
-        assert type(obj.rating) is Rating
+        obj._parse_main_response_body('business', Business, self.response)
+        assert type(obj.business) is Business

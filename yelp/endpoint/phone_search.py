@@ -5,9 +5,6 @@ from yelp.obj.search_response import SearchResponse
 
 class PhoneSearch(object):
 
-    def __init__(self, client):
-        self.client = client
-
     def phone_search(self, phone, **url_params):
         """Make a request to the phone search endpoint.More info at
         https://www.yelp.com/developers/documentation/v2/phone_search
@@ -24,5 +21,5 @@ class PhoneSearch(object):
         url_params['phone'] = phone
 
         return SearchResponse(
-            self.client._make_request(PHONE_SEARCH_PATH, url_params)
+            self.make_request(PHONE_SEARCH_PATH, url_params)
         )

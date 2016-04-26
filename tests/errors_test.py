@@ -73,3 +73,23 @@ def test_invalid_parameter():
     """InvalidParameter should also list the offending field."""
     message = _verify_error_message(errors.InvalidParameter)
     assert 'term' in message
+
+
+def test_error_message_handles_unicode():
+    """We should at least print recognizable forms of the errors.
+    The less mangling we do the better, but some repr() might make sense.
+    """
+    code = 400
+    msg = u'Bäd'
+    resp = {
+        'error': {
+            'text': u'Wröng',
+            'id': u'ERRØR',
+            'field': u'tërm'
+        }
+    }
+    err = errors.YelpError(code, msg, resp)
+    message = str(err)
+    assert str(code) in message
+    assert repr(msg) in message
+    assert repr(resp['error']['text']) in message

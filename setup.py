@@ -4,7 +4,7 @@ from setuptools import setup
 setup(
     name='yelp',
 
-    version='1.0.1',
+    version='1.0.2',
 
     description='Python Clientlib for Yelp Public API',
 

@@ -11,6 +11,14 @@ class YelpError(Exception):
         self.id = response['error']['id']
         self.text = response['error']['text']
 
+    def __str__(self):
+        return repr({
+            'code': self.code,
+            'msg': self.msg,
+            'id': self.id,
+            'text': self.text,
+        })
+
 
 class AreaTooLarge(YelpError):
     pass

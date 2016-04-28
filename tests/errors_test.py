@@ -6,7 +6,6 @@ import pytest
 import six
 
 from tests.testing import resource_filename
-from yelp import errors
 from yelp.errors import ErrorHandler
 from yelp.errors import InvalidParameter
 
@@ -40,56 +39,3 @@ class TestErrorHandler(object):
         with pytest.raises(InvalidParameter) as err:
             self.handler.raise_error(error)
         assert "radius_filter" in err.value.text
-
-
-def _verify_error_message(error_cls):
-    code = 400
-    msg = 'Bad Request'
-    resp = {
-        'error': {
-            'text': 'One or more parameters are invalid in request',
-            'id': 'INVALID_PARAMETER',
-            'field': 'term'
-        }
-    }
-    err = error_cls(code, msg, resp)
-    message = str(err)
-    assert str(code) in message
-    assert msg in message
-    assert resp['error']['text'] in message
-    return message
-
-
-def test_yelp_error():
-    """Error messages should contain the useful elements of the
-    error response.
-    """
-    message = _verify_error_message(errors.YelpError)
-    # Pinning down something we don't currently include, though we could.
-    assert 'term' not in message
-
-
-def test_invalid_parameter():
-    """InvalidParameter should also list the offending field."""
-    message = _verify_error_message(errors.InvalidParameter)
-    assert 'term' in message
-
-
-def test_error_message_handles_unicode():
-    """We should at least print recognizable forms of the errors.
-    The less mangling we do the better, but some repr() might make sense.
-    """
-    code = 400
-    msg = u'Bäd'
-    resp = {
-        'error': {
-            'text': u'Wröng',
-            'id': u'ERRØR',
-            'field': u'tërm'
-        }
-    }
-    err = errors.YelpError(code, msg, resp)
-    message = str(err)
-    assert str(code) in message
-    assert repr(msg) in message
-    assert repr(resp['error']['text']) in message

@@ -5,6 +5,15 @@
 
 A Python library for the Yelp API. It simplifies the process of authentication, request construction, and response parsing for Python developers using the Yelp API. This clientlib is built and tested on Python 2.7 and 3.4.
 
+# Deprecated
+This library works only with the older Yelp API V2.
+
+Starting on April 1st, 2017, you will no longer be able to sign up for API v2.
+
+Please use the newer Yelp Fusion API instead:
+* https://www.yelp.com/developers/documentation/v3/get_started
+* https://github.com/Yelp/yelp-fusion
+
 ## Installation
 
 Install yelp-python from PyPI using:

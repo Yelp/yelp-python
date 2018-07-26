@@ -8,7 +8,7 @@ interactions:
     method: GET
     uri: https://api.yelp.com/v2/phone_search/?oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446229826&phone=%2B14158267000
   response:
-    body: {string: !!python/unicode '{"region": null, "total": 1, "businesses": [{"is_claimed":
+    body: {string: '{"region": null, "total": 1, "businesses": [{"is_claimed":
         true, "rating": 3.5, "mobile_url": "http://m.yelp.com/biz/flour-water-san-francisco",
         "rating_img_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
         "review_count": 1778, "name": "Flour + Water", "rating_img_url_small": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",

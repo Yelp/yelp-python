@@ -8,7 +8,7 @@ interactions:
     method: GET
     uri: https://api.yelp.com/v2/business/?oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446229808
   response:
-    body: {string: !!python/unicode '{"error": {"text": "One or more parameters are
+    body: {string: '{"error": {"text": "One or more parameters are
         missing in request", "id": "MISSING_PARAMETER", "field": "business_id"}}'}
     headers:
       cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']

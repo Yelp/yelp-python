@@ -8,7 +8,7 @@ interactions:
     method: GET
     uri: https://api.yelp.com/v2/business/does-not-exist?oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446229809
   response:
-    body: {string: !!python/unicode '{"error": {"text": "Business information is unavailable",
+    body: {string: '{"error": {"text": "Business information is unavailable",
         "id": "BUSINESS_UNAVAILABLE"}}'}
     headers:
       cache-control: ['max-age=0, must-revalidate, no-cache, no-store, private']

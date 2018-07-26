@@ -1,5 +1,5 @@
 -   repo: git://github.com/pre-commit/pre-commit-hooks
-    sha: 616c1ebd1898c91de9a0548866a59cbd9f4547f6
+    sha: 219c70a9c1e8a946d3835974369d08f3ff5a00ec
     hooks:
     -   id: check-added-large-files
         language_version: python2.7
@@ -23,7 +23,7 @@
     -   id: requirements-txt-fixer
         language_version: python2.7
 -   repo: git://github.com/asottile/reorder_python_imports
-    sha: 3d86483455ab5bd06cc1069fdd5ac57be5463f10
+    sha: f5c67b716c04babb6e8e80bb52e329ee7654b1b8
     hooks:
     -   id: reorder-python-imports
         language_version: python2.7

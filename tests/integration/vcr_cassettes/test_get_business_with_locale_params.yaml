@@ -8,7 +8,7 @@ interactions:
     method: GET
     uri: https://api.yelp.com/v2/business/yelp-san-francisco?cc=CA&lang=fr&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1447196160
   response:
-    body: {string: !!python/unicode '{"is_claimed": true, "rating": 2.5, "mobile_url":
+    body: {string: '{"is_claimed": true, "rating": 2.5, "mobile_url":
         "http://fr.m.yelp.ca/biz/yelp-san-francisco", "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png",
         "review_count": 7608, "name": "Yelp", "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/8e8633e5f8f0/ico/stars/v1/stars_small_2_half.png",
         "url": "http://fr.yelp.ca/biz/yelp-san-francisco", "categories": [["Sp\u00e9cialit\u00e9s

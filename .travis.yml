@@ -5,8 +5,8 @@ matrix:
        python: 2.7
     -  env: TOXENV=py36
        python: 3.6
-    -  env: TOXENV=pypy
-       python: pypy-5.7.1
+    -  env: TOXENV=pre-commit
+       python: 3.6
 install: pip install coveralls tox
 script: tox
 # Special snowflake.  Our tests depend on a credentials_secret.json

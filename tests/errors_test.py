@@ -11,29 +11,25 @@ from yelp.errors import InvalidParameter
 
 
 class TestErrorHandler(object):
-
     @classmethod
     def setup_class(cls):
         cls.handler = ErrorHandler()
 
     def test_error_handler_throws_unknown_HTTPError(self):
-        error = six.moves.urllib.error.HTTPError(
-            '', 400, 'Bad Request', None, None)
+        error = six.moves.urllib.error.HTTPError("", 400, "Bad Request", None, None)
         error.read = mock.Mock()
-        error.read.return_value = b'{}'
+        error.read.return_value = b"{}"
 
         with pytest.raises(six.moves.urllib.error.HTTPError):
             self.handler.raise_error(error)
 
     def test_error_handler_raises_correct_yelp_error(self):
-        with io.open(
-                resource_filename('json/error_response.json'), 'rb',
-        ) as resp_file:
-            response = resp_file.read().replace(b'\n', b'')
+        with io.open(resource_filename("json/error_response.json"), "rb") as resp_file:
+            response = resp_file.read().replace(b"\n", b"")
 
         error = mock.Mock()
         error.code = 400
-        error.msg = 'Bad Request'
+        error.msg = "Bad Request"
         error.read.return_value = response
 
         with pytest.raises(InvalidParameter) as err:

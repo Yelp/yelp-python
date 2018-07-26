@@ -4,7 +4,6 @@ from yelp.obj.business_response import BusinessResponse
 
 
 class Business(object):
-
     def __init__(self, client):
         self.client = client
 
@@ -22,6 +21,4 @@ class Business(object):
 
         """
         business_path = BUSINESS_PATH + business_id
-        return BusinessResponse(
-            self.client._make_request(business_path, url_params)
-        )
+        return BusinessResponse(self.client._make_request(business_path, url_params))

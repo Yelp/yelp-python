@@ -1,7 +1,12 @@
 language: python
-env: # These should match the tox env list
-    - TOXENV=py27
-    - TOXENV=py34
+matrix:
+  include: # These should match the tox env list
+    -  env: TOXENV=py27
+       python: 2.7
+    -  env: TOXENV=py36
+       python: 3.6
+    -  env: TOXENV=pypy
+       python: pypy-5.7.1
 install: pip install coveralls tox
 script: tox
 # Special snowflake.  Our tests depend on a credentials_secret.json
@@ -9,7 +14,6 @@ before_install:
     - cp tests/json/credentials.json tests/json/credentials_secret.json
 after_success:
     - coveralls
-sudo: false
 cache:
     directories:
         - $HOME/.cache/pip

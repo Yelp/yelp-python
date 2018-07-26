@@ -1,29 +1,19 @@
+repos:
 -   repo: git://github.com/pre-commit/pre-commit-hooks
-    sha: 219c70a9c1e8a946d3835974369d08f3ff5a00ec
+    rev: v1.4.0
     hooks:
     -   id: check-added-large-files
-        language_version: python2.7
     -   id: check-merge-conflict
-        language_version: python2.7
     -   id: trailing-whitespace
-        language_version: python2.7
     -   id: end-of-file-fixer
-        language_version: python2.7
     -   id: autopep8-wrapper
-        language_version: python2.7
     -   id: check-yaml
-        language_version: python2.7
     -   id: debug-statements
-        language_version: python2.7
     -   id: name-tests-test
-        language_version: python2.7
         exclude: ^tests/testing.py$
     -   id: flake8
-        language_version: python2.7
     -   id: requirements-txt-fixer
-        language_version: python2.7
 -   repo: git://github.com/asottile/reorder_python_imports
-    sha: f5c67b716c04babb6e8e80bb52e329ee7654b1b8
+    rev: v1.1.0
     hooks:
     -   id: reorder-python-imports
-        language_version: python2.7

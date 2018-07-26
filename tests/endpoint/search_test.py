@@ -15,7 +15,7 @@ class TestBusiness(object):
         cls.client = Client(auth)
 
     def test_search_builds_correct_params(self):
-        with mock.patch('yelp.client.Client._make_request') as request:
+        with mock.patch('yelp.client.BaseClient.make_request') as request:
             request.return_value = '{}'
             params = {
                 'term': 'food',
@@ -28,7 +28,7 @@ class TestBusiness(object):
             assert type(response) is SearchResponse
 
     def test_search_builds_correct_params_with_current_lat_long(self):
-        with mock.patch('yelp.client.Client._make_request') as request:
+        with mock.patch('yelp.client.BaseClient.make_request') as request:
             params = {
                 'term': 'food',
             }
@@ -40,7 +40,7 @@ class TestBusiness(object):
             request.assert_called_once_with('/v2/search/', params)
 
     def test_search_by_bounding_box_builds_correct_params(self):
-        with mock.patch('yelp.client.Client._make_request') as request:
+        with mock.patch('yelp.client.BaseClient.make_request') as request:
             params = {
                 'term': 'food',
             }
@@ -49,6 +49,6 @@ class TestBusiness(object):
             request.assert_called_once_with('/v2/search/', params)
 
     def test_search_by_coordinates_builds_correct_params(self):
-        with mock.patch('yelp.client.Client._make_request') as request:
+        with mock.patch('yelp.client.BaseClient.make_request') as request:
             self.client.search_by_coordinates(0, 0, 0, 0, 0)
             request.assert_called_once_with('/v2/search/', {'ll': '0,0,0,0,0'})

@@ -13,7 +13,7 @@ class TestBusiness(object):
         cls.client = Client(auth)
 
     def test_phone_search_builds_correct_params(self):
-        with mock.patch('yelp.client.Client._make_request') as request:
+        with mock.patch('yelp.client.BaseClient.make_request') as request:
             request.return_value = '{}'
             params = {
                 'category': 'fashion'

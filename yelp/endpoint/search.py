@@ -5,9 +5,6 @@ from yelp.obj.search_response import SearchResponse
 
 class Search(object):
 
-    def __init__(self, client):
-        self.client = client
-
     def search(
         self,
         location,
@@ -41,7 +38,7 @@ class Search(object):
             )
 
         return SearchResponse(
-            self.client._make_request(SEARCH_PATH, url_params)
+            self.make_request(SEARCH_PATH, url_params)
         )
 
     def search_by_bounding_box(
@@ -76,7 +73,7 @@ class Search(object):
         )
 
         return SearchResponse(
-            self.client._make_request(SEARCH_PATH, url_params)
+            self.make_request(SEARCH_PATH, url_params)
         )
 
     def search_by_coordinates(
@@ -115,7 +112,7 @@ class Search(object):
         )
 
         return SearchResponse(
-            self.client._make_request(SEARCH_PATH, url_params)
+            self.make_request(SEARCH_PATH, url_params)
         )
 
     def _format_current_lat_long(self, lat, long):

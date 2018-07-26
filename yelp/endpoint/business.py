@@ -5,9 +5,6 @@ from yelp.obj.business_response import BusinessResponse
 
 class Business(object):
 
-    def __init__(self, client):
-        self.client = client
-
     def get_business(self, business_id, **url_params):
         """Make a request to the business endpoint. More info at
         https://www.yelp.com/developers/documentation/v2/business
@@ -23,5 +20,5 @@ class Business(object):
         """
         business_path = BUSINESS_PATH + business_id
         return BusinessResponse(
-            self.client._make_request(business_path, url_params)
+            self.make_request(business_path, url_params)
         )

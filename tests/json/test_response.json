@@ -1,5 +1,5 @@
 {
-    "id": "123",
-    "name": "abc",
-    "do_not_display": "None"
+  "do_not_display": "None",
+  "id": "123",
+  "name": "abc"
 }

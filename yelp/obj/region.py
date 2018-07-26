@@ -5,9 +5,8 @@ from yelp.obj.span import Span
 
 
 class Region(ResponseObject):
-
     def __init__(self, response):
         super(Region, self).__init__(response)
 
-        self._parse('center', Coordinate, response)
-        self._parse('span', Span, response)
+        self._parse("center", Coordinate, response)
+        self._parse("span", Span, response)

@@ -4,8 +4,4 @@ from yelp.obj.response_object import ResponseObject
 
 class User(ResponseObject):
 
-    _fields = [
-        'id',
-        'image_url',
-        'name'
-    ]
+    _fields = ["id", "image_url", "name"]

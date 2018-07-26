@@ -4,7 +4,6 @@ from yelp.obj.search_response import SearchResponse
 
 
 class PhoneSearch(object):
-
     def __init__(self, client):
         self.client = client
 
@@ -21,8 +20,6 @@ class PhoneSearch(object):
             SearchResponse object that wraps the response.
 
         """
-        url_params['phone'] = phone
+        url_params["phone"] = phone
 
-        return SearchResponse(
-            self.client._make_request(PHONE_SEARCH_PATH, url_params)
-        )
+        return SearchResponse(self.client._make_request(PHONE_SEARCH_PATH, url_params))

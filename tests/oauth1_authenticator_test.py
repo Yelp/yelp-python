@@ -7,18 +7,17 @@ from yelp.oauth1_authenticator import Oauth1Authenticator
 
 
 class TestOauth1Authenticator(object):
-
     @classmethod
     def setup_class(cls):
-        with io.open(resource_filename('json/credentials.json')) as cred:
+        with io.open(resource_filename("json/credentials.json")) as cred:
             test_creds = json.load(cred)
             cls.auth = Oauth1Authenticator(**test_creds)
 
     def test_create_new_authentication(self):
-        assert self.auth.consumer.key == 'consumer_key'
-        assert self.auth.consumer.secret == 'consumer_secret'
-        assert self.auth.token.key == 'token'
-        assert self.auth.token.secret == 'token_secret'
+        assert self.auth.consumer.key == "consumer_key"
+        assert self.auth.consumer.secret == "consumer_secret"
+        assert self.auth.token.key == "token"
+        assert self.auth.token.secret == "token_secret"
 
     def test_sign_request(self):
         path = "https://api.yelp.com/"

@@ -13,11 +13,7 @@ from yelp.errors import ErrorHandler
 
 class Client(object):
 
-    _endpoints = [
-        Business,
-        PhoneSearch,
-        Search
-    ]
+    _endpoints = [Business, PhoneSearch, Search]
 
     def __init__(self, authenticator):
         self.authenticator = authenticator
@@ -36,13 +32,12 @@ class Client(object):
         # instance_methods is a list of (name, value) tuples where value is the
         # instance of the bound method
         for method in instance_methods:
-            if method[0][0] is not '_':
+            if method[0][0] is not "_":
                 self.__setattr__(method[0], method[1])
 
     def _make_request(self, path, url_params={}):
-        url = 'https://{0}{1}?'.format(
-            API_HOST,
-            six.moves.urllib.parse.quote(path.encode('utf-8'))
+        url = "https://{}{}?".format(
+            API_HOST, six.moves.urllib.parse.quote(path.encode("utf-8"))
         )
         signed_url = self.authenticator.sign_request(url, url_params)
         return self._make_connection(signed_url)
@@ -54,7 +49,7 @@ class Client(object):
             self._error_handler.raise_error(error)
         else:
             try:
-                response = json.loads(conn.read().decode('UTF-8'))
+                response = json.loads(conn.read().decode("UTF-8"))
             finally:
                 conn.close()
             return response

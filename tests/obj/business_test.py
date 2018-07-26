@@ -8,14 +8,14 @@ from yelp.obj.business import Category
 
 
 def test_init_business():
-    with io.open(resource_filename('json/business_response.json')) as biz:
+    with io.open(resource_filename("json/business_response.json")) as biz:
         response = json.load(biz)
         business = Business(response)
-        assert business.id == response['id']
+        assert business.id == response["id"]
 
 
 def test_business_category_is_tuple():
-    with io.open(resource_filename('json/business_response.json')) as biz:
+    with io.open(resource_filename("json/business_response.json")) as biz:
         response = json.load(biz)
         business = Business(response)
         assert type(business.categories[0]) is Category

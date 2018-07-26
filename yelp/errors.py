@@ -3,13 +3,12 @@ import json
 
 
 class YelpError(Exception):
-
     def __init__(self, code, msg, response):
         self.code = code
         self.msg = msg
 
-        self.id = response['error']['id']
-        self.text = response['error']['text']
+        self.id = response["error"]["id"]
+        self.text = response["error"]["text"]
 
 
 class AreaTooLarge(YelpError):
@@ -65,38 +64,35 @@ class UnspecifiedLocation(YelpError):
 
 
 class InvalidParameter(YelpError):
-
     def __init__(self, code, msg, response):
         super(InvalidParameter, self).__init__(code, msg, response)
-        self.text += ': ' + response['error']['field']
+        self.text += ": " + response["error"]["field"]
 
 
 class ErrorHandler(object):
 
     _error_map = {
-        'AREA_TOO_LARGE': AreaTooLarge,
-        'BAD_CATEGORY': BadCategory,
-        'BUSINESS_UNAVAILABLE': BusinessUnavailable,
-        'EXCEEDED_REQS': ExceededReqs,
-        'INTERNAL_ERROR': InternalError,
-        'INVALID_OAUTH_CREDENTIALS': InvalidOAuthCredentials,
-        'INVALID_OAUTH_USER': InvalidOAuthUser,
-        'INVALID_SIGNATURE': InvalidSignature,
-        'INVALID_PARAMETER': InvalidParameter,
-        'MISSING_PARAMETER': MissingParameter,
-        'MULTIPLE_LOCATIONS': MultipleLocations,
-        'SSL_REQUIRED': SSLRequired,
-        'UNAVAILABLE_FOR_LOCATION': UnavailableForLocation,
-        'UNSPECIFIED_LOCATION': UnspecifiedLocation
+        "AREA_TOO_LARGE": AreaTooLarge,
+        "BAD_CATEGORY": BadCategory,
+        "BUSINESS_UNAVAILABLE": BusinessUnavailable,
+        "EXCEEDED_REQS": ExceededReqs,
+        "INTERNAL_ERROR": InternalError,
+        "INVALID_OAUTH_CREDENTIALS": InvalidOAuthCredentials,
+        "INVALID_OAUTH_USER": InvalidOAuthUser,
+        "INVALID_SIGNATURE": InvalidSignature,
+        "INVALID_PARAMETER": InvalidParameter,
+        "MISSING_PARAMETER": MissingParameter,
+        "MULTIPLE_LOCATIONS": MultipleLocations,
+        "SSL_REQUIRED": SSLRequired,
+        "UNAVAILABLE_FOR_LOCATION": UnavailableForLocation,
+        "UNSPECIFIED_LOCATION": UnspecifiedLocation,
     }
 
     def raise_error(self, error):
-        response = json.loads(error.read().decode('UTF-8'))
+        response = json.loads(error.read().decode("UTF-8"))
         try:
-            raise self._error_map[response['error']['id']](
-                error.code,
-                error.msg,
-                response
+            raise self._error_map[response["error"]["id"]](
+                error.code, error.msg, response
             )
         except KeyError:
             raise error

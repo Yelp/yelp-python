@@ -8,8 +8,8 @@ from yelp.obj.user import User
 
 
 def test_init_review():
-    with io.open(resource_filename('json/business_response.json')) as biz:
-        response = json.load(biz)['reviews'][0]
+    with io.open(resource_filename("json/business_response.json")) as biz:
+        response = json.load(biz)["reviews"][0]
         review = Review(response)
-        assert review.id == response['id']
+        assert review.id == response["id"]
         assert type(review.user) is User

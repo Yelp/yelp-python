@@ -131,7 +131,7 @@ Search and phone search responses are parsed into `SearchResponse` objects.
 >>> response.businesses[0].name
 u'The Flying Falafel'
 
->>> response.businesses[0].rating.rating
+>>> response.businesses[0].rating
 4.5
 ```
 

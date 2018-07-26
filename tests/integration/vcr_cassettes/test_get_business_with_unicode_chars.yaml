@@ -8,7 +8,7 @@ interactions:
     method: GET
     uri: https://api.yelp.com/v2/business/weingalerie-und-caf%C3%A9-n%C3%B6-berlin?oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446229809
   response:
-    body: {string: !!python/unicode '{"is_claimed": true, "rating": 4.5, "mobile_url":
+    body: {string: '{"is_claimed": true, "rating": 4.5, "mobile_url":
         "http://m.yelp.com/biz/weingalerie-und-caf%C3%A9-n%C3%B6-berlin", "rating_img_url":
         "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
         "review_count": 90, "name": "Weingalerie und Caf\u00e9 N\u00d6!", "rating_img_url_small":

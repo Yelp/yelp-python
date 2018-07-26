@@ -8,7 +8,7 @@ interactions:
     method: GET
     uri: https://api.yelp.com/v2/search/?ll=37.788022%2C-122.399797&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446229828
   response:
-    body: {string: !!python/unicode '{"region": {"span": {"latitude_delta": 0.013486550000010311,
+    body: {string: '{"region": {"span": {"latitude_delta": 0.013486550000010311,
         "longitude_delta": 0.010758879999997362}, "center": {"latitude": 37.789531249999996,
         "longitude": -122.3999794}}, "total": 19437, "businesses": [{"is_claimed":
         true, "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/t-we-tea-san-francisco",

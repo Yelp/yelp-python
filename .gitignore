@@ -10,3 +10,5 @@ build/
 dist/
 tests/json/credentials_secret.json
 venv-*
+.venv.touch
+.pytest_cache/

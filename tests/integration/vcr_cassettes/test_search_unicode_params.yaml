@@ -8,7 +8,7 @@ interactions:
     method: GET
     uri: https://api.yelp.com/v2/search/?location=Tokyo&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446229827&term=%E6%9F%93%E5%A4%AA%E9%83%8E
   response:
-    body: {string: !!python/unicode '{"region": {"span": {"latitude_delta": 0.5935670954400081,
+    body: {string: '{"region": {"span": {"latitude_delta": 0.5935670954400081,
         "longitude_delta": 0.4823556210000106}, "center": {"latitude": 35.5824666096,
         "longitude": 139.754264169}}, "total": 3, "businesses": [{"is_claimed": false,
         "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/%E6%9F%93%E5%A4%AA%E9%83%8E-%E5%8F%B0%E6%9D%B1%E5%8C%BA",

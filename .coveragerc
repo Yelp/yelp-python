@@ -1,10 +1,9 @@
 [run]
 branch = True
 source =
-    .
+    yelp/
+    tests/
 omit =
-    .tox/*
-    /usr/*
     */tmp*
     setup.py
     # Don't complain if non-runnable code isn't run
@@ -26,4 +25,3 @@ exclude_lines =
 
 [html]
 directory = coverage-html
-

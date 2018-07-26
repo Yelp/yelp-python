@@ -8,7 +8,7 @@ interactions:
     method: GET
     uri: https://api.yelp.com/v2/search/?location=San+Francisco%2C+CA&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1446229826
   response:
-    body: {string: !!python/unicode '{"region": {"span": {"latitude_delta": 0.04673735000000079,
+    body: {string: '{"region": {"span": {"latitude_delta": 0.04673735000000079,
         "longitude_delta": 0.05231922350600371}, "center": {"latitude": 37.76832975,
         "longitude": -122.41716843477}}, "total": 52058, "businesses": [{"is_claimed":
         true, "rating": 4.5, "mobile_url": "http://m.yelp.com/biz/the-flying-falafel-san-francisco-3",

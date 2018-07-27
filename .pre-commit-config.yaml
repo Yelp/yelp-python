@@ -25,3 +25,12 @@ repos:
     rev: 18.6b4
     hooks:
     - id: black
+-   repo: https://github.com/asottile/reorder_python_imports
+    rev: v1.1.0
+    hooks:
+    -   id: reorder-python-imports
+        args:
+        - --add-import
+        - from __future__ import absolute_import
+        - --add-import
+        - from __future__ import unicode_literals

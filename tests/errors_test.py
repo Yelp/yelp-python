@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
-from yelp.errors import YelpError
+from __future__ import absolute_import
+from __future__ import unicode_literals
+
 import mock
 import pytest
+
+from yelp.errors import YelpError
 
 
 def test():

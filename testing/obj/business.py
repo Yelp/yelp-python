@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import
+from __future__ import unicode_literals
+
 from yelp.obj.business import Business
-from yelp.obj.location import Location
-from yelp.obj.coordinates import Coordinates
 from yelp.obj.category import Category
-from yelp.obj.hours import Hours
+from yelp.obj.coordinates import Coordinates
 from yelp.obj.hours import DayHours
+from yelp.obj.hours import Hours
+from yelp.obj.location import Location
 
 
-biz_response_obj = Business(
+yelp_san_francisco = Business(
     id="4kMBvIEWPxWkWKFN__8SxQ",
     alias="yelp-san-francisco",
     name="Yelp",
@@ -52,4 +55,57 @@ biz_response_obj = Business(
     ],
     transactions=[],
     attributes=None,
+)
+
+
+sacre_coeur_paris = Business(
+    alias="basilique-du-sacré-cœur-de-montmartre-paris-3",
+    attributes=None,
+    categories=[
+        Category(alias="churches", title="Église"),
+        Category(alias="landmarks", title="Lieu & Bâtiment historique"),
+    ],
+    coordinates=Coordinates(latitude=48.886720769013, longitude=2.3430021056794),
+    display_phone="01 53 41 89 00",
+    hours=[
+        Hours(
+            hours_type="REGULAR",
+            is_open_now=False,
+            open=[
+                DayHours(day=0, end="2230", is_overnight=False, start="0600"),
+                DayHours(day=1, end="2230", is_overnight=False, start="0600"),
+                DayHours(day=2, end="2230", is_overnight=False, start="0600"),
+                DayHours(day=3, end="2230", is_overnight=False, start="0600"),
+                DayHours(day=4, end="2230", is_overnight=False, start="0600"),
+                DayHours(day=5, end="2230", is_overnight=False, start="0600"),
+                DayHours(day=6, end="2230", is_overnight=False, start="0600"),
+            ],
+        )
+    ],
+    id="spIGAtquYQ0S7xai5eJSuA",
+    image_url="https://s3-media2.fl.yelpcdn.com/bphoto/_jdFMkxKj8ejkD2dOduC1A/o.jpg",
+    is_claimed=False,
+    is_closed=False,
+    location=Location(
+        address1="35 rue du Chevalier de la Barre",
+        address2="",
+        address3="",
+        city="Paris",
+        country="FR",
+        cross_streets="",
+        display_address=["35 rue du Chevalier de la Barre", "75018 Paris"],
+        state="75",
+        zip_code="75018",
+    ),
+    name="Basilique du Sacré-Cœur de Montmartre",
+    phone="+33153418900",
+    photos=[
+        "https://s3-media2.fl.yelpcdn.com/bphoto/_jdFMkxKj8ejkD2dOduC1A/o.jpg",
+        "https://s3-media4.fl.yelpcdn.com/bphoto/xFFrnrUAPZYFvtZMLLWkvQ/o.jpg",
+        "https://s3-media4.fl.yelpcdn.com/bphoto/70tWE7016eFJ-xjTup-YRA/o.jpg",
+    ],
+    rating=4.5,
+    review_count=538,
+    transactions=[],
+    url="https://www.yelp.fr/biz/basilique-du-sacr%C3%A9-c%C5%93ur-de-montmartre-paris-3",  # noqa: E501
 )

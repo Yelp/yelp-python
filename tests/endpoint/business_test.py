@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
-import mock
+from __future__ import absolute_import
+from __future__ import unicode_literals
 
-from yelp.endpoint.business import BusinessEndpoints
-import yelp.endpoint.business
+import mock
 import pytest
+
+import yelp.endpoint.business
+from yelp.endpoint.business import BusinessEndpoints
 
 
 @pytest.fixture

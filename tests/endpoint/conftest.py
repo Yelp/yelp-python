@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
-import pytest
-from yelp.client import Client
-import yelp.client
+from __future__ import absolute_import
+from __future__ import unicode_literals
+
 import mock
+import pytest
+
+import yelp.client
+from yelp.client import Client
 
 
 @pytest.fixture

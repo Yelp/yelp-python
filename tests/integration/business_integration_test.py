@@ -1,20 +1,42 @@
 # -*- coding: utf-8 -*-
-import pytest
+from __future__ import absolute_import
+from __future__ import unicode_literals
 
+import pytest
+import responses
+
+import testing.business_lookup_responses as response_fixtures
+import testing.obj.business as business_obj_fixtures
+from testing.error_responses import ERROR_RESPONSES
 from yelp import errors
 from yelp.client import Client
-import responses
-from testing.error_responses import ERROR_RESPONSES
-from testing.business_lookup_responses import BUSINESS_LOOKUP_RESPONSE
-from testing.obj.business import biz_response_obj
 
 
 class TestBusinessIntegration:
-    def test_success(self):
-        responses.add(BUSINESS_LOOKUP_RESPONSE)
+    @pytest.mark.parametrize(
+        ["business_alias", "url_params", "mock_response", "expected_response"],
+        [
+            (
+                "yelp-san-francisco",
+                {},
+                response_fixtures.YELP_SAN_FRANCISCO,
+                business_obj_fixtures.yelp_san_francisco,
+            ),
+            (
+                "basilique-du-sacré-cœur-de-montmartre-paris-3",
+                {"locale": "fr_FR"},
+                response_fixtures.SACRE_COEUR_PARIS,
+                business_obj_fixtures.sacre_coeur_paris,
+            ),
+        ],
+    )
+    def test_success(
+        self, business_alias, url_params, mock_response, expected_response
+    ):
+        responses.add(mock_response)
         client = Client("BOGUS API KEY")
-        response = client.business.get_by_id("yelp-san-francisco")
-        assert response.to_dict() == biz_response_obj.to_dict()
+        response = client.business.get_by_id(business_alias, **url_params)
+        assert response.to_dict() == expected_response.to_dict()
 
     @pytest.mark.parametrize(
         ["url_params", "mock_response", "expected_error"],

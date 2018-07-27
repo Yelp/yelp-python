@@ -1,44 +1,55 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 import pytest
 
-from tests.integration.integration_test import IntegrationTest
-from yelp.errors import BusinessUnavailable
-from yelp.errors import MissingParameter
-from yelp.obj.business_response import BusinessResponse
+from yelp import errors
+from yelp.client import Client
+import responses
+from testing.error_responses import ERROR_RESPONSES
+from testing.business_lookup_responses import BUSINESS_LOOKUP_RESPONSE
+from testing.obj.business import biz_response_obj
 
 
-class TestBusinessIntegration(IntegrationTest):
+class TestBusinessIntegration:
+    def test_success(self):
+        responses.add(BUSINESS_LOOKUP_RESPONSE)
+        client = Client("BOGUS API KEY")
+        response = client.get_business("yelp-san-francisco")
+        assert response.to_dict() == biz_response_obj.to_dict()
 
-    int_vcr = IntegrationTest.int_vcr
-    cassette_params = IntegrationTest.cassette_params
+    @pytest.mark.parametrize(
+        ["url_params", "mock_response", "expected_error"],
+        [
+            (
+                {"locale": "en_USS"},
+                ERROR_RESPONSES["VALIDATION_ERROR"],
+                errors.ValidationError,
+            ),
+            ({}, ERROR_RESPONSES["INVALID_LOCALE"], errors.InvalidLocale),
+            (
+                {},
+                ERROR_RESPONSES["INVALID_AUTHORIZATION_METHOD"],
+                errors.InvalidAuthorizationMethod,
+            ),
+            (
+                {},
+                ERROR_RESPONSES["UNAUTHORIZED_ACCESS_TOKEN"],
+                errors.UnauthorizedAccessToken,
+            ),
+            ({}, ERROR_RESPONSES["TOKEN_INVALID"], errors.TokenInvalid),
+            ({}, ERROR_RESPONSES["BUSINESS_UNAVAILABLE"], errors.BusinessUnavailable),
+            ({}, ERROR_RESPONSES["BUSINESS_NOT_FOUND"], errors.BusinessNotFound),
+            (
+                {},
+                ERROR_RESPONSES["TOO_MANY_REQUESTS_PER_SECOND"],
+                errors.TooManyRequestsPerSecond,
+            ),
+            ({}, ERROR_RESPONSES["ACCESS_LIMIT_REACHED"], errors.AccessLimitReached),
+            ({}, ERROR_RESPONSES["INTERNAL_ERROR"], errors.InternalError),
+        ],
+    )
+    def test_errors(self, url_params, mock_response, expected_error):
+        responses.add(mock_response)
 
-    @int_vcr.use_cassette(**cassette_params)
-    def test_url_with_no_params(self):
-        with pytest.raises(MissingParameter):
-            self.client.get_business("")
-
-    @int_vcr.use_cassette(**cassette_params)
-    def test_get_business_returns_correct_result(self):
-        business_id = "yelp-san-francisco"
-        resp = self.client.get_business(business_id)
-        assert type(resp) is BusinessResponse
-        assert resp.business.id == business_id
-
-    @int_vcr.use_cassette(**cassette_params)
-    def test_get_business_with_bad_id(self):
-        with pytest.raises(BusinessUnavailable):
-            business_id = "does-not-exist"
-            self.client.get_business(business_id)
-
-    @int_vcr.use_cassette(**cassette_params)
-    def test_get_business_with_unicode_chars(self):
-        business_id = u"weingalerie-und-café-nö-berlin"
-        resp = self.client.get_business(business_id)
-        assert resp.business.id == business_id
-
-    @int_vcr.use_cassette(**cassette_params)
-    def test_get_business_with_locale_params(self):
-        business_id = u"yelp-san-francisco"
-        params = {"cc": "CA", "lang": "fr"}
-        resp = self.client.get_business(business_id, **params)
-        assert resp.business.id == business_id
+        client = Client("BOGUS API KEY")
+        with pytest.raises(expected_error):
+            client.get_business("fake-business-alias", url_params=url_params)

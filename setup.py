@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from setuptools import find_packages
 from setuptools import setup
 
@@ -19,5 +20,5 @@ setup(
     license="MIT",
     keywords="yelp",
     packages=find_packages(exclude=("tests*",)),
-    install_requires=["httplib2", "oauth2", "six"],
+    install_requires=["six", "requests"],
 )

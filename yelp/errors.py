@@ -1,21 +1,77 @@
-# -*- coding: UTF-8 -*-
-import json
+# -*- coding: utf-8 -*-
 
 
 class YelpError(Exception):
-    def __init__(self, code, msg, response):
-        self.code = code
-        self.msg = msg
+    required_fields = ["code", "description"]
+    optional_fields = []
 
-        self.id = response["error"]["id"]
-        self.text = response["error"]["text"]
+    def __init__(self, raw_response, **error_info):
+        for field_name in self.required_fields:
+            setattr(self, field_name, error_info[field_name])
+
+        for field_name in self.optional_fields:
+            setattr(self, field_name, error_info.get(field_name))
+
+        self.raw_response = raw_response
+        self.http_status = raw_response.status_code
+
+    @staticmethod
+    def from_response(raw_response):
+        """The Yelp Fusion API returns error messages with a json body
+        like:
+        {
+            'error': {
+                'code': 'ALL_CAPS_CODE',
+                'description': 'Human readable description.'
+            }
+        }
+
+        Some errors may have additional fields. For example, a
+        validation error:
+        {
+            'error': {
+                'code': 'VALIDATION_ERROR',
+                'description': "'en_USS' does not match '^[a-z]{2,3}_[A-Z]{2}$'",
+                'field': 'locale',
+                'instance': 'en_USS'
+            }
+        }
+        """
+        json_response = raw_response.json()
+        error_info = json_response["error"]
+        code = error_info["code"]
+
+        try:
+            error_cls = _error_map[code]
+        except KeyError:
+            raise NotImplementedError(
+                "Unknown error code '{}' returned in Yelp API response. "
+                "This code may have been newly added. Please ensure you are "
+                "using the latest version of the yelp-python library, and if "
+                "so, create a new issue at https://github.com/Yelp/yelp-python "
+                "to add support for this error.".format(code)
+            )
+        else:
+            return error_cls(raw_response, **error_info)
 
 
-class AreaTooLarge(YelpError):
+class ValidationError(YelpError):
+    optional_fields = ["field", "instance"]
+
+
+class InvalidLocale(YelpError):
     pass
 
 
-class BadCategory(YelpError):
+class InvalidAuthorizationMethod(YelpError):
+    pass
+
+
+class UnauthorizedAccessToken(YelpError):
+    pass
+
+
+class TokenInvalid(YelpError):
     pass
 
 
@@ -23,7 +79,15 @@ class BusinessUnavailable(YelpError):
     pass
 
 
-class ExceededReqs(YelpError):
+class BusinessNotFound(YelpError):
+    pass
+
+
+class TooManyRequestsPerSecond(YelpError):
+    pass
+
+
+class AccessLimitReached(YelpError):
     pass
 
 
@@ -31,68 +95,15 @@ class InternalError(YelpError):
     pass
 
 
-class InvalidOAuthCredentials(YelpError):
-    pass
-
-
-class InvalidOAuthUser(YelpError):
-    pass
-
-
-class InvalidSignature(YelpError):
-    pass
-
-
-class MissingParameter(YelpError):
-    pass
-
-
-class MultipleLocations(YelpError):
-    pass
-
-
-class SSLRequired(YelpError):
-    pass
-
-
-class UnavailableForLocation(YelpError):
-    pass
-
-
-class UnspecifiedLocation(YelpError):
-    pass
-
-
-class InvalidParameter(YelpError):
-    def __init__(self, code, msg, response):
-        super(InvalidParameter, self).__init__(code, msg, response)
-        self.text += ": " + response["error"]["field"]
-
-
-class ErrorHandler(object):
-
-    _error_map = {
-        "AREA_TOO_LARGE": AreaTooLarge,
-        "BAD_CATEGORY": BadCategory,
-        "BUSINESS_UNAVAILABLE": BusinessUnavailable,
-        "EXCEEDED_REQS": ExceededReqs,
-        "INTERNAL_ERROR": InternalError,
-        "INVALID_OAUTH_CREDENTIALS": InvalidOAuthCredentials,
-        "INVALID_OAUTH_USER": InvalidOAuthUser,
-        "INVALID_SIGNATURE": InvalidSignature,
-        "INVALID_PARAMETER": InvalidParameter,
-        "MISSING_PARAMETER": MissingParameter,
-        "MULTIPLE_LOCATIONS": MultipleLocations,
-        "SSL_REQUIRED": SSLRequired,
-        "UNAVAILABLE_FOR_LOCATION": UnavailableForLocation,
-        "UNSPECIFIED_LOCATION": UnspecifiedLocation,
-    }
-
-    def raise_error(self, error):
-        response = json.loads(error.read().decode("UTF-8"))
-        try:
-            raise self._error_map[response["error"]["id"]](
-                error.code, error.msg, response
-            )
-        except KeyError:
-            raise error
+_error_map = {
+    "VALIDATION_ERROR": ValidationError,
+    "INVALID_LOCALE": InvalidLocale,
+    "INVALID_AUTHORIZATION_METHOD": InvalidAuthorizationMethod,
+    "UNAUTHORIZED_ACCESS_TOKEN": UnauthorizedAccessToken,
+    "TOKEN_INVALID": TokenInvalid,
+    "BUSINESS_UNAVAILABLE": BusinessUnavailable,
+    "BUSINESS_NOT_FOUND": BusinessNotFound,
+    "TOO_MANY_REQUESTS_PER_SECOND": TooManyRequestsPerSecond,
+    "ACCESS_LIMIT_REACHED": AccessLimitReached,
+    "INTERNAL_ERROR": InternalError,
+}

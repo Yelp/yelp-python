@@ -1,7 +1,0 @@
-{
-  "error": {
-    "field": "radius_filter",
-    "id": "INVALID_PARAMETER",
-    "text": "One or more parameters are invalid in request"
-  }
-}

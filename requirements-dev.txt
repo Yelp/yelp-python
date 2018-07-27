@@ -2,4 +2,4 @@ coverage==4.5.1
 mock==2.0.0
 pre-commit==1.10.4
 pytest==3.6.3
-vcrpy==1.13.0
+responses==0.9.0

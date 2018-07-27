@@ -1,0 +1,81 @@
+{
+  "alias": "yelp-san-francisco",
+  "categories": [
+    {
+      "alias": "massmedia",
+      "title": "Mass Media"
+    }
+  ],
+  "coordinates": {
+    "latitude": 37.7867703362929,
+    "longitude": -122.399958372115
+  },
+  "display_phone": "(415) 908-3801",
+  "hours": [
+    {
+      "hours_type": "REGULAR",
+      "is_open_now": true,
+      "open": [
+        {
+          "day": 0,
+          "end": "1800",
+          "is_overnight": false,
+          "start": "0800"
+        },
+        {
+          "day": 1,
+          "end": "1800",
+          "is_overnight": false,
+          "start": "0800"
+        },
+        {
+          "day": 2,
+          "end": "1800",
+          "is_overnight": false,
+          "start": "0800"
+        },
+        {
+          "day": 3,
+          "end": "1800",
+          "is_overnight": false,
+          "start": "0800"
+        },
+        {
+          "day": 4,
+          "end": "1800",
+          "is_overnight": false,
+          "start": "0800"
+        }
+      ]
+    }
+  ],
+  "id": "4kMBvIEWPxWkWKFN__8SxQ",
+  "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/nQK-6_vZMt5n88zsAS94ew/o.jpg",
+  "is_claimed": true,
+  "is_closed": false,
+  "location": {
+    "address1": "140 New Montgomery St",
+    "address2": "",
+    "address3": "",
+    "city": "San Francisco",
+    "country": "US",
+    "cross_streets": "Natoma St & Minna St",
+    "display_address": [
+      "140 New Montgomery St",
+      "San Francisco, CA 94105"
+    ],
+    "state": "CA",
+    "zip_code": "94105"
+  },
+  "name": "Yelp",
+  "phone": "+14159083801",
+  "photos": [
+    "https://s3-media2.fl.yelpcdn.com/bphoto/nQK-6_vZMt5n88zsAS94ew/o.jpg",
+    "https://s3-media2.fl.yelpcdn.com/bphoto/yFHIb9gob4TzhKUemMOPww/o.jpg",
+    "https://s3-media1.fl.yelpcdn.com/bphoto/EHCfkEpZraIfPl8gvCo1tg/o.jpg"
+  ],
+  "rating": 2.0,
+  "review_count": 8422,
+  "transactions": [],
+  "url": "https://www.yelp.com/biz/yelp-san-francisco"
+}

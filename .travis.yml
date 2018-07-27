@@ -9,9 +9,6 @@ matrix:
        python: 3.6
 install: pip install coveralls tox
 script: tox
-# Special snowflake.  Our tests depend on a credentials_secret.json
-before_install:
-    - cp tests/json/credentials.json tests/json/credentials_secret.json
 after_success:
     - coveralls
 cache:

@@ -1,23 +1,17 @@
-# -*- coding: UTF-8 -*-
-from yelp.obj.coordinate import Coordinate
+# -*- coding: utf-8 -*-
 from yelp.obj.response_object import ResponseObject
 
 
 class Location(ResponseObject):
 
-    _fields = [
-        "address",
-        "city",
-        "country_code",
-        "cross_streets",
-        "display_address",
-        "geo_accuracy",
-        "neighborhoods",
-        "postal_code",
-        "state_code",
-    ]
-
-    def __init__(self, response):
-        super(Location, self).__init__(response)
-
-        self._parse("coordinate", Coordinate, response)
+    _schema = {
+        "display_address": [str],
+        "address1": str,
+        "address2": str,
+        "address3": str,
+        "city": str,
+        "state": str,
+        "zip_code": str,
+        "country": str,
+        "cross_streets": str,
+    }

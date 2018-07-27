@@ -1,29 +1,29 @@
 # -*- coding: utf-8 -*-
 import mock
 
-from yelp.endpoint.business import Business as BusinessEndpoint
+from yelp.endpoint.business import BusinessEndpoints
 import yelp.endpoint.business
 import pytest
 
 
 @pytest.fixture
-def business_endpoint(mock_client):
-    return BusinessEndpoint(mock_client)
+def business_endpoints(mock_client):
+    return BusinessEndpoints(mock_client)
 
 
 @pytest.fixture
 def mock_business_response_cls():
     with mock.patch.object(
-        yelp.endpoint.business, "BusinessResponse"
+        yelp.endpoint.business, "Business"
     ) as mock_business_response_cls:
         yield mock_business_response_cls
 
 
 class TestBusiness:
     def test_no_url_params(
-        self, business_endpoint, mock_client, mock_business_response_cls
+        self, business_endpoints, mock_client, mock_business_response_cls
     ):
-        business_endpoint.get_business("test-id")
+        business_endpoints.get_by_id("test-id")
 
         mock_client._make_request.assert_called_once_with(
             "/v3/businesses/test-id", url_params={}
@@ -31,9 +31,9 @@ class TestBusiness:
         assert mock_business_response_cls.called
 
     def test_with_url_params(
-        self, business_endpoint, mock_client, mock_business_response_cls
+        self, business_endpoints, mock_client, mock_business_response_cls
     ):
-        business_endpoint.get_business("test-id", locale="fr_FR")
+        business_endpoints.get_by_id("test-id", locale="fr_FR")
 
         mock_client._make_request.assert_called_once_with(
             "/v3/businesses/test-id", url_params={"locale": "fr_FR"}

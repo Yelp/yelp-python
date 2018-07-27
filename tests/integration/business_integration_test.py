@@ -13,7 +13,7 @@ class TestBusinessIntegration:
     def test_success(self):
         responses.add(BUSINESS_LOOKUP_RESPONSE)
         client = Client("BOGUS API KEY")
-        response = client.get_business("yelp-san-francisco")
+        response = client.business.get_by_id("yelp-san-francisco")
         assert response.to_dict() == biz_response_obj.to_dict()
 
     @pytest.mark.parametrize(
@@ -52,4 +52,4 @@ class TestBusinessIntegration:
 
         client = Client("BOGUS API KEY")
         with pytest.raises(expected_error):
-            client.get_business("fake-business-alias", url_params=url_params)
+            client.business.get_by_id("fake-business-alias", url_params=url_params)

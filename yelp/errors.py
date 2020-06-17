@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#-*- coding: utf-8 -*-
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
@@ -100,6 +100,7 @@ class InternalError(YelpError):
 _error_map = {
     "VALIDATION_ERROR": ValidationError,
     "INVALID_LOCALE": InvalidLocale,
+    "LOCATION_NOT_FOUND": InvalidLocale,
     "INVALID_AUTHORIZATION_METHOD": InvalidAuthorizationMethod,
     "UNAUTHORIZED_ACCESS_TOKEN": UnauthorizedAccessToken,
     "TOKEN_INVALID": TokenInvalid,

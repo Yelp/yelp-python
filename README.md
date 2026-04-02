@@ -34,7 +34,7 @@ Now you can use the client object to make requests.
 
 Endpoint documentation: https://www.yelp.com/developers/documentation/v3/business
 
-To query the Business Details Endpoint use the `busines.get_by_id` function with a Yelp business alias (i.e. `yelp-san-francisco`) or ID (i.e. `4kMBvIEWPxWkWKFN__8SxQ`). You can also pass in the locale parameter as specified in the [Business Details Endpoint Documentation](https://www.yelp.com/developers/documentation/v3/business).
+To query the Business Details Endpoint use the `business.get_by_id` function with a Yelp business alias (i.e. `yelp-san-francisco`) or ID (i.e. `4kMBvIEWPxWkWKFN__8SxQ`). You can also pass in the locale parameter as specified in the [Business Details Endpoint Documentation](https://www.yelp.com/developers/documentation/v3/business).
 
 ```
 > business_response = client.business.get_by_id('yelp-san-francisco')
